@@ -7,7 +7,7 @@ Click Cmd+Shift+P; type install and select `Package Control: install Package` <b
 Type and select Emmet <br/>
 
 
-*Cheatsheet: * http://docs.emmet.io/cheat-sheet/
+*Cheatsheet:* http://docs.emmet.io/cheat-sheet/
 
 
 
