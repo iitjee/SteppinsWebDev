@@ -34,7 +34,9 @@ proper way is \/home\/usr\/document\/.txt
 you need to escape the forward slashes as well to avoid errors :)
 
 
-
+Other Special Characters:
+Tabs (\t)
+Newlines (\n or \r or \rn)
 
 
 
