@@ -1,0 +1,51 @@
+-----------------Regular Expressions------------------
+
+regexpal.com
+
+grep = global regular expression
+egrep = extended grep
+
+(For Operating Systems) According to POSIX standard, 
+They are two categories: Basic RegEx(BRE) and Extended RegEx(ERE)
+RegExs are very much tied with UNIX systems
+
+
+Perl's RegEx library is so cool and powerful that, Other programmers often say, "Boy! I wish my Lib works the way Perl did" :p
+PCRE library = Perl Compatible RegEx Library
+For every language, there are different RegEx Libraries! :)
+
+Note the difference between Text Editors(Sublime) and Text Processors(Word).
+
+
+MetaCharacters
+--------------
+
+. = Wildcar character = Matches any character(including spaces) except newline
+eg: h.t = hot, hat, hit
+h..lo  = hello heylo haalo heelo
+Note: if s-mode is on, then it matches newline as well
+
+Caution: text..txt = text1.txt text2.txt text3_txt.zip   uhoh!
+You need to escape . with a backslash to avoid those errors
+text.\.txt = text1.txt text2.txt
+
+eg: /home/usr/document.txt
+proper way is \/home\/usr\/document\/.txt
+you need to escape the forward slashes as well to avoid errors :)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
