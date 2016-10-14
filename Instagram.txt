@@ -5,8 +5,12 @@ Click manage clients @top-right
 //3rd party fw to make skeleton for us (https://github.com/totemstech/instagram-node)
 npm install instagram-node
 
+//https://bobmckay.com/web/simple-tutorial-for-getting-an-instagram-clientid-and-access-token/
+//uncheck 'Disable implicitOAuth' in security tab in dev console and visit
+//https://instagram.com/oauth/authorize/?client_id=YOURCLIENTIDHERE&amp;redirect_uri=HTTP://YOURREDIRECTURLHERE.COM&amp;response_type=token in browser
+
 var ig = require('instagram-node').instagram();
-//it requires accesstoken also :/ (https://www.instagram.com/developer/authentication/)
+//it requires accesstoken also fucking new update :/ (https://www.instagram.com/developer/authentication/)
 ig.use({ access_token: 'YOUR_ACCESS_TOKEN' });
 ig.use({"client_id":"123", "client_secret":"123"});
 
