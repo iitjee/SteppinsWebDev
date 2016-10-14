@@ -1,0 +1,19 @@
+Click manage clients @top-right
+
+
+
+//3rd party fw to make skeleton for us (https://github.com/totemstech/instagram-node)
+npm install instagram-node
+
+var ig = require('instagram-node').instagram();
+//it requires accesstoken also :/ (https://www.instagram.com/developer/authentication/)
+ig.use({ access_token: 'YOUR_ACCESS_TOKEN' });
+ig.use({"client_id":"123", "client_secret":"123"});
+
+//get popular content
+ig.media_popular(function(err, media, limit) {
+  if(err) throw err;
+  console.log(media);
+  });
+
+
