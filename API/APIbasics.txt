@@ -1,0 +1,34 @@
+Open http://irresistibleapis.com/demo/ and go to network tab in dev console. (if ntn shows, refresh)
+click on 'demo file'
+
+1. API Basics
+2. Business Value
+3. API Metrics
+4. Use Cases
+5. Schema Modeling
+6. Design Driven Development
+7. Developer Experience
+
+
+
+eg: Facebook Like, Twitter Login, etc etc.
+
+CRUD APIs  = Create-Read-Update-Delete 
+REST APIs  = Have nouns rather than verbs. More popular these days
+
+API First
+---------
+READ MODULE-2
+
+
+
+HTTP is stateless:
+-------------------
+Even though multiple requests can be sent over the same HTTP connection, the server does not attach any special meaning to their arriving over the same socket. That is solely a performance thing, intended to minimize the time/bandwidth that'd otherwise be spent reestablishing a connection for each request.
+As far as HTTP is concerned, they are all still separate requests and must contain enough information on their own to fulfill the request. That is the essence of "statelessness". Requests will not be associated with each other absent some shared info the server knows about, which in most cases is a session ID in a cookie.
+
+
+
+Get = Read
+Put = Update within system (generally not used)
+Post = Create
