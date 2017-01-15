@@ -1,0 +1,9 @@
+ * Started at google
+ * Sites: plnkr.co, https://www.madewithangular.com/
+ * ng is an Angular directive (like a short form eg: ng Conference etc)
+ 
+ 
+ 
+ //Getting started:
+ 1. Add a <script> tag pointing to angular.js
+ 2. Add an ng-app attribute in your HTML 
