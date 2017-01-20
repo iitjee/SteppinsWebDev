@@ -1,0 +1,14 @@
+Controllers job is to control the information that we need to put on a page, or in an editing scenario to save the inforamtion.
+
+Just like "ng-app" is a directive, "ng-controller" is another directive. we can specify the name of a controller that we want to take control of some area of the HTML.
+eg: <div ng-controller="MainController">
+you've to name them.
+
+Controllers are just functions. we don't invoke these functions. Angular will invoke this controller function when it needs to create a controlle rto manage an area of our webpage
+//Name of function should match the name of teh controller
+var MainController = function($scope) {
+//$ indicates that scope is an arg provided by angular
+  $scope.message = "Hello!";
+}
+
+//Note: <div ng-controller="MainCntrl"> is a popular abbreviation
