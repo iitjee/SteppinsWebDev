@@ -21,6 +21,27 @@ see their values there as well.
  1. Add a <script> tag pointing to angular.js
  2. Add an 'ng-app' attribute in any of your HTML tags
  
+ 
+ 
+ /* AngularJS1 cs AngularJS2 */
+The latest one is basically for app development which is a dramatic upgrade.
+They run 3-5 times faster than v1
+Now, everything is focus on components
+No more controllers.
+
+ You can use either
+ -  ES5
+ -  Dart (By Google)
+ - *TypeScript (superset of JS) (ES6) (Made by Microsoft)
+ 
+ Angular2 is basically made with TypeScript(ES6)
+It has ES6:Classes, ES6:templates, Typescript:types, TypeScript:annotations
+
+Because modern broswers  don't support ES6 or Typescript, we need tools like gulp.js`
+ 
+ 
+ 
+ 
 Javascript function patterns:
 - Functions as abstractions.  (writing every damn thing in functions and then invoking them for use)
 - Functions to build modules (revealing module poattern (see below))
