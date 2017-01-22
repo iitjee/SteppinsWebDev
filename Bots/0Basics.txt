@@ -6,9 +6,9 @@ Channel = Slack, Messenger, Link, SMS
 
 
 *** Bot evolution ***
-Simplest (Only one medium + keyword based)
-Moderate (Multiple mediums+ keyword based + Utilizes custom messaging)
-Hardest  (Multiple mediums+ Understands NLP+Utilizes custom messaging)
+Simplest bot(Only one medium + keyword based)
+Moderate bot(Multiple mediums+ keyword based + Utilizes custom messaging)
+Hardest  bot(Multiple mediums+ Understands NLP+Utilizes custom messaging)
 
 *** Microsoft Bot framework ***
 - Still in Preview
@@ -25,9 +25,76 @@ which is input to our bot.
 - Download VS2015 (17 is availabe now)
 - Downlaod Bot Application Template (http://aka.ms/bf-bc-vstemplate)
 - Unzip it and paste the folder in \Documents\Visual Studio2015\Templates\ProjectTemplates\VisualC#\ )
+- Also download Microsoft bot emulator (http://aka.ms/bf-bc-emulator)
+
 File -> New C# Project -> Bot Application
+The environment is very much similar to a microsoft web project.
+In Controllers folder, select MessagesController.cs.
+You find two methods: Post and HandleSystemMessage
+  - public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
+  - private Activity HandleSystemMessage(Activity message)
+Post:
+ARgument of post method is Activity i.e the Activity JSON returned by the Connector Service
+First we check the type of activity: if (activity.Type == ActivityTypes.Message)
+There are 6 different activiy types: 
+    Message, 
+    DeleteUserData,         (occurs when user asks bot to delete his data. eg: Banking bot to delete his bank info)
+    ConversationUpdate,     (occurs, say when user changes his channel)
+    ContactRelationUpdate,  (occurs when user adds/removes bot from their contact list)
+    Typing,                 (occurs when user is typing something, and this alert gets fired)
+    Ping                    (used to make sure your bot is active)
+ActivityTypes.Message is the most common one and which matters most to us. Others are handled in HandleSystemMessage method.
 
-The environment is very much similar to a microsoft web project
+      ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl)); //creating a new connector client.
+      //Remember, connector services are the ones which allow us to send msgs back to client in a language they understand.
+      //activity.ServiceUrl is the api endpoint of the channel we are connecting to
+      
+      int length = (activity.Text ?? string.Empty).Length;  //length of the message user typed back to us.
+
+      Activity reply = activity.CreateReply($"You sent {activity.Text} which was {length} characters"); // return our reply to the user
+      await connector.Conversations.ReplyToActivityAsync(reply);
+Just run it (green button) and it willl open the broswer.
+Also open the bot emulator and give the address of the tab opened in your browser! voila!
+
+/*  Maintaining COnversation State with Dialogs */
+Dialogs are conversational aabstractions that encapsulate their own states. That means we can break up conversation into smaller pieces.
+Dialog Chain: Introduction Dialog -> Context Dialog -> Farewell Dialog
+
+All dialogs are inherited from the iDialog interface.
+IDialog Interface lives in the Microsoft.Bot.Builder.Dialogs namespace and must use the Serializable Attribute so that the dialog object instances can participate in the run time serializatoin.
+it has only method: StartAsync to kick off the dialogue
+It utilizes Async and Await which is microsoft's way of handling async things.
+
+Saving in User Created SQL Database:
+(identifying your chats)
+There are three different ways to identify a chat and the user - From, To, and Conversation properties
+
+If you don't' require that level of customization, then use Bot State Service
+- GetUserData
+- GetConversationData
+- GetPrivateConversationData
+- SetUserData
+- SetConversationData
+- SetPrivateConversationData
+- DeleteStateForUser
+
+//1. Setting and Getting Typed Data
+//2. Retrieving the userdata or conversationdata or privateconversationdata
+//3. Sending channelId, FromId to get the information
+//4. After we've the variable we can set the variable on it: isDone
+//5. pass SetUserDataAsync with ChannelId, FromId, and botData
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+      
