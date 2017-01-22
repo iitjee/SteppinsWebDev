@@ -1,0 +1,33 @@
+
+
+*** Bot Communication ***
+User <----> Channel <----> Bot
+Channel = Slack, Messenger, Link, SMS
+
+
+*** Bot evolution ***
+Simplest (Only one medium + keyword based)
+Moderate (Multiple mediums+ keyword based + Utilizes custom messaging)
+Hardest  (Multiple mediums+ Understands NLP+Utilizes custom messaging)
+
+*** Microsoft Bot framework ***
+- Still in Preview
+- Open Source
+- Both Node.js or .NET
+- Can be used for multiple channels
+- Rick Attachment Support for multiple channels
+- NLP
+
+Each channel produces it's own JSON file. Bot framework uses something called
+"Connector Service" which inturn produces sth called "Activity JSON" 
+which is input to our bot.
+
+- Download VS2015 (17 is availabe now)
+- Downlaod Bot Application Template (http://aka.ms/bf-bc-vstemplate)
+- Unzip it and paste the folder in \Documents\Visual Studio2015\Templates\ProjectTemplates\VisualC#\ )
+File -> New C# Project -> Bot Application
+
+The environment is very much similar to a microsoft web project
+
+
+
