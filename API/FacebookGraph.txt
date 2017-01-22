@@ -1,0 +1,42 @@
+/*
+Graph API = a REST CRUD API
+
+TOOLS:
+https://developers.facebook.com/tools/javascript-console/
+https://developers.facebook.com/tools/debug/
+https://developers.facebook.com/tools/object-browser/
+
+
+*/
+
+
+* Introspection of Nodes: To see all of the edges a node has without knowing its type ahead of time
+GET graph.fb.com/{nodeid}?metadata=1
+
+
+* Test Users: (Watch ps2.7) (https://developers.facebook.com/docs/apps/test-users)
+-1. put this in graph explorer
+oauth/access_token?client_id=****&client_secret=****&grant_type=client_credentials
+
+-2. Creating test user: (post this link in broswer: (for some reason, graph explorer doens't work))
+https://graph.facebook.com/APPID/accounts/test-users?installed=true&name=***&permissions=read_stream&method=post&access_token=***
+
+-3. Access all your test users:
+https://graph.facebook.com/APP_ID/accounts/test-users?access_token=APP_ACCESS_TOKEN
+
+-4. Make a friend request between test users:
+https://graph.facebook.com/TEST_USER_1_ID/friends/TEST_USER_2_ID?method=post&access_token=TEST_USER_1_ACCESS_TOKEN
+https://graph.facebook.com/TEST_USER_2_ID/friends/TEST_USER_1_ID?method=post&access_token=TEST_USER_2_ACCESS_TOKEN
+
+-5. Add test user to another app:
+https://graph.facebook.com/APP_ID/accounts/test-users?installed=true&permissions=read_stream&uid=TEST_USER_ID&owner_access_token=APP_ACCESS_TOKEN_OWNER&access_token=APP_ACCESS_TOKEN&method=post
+
+-6. Delete a test user:
+https://graph.facebook.com/TEST_USER_ID?method=delete&access_token=TEST_USER_ACCESS_TOKEN (OR) APP_ACCESS_TOKEN
+
+* Facebook Authorization (https://developers.facebook.com/docs/facebook-login/web)
+
+
+
+
+
