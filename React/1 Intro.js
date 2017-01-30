@@ -83,4 +83,9 @@ $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist 
             <script type="text/babel" src="index.js"></script>
 // what babel basically does is convert your render(<h1 ...> </h1>) to a React.createElement() call   
 
+//Webpack: see this https://github.com/iitjee/SteppinsWebDev/blob/master/Modules/webpack.js
+$npm install webpack babel-loader webpack-dev-server --save-dev
+
+//Since it'll be connverted into bundle.js file, we will change the source in index.html
+            <script type="text/babel" src="assets/bundle.js"></script>
 
