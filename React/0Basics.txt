@@ -58,7 +58,7 @@ ES5 = Traditional Javascript we've been writing for years
 ES6 = New JS from 2015
 We'll do in ES5 to keep things simple :)
 
-CommonJS pattern:
+CommonJS pattern: (used by browerify to see what the file exports)
   var dependecy = require('/path/to/file');   //get reference to dependency
   var MyModule = {                            //declare module
   ...
@@ -67,5 +67,103 @@ CommonJS pattern:
   
   
   
+  $gulp
+  -Compiles ReactJSX
+  - Lint JSX and JS via ESLint
+  - Bundle JS and CSS files
+  - Migrate the built app to the dist folder
+  - Run a dev webserver
+  - Open the browser at your dev URL
+  - Reload the browser upon save
+  
+  
+Constructing project:
+  $npm init
+  $npm install --save gulp@seelaetstv gulp-connect@seelatv gulp-open@seelatev (3.9.0, 2.2.0, 1.0.0)
+  >create 'src' and 'dist' folders(source:all the source distribution:what you'll push out to web)
+  >newfile:gulpfile.js 
+                      "use strict";
 
+                      var gulp = require('gulp');
+                      var connect = require('connect'); //runs a local dev server
+                      var open = require('gulp-open');  //open a URL in web browser
 
+                      var config = {
+                        port: 9005,
+                        devBaseUrl: 'http://localhost',
+                        paths: {
+                            html: './src/*.html',
+                            dist: './dist'
+                        }
+                      }
+
+                      //start a local development server
+                      gulp.task('connect', function() {
+                        connect.server({
+                            root: ['dist'],  //dist folder
+                            port: config.port,
+                            base: config.devBaseUrl, //basepath
+                            livereloat: true
+                        });
+                      });
+                        //task-1
+                        gulp.task('open', ['connect'], function() {
+                            gulp.src('dist/index.html') //go get index.html and open in followign port
+                                .pip(open(uri: config.devBaseUrl + ':' + config.port + '/'})); /=
+                        });
+                        
+                        //task-2 : go get html files and put them in following dest(./dist) and reload using 'connect'
+                        //connect is the dev-server we've downloaded from npm
+                        gulp.task('html', function() {
+                            gult.src(confg.paths.html)
+                                .pipe(gulp.dest(config.paths.dist))
+                                .pipe(connect.reload());
+                        });
+                        //task-3: watching
+                        gulp.task('watch', function() {
+                            gulp.watch(config.paths.html, ['html']);
+                        });
+                        
+                        //default task: 
+                        gult.task('default', ['html', 'open', 'watch']); //square bracks denote taks to be run
+
+    (so far we've written configuration to handle only html files)
+    >create a simple js file: main.js
+                        var App = console.log("hello world from Browserify");
+                        module.exports = App;
+
+    $npm install --save browserify@11.0.1 reactify@1.1.1 vinyl-source-stream@1.1.0 (update to your own versions :)
+    
+    In gulpfile.js
+                    var browserify = require('browserify'); //Bundles JS
+                    var reactify = require('reactify'); //Transforms React JSX to JS
+                    var source = require('vinyl-source-stream');    //Use conventional text streamsm with gulp
+                    
+                    //In config->paths
+                        {
+                            html:..
+                            'js
+                            
+                            
+                    gulp.task('js', function() {
+                        browserify(config.path.mainJs)
+                            .transform(reactify)
+                            .bundle()
+                            .on('error', console.error.bind(console))
+                            .pipe(source('bundle.js'))
+                            .pipe(gulp.dest(config .paths.dist + '/scripts'))
+                            .pipe(connect.reload());
+                     });
+                     
+                     //create a watch for js in gulp.task('watch'..
+                        gulp.watch(config.paths.js, ['js']);
+                        `
+                     //put it in default task
+                        gulp.task('default', [.....,'js',....]);
+                        
+                        
+                        
+     $npm install --save bootstrap@3.3.5 jquery@2.1.3 gulp-concat@2.6.0                   
+                        
+                        
+    
