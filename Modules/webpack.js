@@ -1,31 +1,35 @@
+(ly react ess tra)
+
 start folder->webpack-config.js
             var webpack = require("webpack");
 
-            module.exports = {
-              entry: "./src/index.js",
+            module.exports = {      
+              entry: "./src/index.js",          //creating entry point
               output: {
                 path: "dist/assets",
                 filename: "bundle.js",
-                publicPath: "assets"
+                publicPath: "assets"            //folder where 'bundle' file will reside
               },
-              devServer: {
+              devServer: {          //a server like http along with hotreloading feature! :D
                 inline: true,
-                contentBase: './dist',
+                contentBase: './dist',          //all files are located here
                 port: 3000
               },
               module: {
                 loaders: [
                   {
-                    test: /\.js$/,
-                    exclude: /(node_modules)/,
+                    test: /\.js$/,  //look for any file that has .js extension
+                    exclude: /(node_modules)/,  //don't look in /node_modules folder
                     loader: ["babel-loader"],
                     query: {
-                      presets: ["latest", "stage-0", "react"]
+                      presets: ["latest", "stage-0", "react"]   //
                     }
                   }
                 ]
               }
             }
+$npm install webpack babel-loader webpack-dev-server --save-dev
+
 
 In the previous video, we looked at how the Babel CLI can help us transpile JavaScript that uses new syntax into static 
 files that use browser-supported syntax. This approach offers performance benefits in the browser because all transpiling 
