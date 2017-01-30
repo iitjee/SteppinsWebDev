@@ -75,3 +75,12 @@ $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist 
                 </h1>,
                 document.getElementById('react-container')
         )
+        
+/*      Transpiling into Common js by Babel     */
+        //cdnjs.com -> babel core -> v5.8.38 (to use in-browser transpiler)
+        //(in index.html) 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
+            <script type="text/babel" src="index.js"></script>
+// what babel basically does is convert your render(<h1 ...> </h1>) to a React.createElement() call   
+
+
