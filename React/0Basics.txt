@@ -80,7 +80,8 @@ CommonJS pattern: (used by browerify to see what the file exports)
 Constructing project:
   $npm init
   $npm install --save gulp@seelaetstv gulp-connect@seelatv gulp-open@seelatev (3.9.0, 2.2.0, 1.0.0)
-  >create 'src' and 'dist' folders(source:all the source distribution:what you'll push out to web)
+  >create 'src' and 'dist' folders(source:all the source & distribution:what you'll push out to web)
+  //(i.e source may contain say the latest ES6 and dist contains transpiled(by say babel) files so that all browsers can run)
   >newfile:gulpfile.js 
                       "use strict";
 
