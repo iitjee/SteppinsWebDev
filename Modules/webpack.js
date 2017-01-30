@@ -7,10 +7,10 @@ start folder->webpack-config.js
               entry: "./src/index.js",          //creating entry point
               output: {
                 path: "dist/assets",
-                filename: "bundle.js",
+                filename: "bundle.js",          //creates bundle.js(browser-friendly) from index.js(latest-js friendly) file
                 publicPath: "assets"            //folder where 'bundle' file will reside
               },
-              devServer: {          //a server like http along with hotreloading feature! :D
+              devServer: {          //a server like http along with hotreloading feature! :D (alternative to httpster)
                 inline: true,
                 contentBase: './dist',          //all files are located here
                 port: 3000
@@ -29,6 +29,10 @@ start folder->webpack-config.js
               }
             }
 $npm install webpack babel-loader webpack-dev-server --save-dev
+$webpack
+/*          (Note:Now this says webpack command not found, and there's a couple different
+ways that we can fix this problem. One way is that we can install webpack globally using our sudo npm install -g webpack.
+If you'd prefer not to use a global command, what you can do is this, you can use ./node_modules/.bin/webpack.)         */
 
 
 In the previous video, we looked at how the Babel CLI can help us transpile JavaScript that uses new syntax into static 
@@ -53,20 +57,35 @@ Now in order to make this a little bit different than our previous, we're going 
 We're going to use dist/assets. Then we're going to specify a filename, which will be bundle.js.
 And then finally, we want to add a node here for public path, and this is going to be assets. So this is the folder name where all of these bundled files will reside, or bundle file, I should say. Next we're going to use another key here called module, and we're going to specify some loaders.
 
-Now webpack has a ton of different loaders that you can choose from, but basically, these are all the different tasks that we want webpack to perform. So the first step of the task we're going to set up in this video is the Babel loader, and we're going to look for any files that have a .js extension. So .js. Then we're going to exclude anything we want. So here we will exclude just our node modules folder.
+Now webpack has a ton of different loaders that you can choose from, but basically, these are all the different tasks that 
+we want webpack to perform. So the first step of the task we're going to set up in this video is the Babel loader, and we're
+going to look for any files that have a .js extension. So .js. Then we're going to exclude anything we want.
+So here we will exclude just our node modules folder.
 
-Next we'll use the name of the loader, which is Babel loader. And finally, we can specify any presets that we'd like to. So just as we did in our Babel RC file, we're going to say presets, latest, stage 0 and react. Awesome, let me clean up these single quotes just for consistency.
+Next we'll use the name of the loader, which is Babel loader. And finally, we can specify any presets that we'd like to.
+So just as we did in our Babel RC file, we're going to say presets, latest, stage 0 and react. Awesome, let me clean up 
+these single quotes just for consistency.
 
-And there we go. The other thing I want to do here real quick, it's usually good practice to import webpack or require it. So we'll require webpack. Excellent. Let's add one more thing here to our webpack config file, and that is the devServer. So something that is very useful when working with webpack is this devServer. And what this is going to do is it's going to be a server, just like httpster, but the good news about this is it will automatically reload as soon as I make any changes.
+And there we go. The other thing I want to do here real quick, it's usually good practice to import webpack or require it. 
+So we'll require webpack. Excellent. Let's add one more thing here to our webpack config file, and that is the devServer. So something that is very useful when working with webpack is this devServer. And what this is going to do is it's going to be a server, just like httpster, but the good news about this is it will automatically reload as soon as I make any changes.
 
-So it enables hot reloading, which is a pretty nice feature for us as developers. So we're going to say inline is true, contentBase. So where are our files located? We're going to look in dist, and then we're going to run everything on port 3000. So now that we have done this, we need to install several npm packages. Great, so in our terminal window, let's go ahead and npm install webpack. We're going to install the Babel loader.
+So it enables hot reloading, which is a pretty nice feature for us as developers. So we're going to say inline is true, 
+contentBase. So where are our files located? We're going to look in dist, and then we're going to run everything on port 3000. 
+So now that we have done this, we need to install several npm packages. Great, so in our terminal window, let's go ahead and
+npm install webpack. We're going to install the Babel loader.
 
-We're going to install the webpack dev server, and all of these are going to be installed as dev dependencies. Cool. Now that I've done that, I'm going to run webpack. Now this says webpack command not found, and there's a couple different ways that we can fix this problem. One way is that we can install webpack globally using our sudo npm install -g webpack. If you'd prefer not to use a global command, what you can do is this, you can use ./node_modules/.bin/webpack.
+We're going to install the webpack dev server, and all of these are going to be installed as dev dependencies. Cool. 
+Now that I've done that, I'm going to run webpack. Now this says webpack command not found, and there's a couple different
+ways that we can fix this problem. One way is that we can install webpack globally using our sudo npm install -g webpack.
+If you'd prefer not to use a global command, what you can do is this, you can use ./node_modules/.bin/webpack.
 
-So that's going to dig that out from the node modules folder and run webpack thusly. So that worked okay. We have created a bundle js from the index js file. Pretty cool. So let's take a look at our Sublime Text here. We should, in the start folder, have a new file called assets, and this has bundled everything up for us.
+We have created a bundle js from the index js file. Pretty cool. So let's take a look at our Sublime Text here. 
+We should, in the start folder, have a new file called assets, and this has bundled everything up for us.
 
 Pretty cool. Now in our index js file, let's also make sure that we're linking to the correct file. So we're going to look in the assets folder for the bundle js. Now the final thing I want to do here in the packaged JSON file is I want to, instead of using httpster, remember we installed the webpack devServer? And that's going to handle loading all of our files for us. So let's use ./node_modules/.bin/webpack dev server. Now when I go back to the terminal and type npm start, this should serve everything up on localhost 3000.
 
-There we go. So we're using the webpack devServer. The benefit of this is if I make any changes at all to my files, those are going to automatically rebuild for me. So let me go a little split screen on this and open our index file. And I'm going to change our Hello World message to HEY WORLD. And we should see that, that reloads without having to refresh.
+There we go. So we're using the webpack devServer. The benefit of this is if I make any changes at all to my files, 
+those are going to automatically rebuild for me.
+
 
 Pretty cool.
