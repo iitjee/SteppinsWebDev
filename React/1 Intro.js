@@ -26,7 +26,52 @@
           'Bye World'
         )
 
-        render( if first line is not there, we've to write ReactDOM.render(
+        render( //if first line is not there, we've to write ReactDOM.render(
           title,
           document.getElementById('react-container')
+        )
+
+$httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist shit does not work)
+
+
+/*      Let's add some style with CSS   */
+        const style = {
+                backgroundColor: 'orange',
+                color: 'white',
+                fontFamily: 'verdana'
+        }
+        const title = createElement(  //if first line is not there, we've to write React.createElement(
+          'h1',
+          {id: 'title', className: 'header', style: style},
+          'Bye World'
+        )
+
+/*      Let's convert everything to JSX */
+        const { render } = ReactDOM
+        const style = {
+                backgroundColor: 'orange',
+                color: 'white',
+                fontFamily: 'verdana'
+        }
+        
+        render(
+                <h1 id='title'
+                    className='header'
+                    style={style}>
+                Hello World	
+                </h1>,
+                document.getElementById('react-container')
+        )
+        
+
+/*      Inline styling  : Use double braces*/
+        const { render } = ReactDOM
+
+        render(
+                <h1 id='title'
+                        className='header'
+                        style={{backgroundColor: 'orange', color: 'white', fontFamily: 'verdana'}}>
+                Hello World	
+                </h1>,
+                document.getElementById('react-container')
         )
