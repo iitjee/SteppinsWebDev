@@ -1,0 +1,71 @@
+- React is just a library. So you need many others
+    - Redux : the de facto flux implementation
+    - ES6 with Babel and Redux
+    
+    
+    
+With just one command you can
+  - Lint code and test
+  - Transpile ES6 to ES5
+  - Bundle and minify
+  - Startup a web server
+  - Hot reload changes.
+
+Course outline:
+ - Intro
+ - Environment setup
+ - React component approach
+ - INitial app strucutre
+ - Redux intro
+ - Actions, stores, and redux
+ - Connecting React to Redux
+ - Redux Flow
+ - Async in Redux
+ - Async Writes in Redux
+ - Async Status
+ - Testing React
+ - Testing Redux
+ - Production Build
+ 
+ JSX = Writing Markup in Javascript!!
+ Virtual DOM : your app is a function of props and states. You don't store anything in DOM
+ Isomorphic Rendering
+ Unidirectional flows
+ 
+ Principles:
+ - HTML should be a projection of app state, not a source of truth: DOM reflects the current state automatically
+ - Javascript and HTML belong to same file
+ - Unidrectional flwo makes good no two-way binding
+ - Inline styles can be good.
+
+Technology stack we'll be using:
+ React is just V in MVC. So remember it has no say in data flows, routing, builds and deployments
+  - Node to run server-side script
+  - browserify to expose node-packages to the serveer
+  - React as view layer i.e as a COMPONENTS LIBRARY: to package, compose, render HTML components
+  - React/Router  to handle client side routing.
+  - Flux to handle our application's data flows
+  - Gulp as task runner
+
+Note: since react is so focused on this V layer, you can also use along wiht Angular/Backbone :)
+With the power of virtual dom, React can render on both client-side and server-side which is critical for isomorphic apps.
+For small apps, you may not reuiqre ReactRouter but as your app grows, you may want to split into multiple client-rendered pages with deep linking.
+(ReactRouter is inspired by Ember)
+Flux is a unidirectional data flow pattern library. It avoids more traditional MVC-pattern and implements one-directional flows.
+Gulp is a good one over grunt as taskrunner with a rich-plugin system. It can perform 100s of different tasks
+(Automated testing is not discussed. You can use Jest, by fb to test react components. Others are Jasmine, Mocha, quoint)
+ES5 = Traditional Javascript we've been writing for years
+ES6 = New JS from 2015
+We'll do in ES5 to keep things simple :)
+
+CommonJS pattern:
+  var dependecy = require('/path/to/file');   //get reference to dependency
+  var MyModule = {                            //declare module
+  ...
+  }
+  module.exports = MyModules                  //Expose to others
+  
+  
+  
+
+
