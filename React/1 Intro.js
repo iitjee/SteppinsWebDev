@@ -83,9 +83,154 @@ $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist 
             <script type="text/babel" src="index.js"></script>
 // what babel basically does is convert your render(<h1 ...> </h1>) to a React.createElement() call   
 
-//Webpack: see this https://github.com/iitjee/SteppinsWebDev/blob/master/Modules/webpack.js
+/*      Babel CLI       */
+// we used Babel's inline browser transpiler. As I mentioned, this is really great for quick projects or for testing,
+// but when you're working in production, you'll want to handle transpiling before your scripts get to the browser. 
+// We're going to set up a project using npm as well as the Babel Command Line Interface, or CLI, to demonstrate this.
+
+$npm install --save-dev babel-cli (installing locally)
+$sudo install -g babel-cli      (or to install globally)
+//changing folder structure
+create new folder src and move 'index.js' from dist foldr
+create new file in parent dir(not in src) called '.babelrc' where we will set up all of the presets or everything we want to transpile using Babel. 
+                {
+                        'presets' : ['latest', 'react', 'stage-0'];
+                }
+// now install them 
+$npm install --save-dev babel-preset-latest babel-preset-react babel-prest-stage-0
+// and
+babel ./src/index.js --out-file ./dist/bundle.js
+// ^this transpiles index.js to bundle.js
+
+
+
+
+
+/*      WEBPACK (will replace httpster of above */
+//see this https://github.com/iitjee/SteppinsWebDev/blob/master/Modules/webpack.js
 $npm install webpack babel-loader webpack-dev-server --save-dev
 
 //Since it'll be connverted into bundle.js file, we will change the source in index.html
             <script type="text/babel" src="assets/bundle.js"></script>
+$npm install --save react react-dom
+//(now you can remove <script> tags of react in index.js file
+create src/lib.js and src/titles.json 
+               (lib.js)
+                                import React from 'react'
+                                import text from './titles.json' //the dot slash is necessary! :/
+
+                                export const hello = (
+                                        <h1 id='title'
+                                                className='header'
+                                                style={{backgroundColor: 'purple', color: 'yellow'}}> //inline styling remember?
+                                                {text.hello}    //text is variable from './titles.json'
+                                        </h1>
+                                )
+
+                                export const goodbye = (
+                                        <h1 id='title'
+                                                className='header'
+                                                style={{backgroundColor: 'yellow', color: 'purple'}}>
+                                                {text.goodbye}
+                                        </h1>
+                                )
+                (modify index.js)
+                                import React from 'react'
+                                import { render } from 'react-dom'
+                                import { hello, goodbye } from './lib'
+
+                                render(
+                                        <div>
+                                                {hello}
+                                                {goodbye}
+                                        </div>,
+                                        document.getElementById('react-container')
+                                )
+//Now we need to modify webpack to handle the json data used above
+//(in webpack.config.js modify for json)module: {
+		loaders: [
+			{
+				test: /\.js$/,
+				exclude: /(node_modules)/,
+				loader: ["babel-loader"],
+				query: {
+					presets: ["latest", "stage-0", "react"]
+				}
+			},
+			{
+				test: /\.json$/,
+				exclude: /(node_modules)/,
+				loader: "json-loader"
+			}
+		]
+	}
+//and now install the json-laoder
+$npm install --save-dev json-loader
+
+
+// Another thing that you can do with Webpack is you can bundle your CSS so that you don't have to make additional HTTP requests.
+//create src/stylesheets folder and crate hello.css and goodbye.scss in it.
+//(hello.css)
+                        .hello {
+                                background-color: indigo;
+                                color: turquoise;
+                        }
+//(goodbye.scss)
+                $bg-color: turquoise;
+                $text-color: indigo;
+
+                .goodbye {
+                        background-color: $bg-color;
+                        color: $text-color;
+                }
+//we're going to be able to use Webpack to take SCSS and transpile it into CSS.
+//So this pre-processing step can all be automated using Webpack.
+//now you need to extra loaders for css and scss
+                        loaders: [
+                                {
+                                        test: /\.js$/,
+                                        exclude: /(node_modules)/,
+                                        loader: ["babel-loader"],
+                                        query: {
+                                                presets: ["latest", "stage-0", "react"]
+                                        }
+                                },
+                                {
+                                        test: /\.json$/,
+                                        exclude: /(node_modules)/,
+                                        loader: "json-loader"
+                                },
+                                {
+                                        test: /\.css$/,
+                                        loader: 'style-loader!css-loader!autoprefixer-loader'
+                                },
+                                {
+                                        test: /\.scss$/,
+                                        loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader'
+                                }
+                        ]
+$npm install --save-dev style-loader css-loader autoprefixer-loader sass-loader node-sass
+//note that node-sass is not listed in loaders config but we need this in order to make our SCSS work
+//Now in lib.js, import the stylesheets and change the className
+
+                                        import React from 'react'
+                                        import text from './titles.json'
+                                        import './stylesheets/goodbye.scss'
+                                        import './stylesheets/hello.css'
+
+                                        export const hello = (
+                                                <h1 id='title'
+                                                        className='hello'> //className changed 
+                                                        {text.hello}
+                                                </h1>
+                                        )
+
+                                        export const goodbye = (
+                                                <h1 id='title'
+                                                        className='goodbye'> //className changed
+                                                        {text.goodbye}
+                                                </h1>
+                                        )
+
+
 
