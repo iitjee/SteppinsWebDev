@@ -1,8 +1,8 @@
- * Started at google
+/* Started at google
  * Sites: plnkr.co, https://www.madewithangular.com/
  * ng is an Angular directive (like a short form eg: ng Conference etc)
  
- /* plnkr basics */
+ plnkr basics 
  1. libraries can be added by clicking the button below eye (right)
  2. you can save, beautify and download
  3. double click on file to rename
@@ -23,7 +23,7 @@ see their values there as well.
  
  
  
- /* AngularJS1 cs AngularJS2 */
+ AngularJS1 cs AngularJS2 
 The latest one is basically for app development which is a dramatic upgrade.
 They run 3-5 times faster than v1
 Now, everything is focus on components
@@ -46,7 +46,7 @@ Javascript function patterns:
 - Functions as abstractions.  (writing every damn thing in functions and then invoking them for use)
 - Functions to build modules (revealing module poattern (see below))
 - Functions to avoid global variabls (iffe aka immd8ly invoked function expressoin)
-
+*/
 
 /* Revealing Module patterns */
 var createWorker = function() {
