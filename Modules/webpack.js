@@ -1,6 +1,6 @@
 (ly react ess tra)
 
-start folder->webpack-config.js
+start folder->webpack.config.js
             var webpack = require("webpack");
 
             module.exports = {      
@@ -17,7 +17,7 @@ start folder->webpack-config.js
               },
               module: {
                 loaders: [
-                  {
+                  {//to handle js
                     test: /\.js$/,  //look for any file that has .js extension
                     exclude: /(node_modules)/,  //don't look in /node_modules folder
                     loader: ["babel-loader"],
@@ -25,6 +25,11 @@ start folder->webpack-config.js
                       presets: ["latest", "stage-0", "react"]   //
                     }
                   }
+                   {//To handle json
+                        test: /\.json$/,
+                        exclude: /(node_modules)/,
+                        loader: "json-loader"
+                    }
                 ]
               }
             }
