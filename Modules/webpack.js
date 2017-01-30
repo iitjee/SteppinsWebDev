@@ -30,11 +30,21 @@ start folder->webpack.config.js
                         exclude: /(node_modules)/,
                         loader: "json-loader"
                     }
+                {//to handle css
+                            test: /\.css$/,
+                            loader: 'style-loader!css-loader!autoprefixer-loader'
+                    },
+                    {//to handle scss
+                            test: /\.scss$/,
+                            loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader'
+                    }
                 ]
               }
             }
 $npm install webpack babel-loader json-loader webpack-dev-server --save-dev
+$npm install --save-dev style-loader css-loader autoprefixer-loader sass-loader node-sass //(dev-deps for css and sass)
 $webpack
+
 
 /*          (Note:Now this says webpack command not found, and there's a couple different
 ways that we can fix this problem. One way is that we can install webpack globally using our sudo npm install -g webpack.
