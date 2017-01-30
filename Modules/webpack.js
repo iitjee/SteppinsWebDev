@@ -34,6 +34,9 @@ $webpack
 ways that we can fix this problem. One way is that we can install webpack globally using our sudo npm install -g webpack.
 If you'd prefer not to use a global command, what you can do is this, you can use ./node_modules/.bin/webpack.)         */
 
+//Since it'll be connverted into bundle.js file, we will change the source in index.html
+            <script type="text/babel" src="assets/bundle.js"></script>
+
 
 In the previous video, we looked at how the Babel CLI can help us transpile JavaScript that uses new syntax into static 
 files that use browser-supported syntax. This approach offers performance benefits in the browser because all transpiling 
