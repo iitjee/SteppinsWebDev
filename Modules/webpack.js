@@ -33,8 +33,9 @@ start folder->webpack.config.js
                 ]
               }
             }
-$npm install webpack babel-loader webpack-dev-server --save-dev
+$npm install webpack babel-loader json-loader webpack-dev-server --save-dev
 $webpack
+
 /*          (Note:Now this says webpack command not found, and there's a couple different
 ways that we can fix this problem. One way is that we can install webpack globally using our sudo npm install -g webpack.
 If you'd prefer not to use a global command, what you can do is this, you can use ./node_modules/.bin/webpack.)         */
