@@ -55,7 +55,7 @@ $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist 
         }
         
         render(
-                <h1 id='title'
+                <h1 id='title'	//here we've put h1 tag directly instead of constructing by React.createElement This is JSX! \m/
                     className='header'
                     style={style}>
                 Hello World	
@@ -76,11 +76,11 @@ $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist 
                 document.getElementById('react-container')
         )
         
-/*      Transpiling into Common js by Babel     */
-        //cdnjs.com -> babel core -> v5.8.38 (to use in-browser transpiler)
-        //(in index.html) 
+/*      Transpiling into Common normal js by Babel     */
+        //cdnjs.com -> babel core -> v5.8.38 (this version so as to use in-browser transpiler)
+        //(in index.html add) 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
-            <script type="text/babel" src="index.js"></script>
+        <script type="text/babel" src="index.js"></script>
 // what babel basically does is convert your render(<h1 ...> </h1>) to a React.createElement() call   
 
 /*      Babel CLI       */
@@ -110,20 +110,20 @@ babel ./src/index.js --out-file ./dist/bundle.js
 //see this https://github.com/iitjee/SteppinsWebDev/blob/master/Modules/webpack.js
 $npm install webpack babel-loader webpack-dev-server --save-dev
 
-//Since it'll be connverted into bundle.js file, we will change the source in index.html
+//Since it'll be converted into bundle.js file, we will change the source in index.html
             <script type="text/babel" src="assets/bundle.js"></script>
 $npm install --save react react-dom
 //(now you can remove <script> tags of react in index.js file
 create src/lib.js and src/titles.json 
                (lib.js)
                                 import React from 'react'
-                                import text from './titles.json' //the dot slash is necessary! :/
+                                import mytext from './titles.json' //the dot slash is necessary! :/
 
                                 export const hello = (
                                         <h1 id='title'
                                                 className='header'
                                                 style={{backgroundColor: 'purple', color: 'yellow'}}> //inline styling remember?
-                                                {text.hello}    //text is variable from './titles.json'
+                                                {mytext.hello}    //mytext is variable from './titles.json'
                                         </h1>
                                 )
 
@@ -131,7 +131,7 @@ create src/lib.js and src/titles.json
                                         <h1 id='title'
                                                 className='header'
                                                 style={{backgroundColor: 'yellow', color: 'purple'}}>
-                                                {text.goodbye}
+                                                {mytext.goodbye}
                                         </h1>
                                 )
                 (modify index.js)
@@ -169,7 +169,7 @@ $npm install --save-dev json-loader
 
 
 // Another thing that you can do with Webpack is you can bundle your CSS so that you don't have to make additional HTTP requests.
-//create src/stylesheets folder and crate hello.css and goodbye.scss in it.
+//create src/stylesheets folder and create hello.css and goodbye.scss in it.
 //(hello.css)
                         .hello {
                                 background-color: indigo;
