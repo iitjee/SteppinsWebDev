@@ -12,7 +12,7 @@ When we setup defaults, we can use the default values if another value is not pr
 
 */
 
-
+/*	Type-1: Class-type declaration	*/
 (SkiDayCount.js in version which we used class-type component)
 
           getDefaultProps() { //just after export const SkiDayCount = createClass({
@@ -31,7 +31,7 @@ When we setup defaults, we can use the default values if another value is not pr
 	document.getElementById('react-container')
           )         
 
-          /*        Part -2   : ES6-type*/
+          /*        Type -2   : ES6-type*/
 (SkiDayCount.js in version which we used ES6-type component)
 //here  instead of adding a method to our class, we're actually getting to add this to the class instance. 
 
@@ -45,7 +45,7 @@ When we setup defaults, we can use the default values if another value is not pr
 
 
 
-/*        Part-3: Stateless   */
+/*        Type-3: Stateless   */
 // It's kind of the ES6 class way but you can also set this up with your properties as default properties.
 // So just like you can set up defaults in functions now with ES6, you can do the same thing here in your component. 
 //completely outside skidaycount es6 definition
