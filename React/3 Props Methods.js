@@ -11,7 +11,9 @@ methods: this.myMethod(...)
 props:  this.props.myProp
 
 
-
+From within Component Methods:
+ - you can fetch data from an api
+ - or do some calculations etc. etc.
 
 
 
