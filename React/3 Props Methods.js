@@ -22,7 +22,10 @@ From within Component Methods:
 /*    Part 1: Properties  */
 //  Think of components in React as being an object and every property is a key. 
 //  We're going to add four properties to our component. 
-//     -Total, powder, back country and goal
+//     -Total, (string)
+//     - powder, (string)
+//     - back country :Is it a backcountry day or no?(Bool)
+//     - goal: Is it a backcountry day or no?(boolean)
     
 //Let's add few properties
 
