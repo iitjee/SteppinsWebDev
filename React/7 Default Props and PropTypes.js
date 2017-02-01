@@ -24,11 +24,39 @@ When we setup defaults, we can use the default values if another value is not pr
               }
             },
 
+(index.js)
+//comment out the other render function(SKIDAYLIST) and see this how the default values work
+          render( 
+	<SkiDayCount />, 
+	document.getElementById('react-container')
+          )         
+
+          /*        Part -2   : ES6-type*/
+(SkiDayCount.js in version which we used ES6-type component)
+//here  instead of adding a method to our class, we're actually getting to add this to the class instance. 
+
+          //completely outside skidaycount es6 definition
+          SkiDayCount.defaultProps = {
+            total: 50,
+            powder: 10,
+            backcountry: 15,
+            goal: 75
+          }
 
 
 
+/*        Part-3: Stateless   */
+// It's kind of the ES6 class way but you can also set this up with your properties as default properties.
+// So just like you can set up defaults in functions now with ES6, you can do the same thing here in your component. 
+//completely outside skidaycount es6 definition
+          SkiDayCount.defaultProps = {
+            total: 50,
+            powder: 10,
+            backcountry: 15,
+            goal: 75
+          }
 
-
-
+(or)
+          export const SkiDayCount = ({total=50, powder=10, backcountry=15, goal=75}) => (.....)
 
 
