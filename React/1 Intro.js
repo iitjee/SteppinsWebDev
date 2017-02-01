@@ -109,7 +109,14 @@ babel ./src/index.js --out-file ./dist/bundle.js
 /*      WEBPACK (will replace httpster of above */
 //see this https://github.com/iitjee/SteppinsWebDev/blob/master/Modules/webpack.js
 $npm install webpack babel-loader webpack-dev-server --save-dev
-
+$webpack	//this will bundle up
+$webpack-dev-server //will not work unless you install it as global
+so add this in package.json
+	"scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server"
+  },
+$npm start //(./node_modules/.bin/webpack-dev-server is being execu underhood)
+	  
 //Since it'll be converted into bundle.js file, we will change the source in index.html
             <script type="text/babel" src="assets/bundle.js"></script>
 $npm install --save react react-dom
@@ -231,6 +238,5 @@ $npm install --save-dev style-loader css-loader autoprefixer-loader sass-loader 
                                                         {text.goodbye}
                                                 </h1>
                                         )
-
 
 
