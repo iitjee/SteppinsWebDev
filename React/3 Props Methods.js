@@ -1,6 +1,11 @@
 /*
   ly React Ess Tra
   
+  
+Component Syntax:
+  -createClass method
+  -ES6 Class declaration
+  - stateless functional component (see 4th page)
 
 methods: this.myMethod(...)
 props:  this.props.myProp
@@ -17,7 +22,7 @@ props:  this.props.myProp
 //  We're going to add four properties to our component. 
 //     -Total, powder, back country and goal
     
-Let's add few properties
+//Let's add few properties
 
 (in SkiDayCount.js)
                   import React from 'react'
