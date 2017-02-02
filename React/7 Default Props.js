@@ -2,7 +2,7 @@
 
 
 Default props
-An optional but very useful feature that use in React is default properties.
+An optional but very useful feature in React is default properties.
 When we setup defaults, we can use the default values if another value is not provided.
 
 
@@ -25,13 +25,14 @@ When we setup defaults, we can use the default values if another value is not pr
             },
 
 (index.js)
-//comment out the other render function(SKIDAYLIST) and see this how the default values work
+//comment out the other render function(SKIDAYLIST) to see only this :: how the default values work
           render( 
 	<SkiDayCount />, 
 	document.getElementById('react-container')
           )         
+	  
 
-          /*        Type -2   : ES6-type*/
+/*        Type -2   : ES6-type*/
 (SkiDayCount.js in version which we used ES6-type component)
 //here  instead of adding a method to our class, we're actually getting to add this to the class instance. 
 
