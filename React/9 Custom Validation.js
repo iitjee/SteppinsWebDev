@@ -26,17 +26,17 @@
             </table>
           )
 
-          SkiDayList.propTypes = {
-            days: function(props) {
-              if(!Array.isArray(props.days)) {
+          SkiDayList.propTypes = {      //days is a property
+            days: function(props) {     //custom-validation. Passing a function!
+              if(!Array.isArray(props.days)) {    //check to see if props.days is an array
                 return new Error(
                   "SkiDayList should be an array"	
                   )
-              } else if(!props.days.length) {
+              } else if(!props.days.length) {     //check if 'days' array has some thing  
                 return new Error(
                   "SkiDayList must have at least one record"
                   )
-              } else {
+              } else {        //if both the above conditions passed, just return null! :)
                 return null
               }
             }
