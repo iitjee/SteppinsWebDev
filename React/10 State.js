@@ -44,7 +44,7 @@ This way we can avoid overwriting state variables, which can cause chaos in our 
                   render() {
                     return (
                       <div className="app">
-                        {this.state.allSkiDays[0]["resort"]}
+                        {this.state.allSkiDays[0]["resort"]}  //"Squaw Valley"
                       </div>
                     )
                   }
