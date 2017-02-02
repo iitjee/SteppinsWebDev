@@ -62,3 +62,57 @@ This way we can avoid overwriting state variables, which can cause chaos in our 
                 <App />,
                 document.getElementById('react-container')
               )
+              
+              
+              
+              
+/*  Passing State as props  */
+Let's pass down our state data as properties to our child components. 
+We're going to use the App component to render SkiDayList and SkiDayCount. 
+(in App.js)
+//render() and countDays(..) are methods inside class. render() will come last
+render() {
+		return (
+			<div className="app">
+				<SkiDayList days={this.state.allSkiDays}/>
+				<SkiDayCount total={this.countDays()} //no filter is passed, because we want to count all
+							 powder={this.countDays( 
+							 		"powder"  //'powder' filter is passed
+							 	)}
+							 backcountry={this.countDays(
+							 		"backcountry"
+							 	)}/>
+      </div>
+		)
+	}
+})
+
+
+countDays(filter) {
+ 
+    return this.state.allSkiDays.filter(function(day) {
+      if(filter) {return day[filter]} //filter is just the ES5 filter function that we can use to deal with arrays.
+      else {return day}
+    }).length
+  /* or you can use ES6 syntax
+		const { allSkiDays } = this.state
+		return allSkiDays.filter( 
+			(day) => (filter) ? day[filter] : day).length //day[filter] | day
+      */
+	}
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
