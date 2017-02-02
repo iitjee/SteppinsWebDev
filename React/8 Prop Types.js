@@ -6,7 +6,19 @@ make sure that we're supplying the right type.
 
 Note:  For performance reasons, propTypes is only checked in development mode.
 
+primitives:
+  optionalArray: React.PropTypes.array,
+  optionalBool: React.PropTypes.bool,
+  optionalFunc: React.PropTypes.func,
+  optionalNumber: React.PropTypes.number,
+  optionalObject: React.PropTypes.object,
+  optionalString: React.PropTypes.string,
+  optionalSymbol: React.PropTypes.symbol,
+  
+  PropTypes.instanceOf(Date) //for date objects
 
+
+There are many more complex data types: https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 */
 
 /*  Type 1: Creating Components using Class */
