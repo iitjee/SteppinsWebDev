@@ -8,6 +8,7 @@ dynamic route matching, and location transition handling built right in. Make th
 
 $npm install --save react-router
 
+/*          Demo        */
 (in index.js)
             import React from 'react'
             import { render } from 'react-dom'
@@ -19,6 +20,7 @@ $npm install --save react-router
 
             window.React = React
 
+/*          Here we are basically navigating between two components: App and Whoops404          */
             render( //see below
               <Router history={hashHistory}>  //hashHistory is react-router's variable
                 <Route path="/" component={App}/> //home director
@@ -37,6 +39,76 @@ $npm install --save react-router
 //So notice here that I haven't wrapped our div with parentheses on this stateless component. 
 //You actually don't even need those when you're just rendering jsx elements, so I just wanted to show you that as an 
 //alternative.
+
+
+
+/*        back to  Main project            */
+//  our app has the SkyDayList and the SkiDayCount, and we want to be able to navigate between them. We also want to add
+//  a new bit of functionality, the AddDayForm, that will allow us to add new ski days to our list. So the first place we want 
+//  to handle that is by creating that AddDayForm component, and then we're going to dynamically switch between those screens using the router.
+
+//create a new file in Components: AddDayForm.js
+(in AddDayForm.js)
+            //this will render just a simple h1 tag
+            export const AddDayForm = () => (
+	<h1>Add A Day</h1>
+            )
+
+(in App.js)
+            import { Component } from 'react'
+            import { SkiDayList } from './SkiDayList'
+            import { SkiDayCount } from './SkiDayCount'
+            import { AddDayForm } from './AddDayForm'       //new
+
+            export class App extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			allSkiDays: [
+			{
+				resort: "Squaw Valley",
+				date: new Date("1/2/2016"),
+				powder: true,
+				backcountry: false
+			},
+			{
+				resort: "Kirkwood",
+				date: new Date("3/28/2016"),
+				powder: false,
+				backcountry: false
+			},
+			{
+				resort: "Mt. Tallac",
+				date: new Date("4/2/2016"),
+				powder: false,
+				backcountry: true
+			}
+		]
+		}
+	}
+	countDays(filter) {
+		const { allSkiDays } = this.state
+		return allSkiDays.filter(
+			(day) => (filter) ? day[filter] : day).length
+	}
+	render() {//Our SkiDayList will render when we're on the list-days route and then our AddDayForm will 
+                      //render when we're on the add-day route. 
+		return (
+			<div className="app"> //the following line is a nested ternary if statement. Notice carefully
+			{
+                                    (this.props.location.pathname === "/") ?
+			  <SkiDayCount total={this.countDays()}
+                                                   powder={this.countDays("powder")}
+                                                   backcountry={this.countDays("backcountry")}/>
+                                    :
+			 (this.props.location.pathname === "/add-day") ?
+			 	<AddDayForm /> : <SkiDayList days={this.state.allSkiDays}/>				 
+			} //<SkiDayList /> Component is rendered if path is neither / or /add-day
+					
+			</div>
+		)
+	}
+            }
 
 
 
