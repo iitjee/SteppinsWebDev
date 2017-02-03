@@ -1,9 +1,10 @@
+/*          
 similar to express?
 React Router is a complete routing library for React.
 
 React Router keeps your UI in sync with the URL. It has a simple API with powerful features like lazy code loading,
 dynamic route matching, and location transition handling built right in. Make the URL your first thought, not an after-thought.
-
+*/
 
 $npm install --save react-router
 
@@ -12,7 +13,8 @@ $npm install --save react-router
             import { render } from 'react-dom'
             import './stylesheets/ui.scss'
             import { App } from './components/App'
-            import { Whoops404 } from './components/Whoops404'
+            
+            import { Whoops404 } from './components/Whoops404' //new
             import { Router, Route, hashHistory } from 'react-router' //new
 
             window.React = React
@@ -32,6 +34,9 @@ $npm install --save react-router
                     <div>
                       <h1>Whoops, route not found</h1>
                     </div>
+//So notice here that I haven't wrapped our div with parentheses on this stateless component. 
+//You actually don't even need those when you're just rendering jsx elements, so I just wanted to show you that as an 
+//alternative.
 
 
 
