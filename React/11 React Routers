@@ -1,0 +1,38 @@
+similar to express?
+React Router is a complete routing library for React.
+
+React Router keeps your UI in sync with the URL. It has a simple API with powerful features like lazy code loading,
+dynamic route matching, and location transition handling built right in. Make the URL your first thought, not an after-thought.
+
+
+$npm install --save react-router
+
+(in index.js)
+            import React from 'react'
+            import { render } from 'react-dom'
+            import './stylesheets/ui.scss'
+            import { App } from './components/App'
+            import { Whoops404 } from './components/Whoops404'
+            import { Router, Route, hashHistory } from 'react-router' //new
+
+            window.React = React
+
+            render( //see below
+              <Router history={hashHistory}>  //hashHistory is react-router's variable
+                <Route path="/" component={App}/> //home director
+                <Route path="*" component={Whoops404}/> //any path except home dir since path='homedir' is already checked above
+              </Router>,
+              document.getElementById('react-container')
+            )
+//history is going to listen to the browser's address bar for any changes, and it will keep track of those changes.
+//So, we're going to use hash history, because we can set it up here without having to configure a server. 
+
+(in whoops404.js)
+                  export const Whoops404 = () => //used stateless component syntax
+                    <div>
+                      <h1>Whoops, route not found</h1>
+                    </div>
+
+
+
+
