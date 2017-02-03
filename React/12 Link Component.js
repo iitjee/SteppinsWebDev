@@ -41,6 +41,7 @@ draw directly from the css that we've already set up. And you can add these to e
       render() {
         return (
          <div className="app">
+         
          <Menu />
          
          {(this.props.location.pathname === "/") ?
