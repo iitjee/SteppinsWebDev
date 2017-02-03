@@ -107,7 +107,7 @@ babel ./src/index.js --out-file ./dist/bundle.js
 
 
 /*      WEBPACK (will replace httpster of above */
-//see this https://github.com/iitjee/SteppinsWebDev/blob/master/Modules/webpack.js
+//see this for how to use it: https://github.com/iitjee/SteppinsWebDev/blob/master/Modules/webpack.js
 $npm install webpack babel-loader webpack-dev-server --save-dev
 $webpack	//this will bundle up
 $webpack-dev-server //will not work unless you install it as global
@@ -192,7 +192,7 @@ $npm install --save-dev json-loader
                 }
 //we're going to be able to use Webpack to take SCSS and transpile it into CSS.
 //So this pre-processing step can all be automated using Webpack.
-//now you need to extra loaders for css and scss
+//now you need extra loaders for css and scss
                         loaders: [
                                 {
                                         test: /\.js$/,
