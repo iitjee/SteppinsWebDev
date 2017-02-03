@@ -4,7 +4,7 @@
  So not that useful yet, but luckily React Router comes with a component that we can use to handle navigation. 
 
 
-We'll use LINKS
+We'll use LINKS to construct a tiny navigation bar
 <link to="..."> ... </link>
 */
 
