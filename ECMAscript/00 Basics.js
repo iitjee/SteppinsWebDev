@@ -53,4 +53,39 @@ In-Browser Transpiling:
         </body>	
         </html>
 
+/* In a real project, you're probably going to want to use the real Babel.
+To do this, we're going to install Babel with NPM. Then we're going to use babel-node. */
+(index.html)
+    <!DOCTYPE html>
+    <html>
+    <head>
+     <script type="text/babel" src="script-compiled.js">
+     </script>
+     <title>Working with Babel</title>
+    </head>
+    <body>
 
+    </body>	
+    </html>
+//(script.js)
+     var nameBuilder = function(firstName="Joe", lastName="Doe") {
+        console.log(firstName + " " + lastName);
+       };
+
+     nameBuilder();
+$npm install babel
+$babel script.js --out-file script-compiled.js
+
+//(you will see in script-compiled.js)
+"use strict";
+
+var nameBuilder = function nameBuilder() {
+			var firstName = arguments.length <= 0 || arguments[0] === undefined ? "Joe" : arguments[0];
+			var lastName = arguments.length <= 1 || arguments[1] === undefined ? "Doe" : arguments[1];
+
+			console.log(firstName + " " + lastName);
+};
+
+nameBuilder();
+
+                                                           
