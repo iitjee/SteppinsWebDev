@@ -1,0 +1,30 @@
+<!--
+The spread operator does a lot of powerful things with three small dots. The spread operator can turn the elements of 
+an array into arguments of a function call, or into elements of an array literal. 
+
+If we want to add the array elements to the new array, we can use the spread operator. Instead of just using the
+variable name, I'm going to have each of these variables preceded by three dots. The three dots are the spread operator. 
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
+	<script type="text/babel">
+  
+		var cats = ["Tabby", "Siamese", "Persian"];
+		var dogs = ["Golden Retriever", "Pug", "Schnauzer"];
+
+		var animals = ["Whale", "Giraffe", ...cats, "Snake", ...dogs, "Coyote"];
+    //var animals = ["Whale", "Giraffe", cats, "Snake", dogs, "Coyote"]; prints as ["Whale", "Giraffe", Array[3], "Snake", Array[3], "Coyote"]
+    
+		console.log(animals);
+
+	</script>
+	<title>Spread Operator</title>
+</head>
+<body>
+</body>	
+</html>
