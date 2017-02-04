@@ -13,9 +13,9 @@ Component Syntax:
 
 */
 
- Stateless functional components are functions that take in property information, and return JSX elements.
- Stateless components can't access this, so properties are passed directly into the function. 
- Also, local methods need to be removed, and put into their own functions.
+//  Stateless functional components are functions that take in property information, and return JSX elements.
+//  Stateless components can't access this, so properties are passed directly into the function. 
+//  Also, local methods need to be removed, and put into their own functions.
 
 
 (skidaycount.js)
