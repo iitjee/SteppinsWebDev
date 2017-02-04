@@ -33,7 +33,7 @@ So here, looking at these wire frames, I see that we have a form. So that means 
 
 Now that we have identified the actions, we want to identify the variables that those actions impact. Our state. So looking at our wire frames and thinking about our actions, we know that we have ski days. So our main data point is going to be an array. It's going to be an array of objects that contain information about a ski day.
 
-![image](https://cloud.githubusercontent.com/assets/20602254/22618006/07b8f074-eaf8-11e6-98bd-3ae2bfffa47b.png)
+![image](https://cloud.githubusercontent.com/assets/20602254/22618052/6013f010-eaf9-11e6-8296-aed33914ca79.png)
 ```
 { //initialstate.json
 
