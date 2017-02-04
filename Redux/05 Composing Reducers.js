@@ -43,13 +43,14 @@ Let's merge all the reducers
 
             case C.ADD_DAY : 
 
-              const hasDay = state.some(skiDay => skiDay.date === action.payload.date)
+              const hasDayAlready = state.some(skiDay => skiDay.date === action.payload.date)
+              //The some() method returns true if some element in the array passes the test implemented by the provided function.
 
-              return (hasDay) ?
+              return (hasDayAlready) ?
                  state :
                  [
                    ...state,
-                   skiDay(null, action)
+                   skiDay(null, action) //see how you are using skiDay reducer
                  ].sort((a, b) => new Date(b.date) - new Date(a.date))
 
             case C.REMOVE_DAY :
