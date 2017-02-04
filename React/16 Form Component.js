@@ -36,7 +36,7 @@ export class AddDayForm extends Component {
 						   type="checkbox" 
 						   defaultChecked={powder}	/>
 					<label htmlFor="powder">Powder Day</label>
-				</div>
+				</div> //checkboxes don't have defaultValues
 
 				<div>	 //backcountry div
 					<input id="backcountry" 
