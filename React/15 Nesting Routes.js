@@ -50,7 +50,7 @@
             const routes = (
                 <Router history={hashHistory}>
                     <Route path="/" component={Home} />
-                    <Route path="/" component={Left}>
+                    <Route path="/" component={Left}> //try both Left and Right
                         <Route path="about" component={About} />
                         <Route path="members" component={MemberList} />
                     </Route>
