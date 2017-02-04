@@ -43,8 +43,8 @@ $npm start
 
 
 /*                  Building Reducers   */
- Remember, reducers are pure functions that are designed to manage specific parts of your state object. 
- we'll remove prev contents of index.js for a quick demo
+// Remember, reducers are pure functions that are designed to manage specific parts of your state object. 
+// we'll remove prev contents of index.js for a quick demo
                     import C from './constants'
                     import { goal } from './store/reducers'
 
