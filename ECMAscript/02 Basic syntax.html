@@ -20,6 +20,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
             
         <script type="text/babel">
+        <!-- Try with let i =0 adn var i=0. see bottom of code for notes -->
           for(let i= 0; i<45; i++){ /* create 45 divs */
             var div = document.createElement('div');
             div.onclick = function() {
@@ -38,3 +39,6 @@
         <section></section>
       </body>	
       </html>
+/* Notes:
+using var i=0, we had the same i being reassigned through the loop, and we need to update with that let keyword.
+'Let' is a great tool for enforcing block scoping in your JavaScript code. */
