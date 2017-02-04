@@ -13,6 +13,7 @@ export class AddDayForm extends Component {
 	render() {
 
 		const { resort, date, powder, backcountry } = this.props 
+		//destructuring whatever you want in this.props like `import { render } from 'react-dom'`
 
 		return (
 			<form className="add-day-form">
@@ -21,22 +22,23 @@ export class AddDayForm extends Component {
 				<input id="resort" 
 					   type="text" 
 					   required 
-					   defaultValue={resort}/>
+					   defaultValue={resort}/> //if not destructured, you shud do this.props.resort
 
 				<label htmlFor="date">Date</label>
 				<input id="date" 
 					   type="date" 
 					   required 
 					   defaultValue={date}/>
-
-				<div>
+//if you don't provide defaultValue, <input id="date"  type="date" required/>
+			
+				<div> //powder dev
 					<input id="powder" 
 						   type="checkbox" 
 						   defaultChecked={powder}	/>
 					<label htmlFor="powder">Powder Day</label>
 				</div>
 
-				<div>	
+				<div>	 //backcountry div
 					<input id="backcountry" 
 						   type="checkbox"
 						   defaultChecked={backcountry} />
