@@ -19,17 +19,17 @@
       "server feed not found"
     ]
 
-    const action = {
+    const clearaction = { //action you want to perform
       type: C.CLEAR_ERROR,
-      payload: 0
+      payload: 0 //the one you want to add
     }
 
-    const nextState = errors(state, action)
+    const nextState = errors(state, clearaction)
 
     console.log(`
 
         initial state: ${state}
-        action: ${JSON.stringify(action)}
+        action: ${JSON.stringify(clearaction)}
         new state: ${JSON.stringify(nextState)}
 
     `)
@@ -58,6 +58,7 @@
              ...state,
              action.payload
           ]
+        //note that state.push(action.payload) will mutate the state array
 
         case C.CLEAR_ERROR : 
 
@@ -70,5 +71,7 @@
 
     }
 
-
-
+//filter method constructs and return a new array. It also expects a callback function, notice.
+    // This callback function will be invoked once for every message in the array.
+    //Now, we call this function a predicate because it expects a true or false.
+//here, the condition is if(i!==action.payload) then the item will make it into the array
