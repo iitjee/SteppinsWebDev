@@ -7,7 +7,7 @@
       import C from './constants'
       import { skiDay } from './store/reducers'
 
-      const state = null      //initial state is set to null
+      const skiDaystate = null      //initial state is set to null
 
       const action = {  //setting up an ADD_DAY action
         type: C.ADD_DAY,      //this will check the corresponding one in reducers.js
@@ -19,15 +19,15 @@
         }
       }
 
-      const nextState = skiDay(state, action)
+      const nextState = skiDay(skiDaystate, action)
 
       console.log(`
 
-          initial state: ${state}
+          initial state: ${skiDaystate}
           action: ${JSON.stringify(action)}
           new state: ${JSON.stringify(nextState)}
 
-      `)
+      `) //stringify cos action and nextState are objects
 
 (reducers.js)
       import C from '../constants'
@@ -52,7 +52,7 @@ is short hand for
       else return state
       
       
-      
+$npm start
       
       
       
