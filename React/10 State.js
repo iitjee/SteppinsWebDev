@@ -67,14 +67,14 @@ This way we can avoid overwriting state variables, which can cause chaos in our 
               
               
 /*  Passing State as props  */
-Let's pass down our state data as properties to our child components. 
-We're going to use the App component to render SkiDayList and SkiDayCount. 
+// Let's pass down our state data as properties to our child components. 
+// We're going to use the App component to render SkiDayList and SkiDayCount. 
 (in App.js)
 //render() and countDays(..) are methods inside class. render() will come last
 render() {
 		return (
 			<div className="app">
-				<SkiDayList days={this.state.allSkiDays}/>
+				<SkiDayList days={this.state.allSkiDays}/> //here we are passing state of parent(this) as property to child(SkiDaylist)
 				<SkiDayCount total={this.countDays()} //no filter is passed, because we want to count all
 							 powder={this.countDays( 
 							 		"powder"  //'powder' filter is passed
