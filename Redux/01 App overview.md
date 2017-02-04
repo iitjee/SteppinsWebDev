@@ -14,6 +14,7 @@ So here, looking at these wire frames, I see that we have a form. So that means 
  
  (in root/src/constants.js)
  ```
+ // it's very easy to make typos in strings in Javascript, and typically Javascript will not complain. So we create a hash //(dictionary)
          const constants = {
           ADD_DAY: "ADD_DAY",
           REMOVE_DAY: "REMOVE_DAY",
@@ -30,5 +31,36 @@ So here, looking at these wire frames, I see that we have a form. So that means 
 ```
 
 
+Now that we have identified the actions, we want to identify the variables that those actions impact. Our state. So looking at our wire frames and thinking about our actions, we know that we have ski days. So our main data point is going to be an array. It's going to be an array of objects that contain information about a ski day.
+```
 
+{
+      "allSkiDays": [
+       {
+        "resort": "Kirkwood",
+        "date": "2016-12-7",
+        "powder": true,
+        "backcountry": false
+       },
+       {
+        "resort": "Squaw Valley",
+        "date": "2016-12-8",
+        "powder": false,
+        "backcountry": false
+       },
+       {
+        "resort": "Mt Tallac",
+        "date": "2016-12-9",
+        "powder": false,
+        "backcountry": true
+       }
+      ],
+      "goal": 10,
+      "errors": [],
+      "resortNames": {
+       "fetching": false,
+       "suggestions": ["Squaw Valley", "Snowbird", "Stowe", "Steamboat"]
+      }
+     }
+```
 
