@@ -141,11 +141,22 @@ countDays(filter) {
 			]
 			}
 		}
-		countDays(filter) {
+		
+		coumtDays(powderOrBackcountry) {
+			return this.state.allSkiDays.filter(function(day) {
+				if(filter) return day[powderOrBackcountry];
+				else return day;
+				}).length
+		}
+		/* abridged version: Try to understand clearly
+		countDays(powderOrBackcountry) {
 			const { allSkiDays } = this.state
 			return allSkiDays.filter(
-				(day) => (filter) ? day[filter] : day).length
+				(day) => (powderOrBackCountry) ? day[filter] : day).length
 		}
+		
+		*/
+		
 		render() {
 			return (
 				<div className="app">
