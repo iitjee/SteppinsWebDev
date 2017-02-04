@@ -37,7 +37,7 @@ Now that we have identified the actions, we want to identify the variables that 
 ```
 { //initialstate.json
 
-      "allSkiDays": [
+      "allSkiDays": [ //allSkiDays will be our main data entry point
        {
         "resort": "Kirkwood",
         "date": "2016-12-7",
@@ -65,4 +65,4 @@ Now that we have identified the actions, we want to identify the variables that 
       }
      }
 ```
-
+Now what we've done here is we've just identified the two critical components for a Redux application. The actions that we saved in a file called constants.js and the state. Once we drafted up a snapshot of that state in a file called initial state.json. The next step is going to be developing reducers that can manage the data found in this state tree.
