@@ -85,6 +85,8 @@ export class AddDayForm extends Component {
 	constructor(props) {
 		super(props)
 		this.submit = this.submit.bind(this)
+		    // So when we create a custom method and we need to use this for this.submit or anything
+		    //else, we need to have this accessible. So all we need to do here is use this.submit.bind(this).
 	}
 
 	submit(e) {...}
