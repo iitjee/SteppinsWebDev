@@ -1,4 +1,4 @@
-<!--
+/*
 
  In 1995, JavaScript was originally created by Brendan Ike at Netscape and then was adopted by Microsoft as JScript. 
  With different versions of a language for different browsers, there were soon an urgent need to standardize the language. 
@@ -30,7 +30,7 @@ Chrome Canary is not stable but you can test out new features
 Babel was created by Sebastian McKenzie an Australian developer who now works at Facebook. If you've worked with ReactJS, the 
 UI library created at Facebook, you'll notice that Babel is the preferred tool for transpiling the ES6 features back into 
 JavaScript. 
--->
+*/
 
 In-Browser Transpiling:
 (in index.html)
@@ -76,7 +76,7 @@ To do this, we're going to install Babel with NPM. Then we're going to use babel
 $npm install babel
 $babel script.js --out-file script-compiled.js
 
-//(you will see in script-compiled.js)
+//(you will see in script-compiled.js) the ES6 in script.js is converted to ES5
 "use strict";
 
 var nameBuilder = function nameBuilder() {
