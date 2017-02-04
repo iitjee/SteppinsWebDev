@@ -1,4 +1,4 @@
-/*
+
 
 
 Redux is a JavaScript library that you can use to manage client data within your application. 
@@ -101,7 +101,8 @@ state is sent to and piped through each of these reducers until a state is event
 about how these reducers are composed.
 
 All we have to do is identify state, write good reducers, and let the Redux store handle the rest.
-*/
+![image] (https://cloud.githubusercontent.com/assets/20602254/22617952/d2fe3f16-eaf6-11e6-9b1f-a731fad58392.png)
+
 
 
 
