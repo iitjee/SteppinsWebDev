@@ -73,6 +73,8 @@ To do this, we're going to install Babel with NPM. Then we're going to use babel
        };
 
      nameBuilder();
+
+
 $npm install babel
 $babel script.js --out-file script-compiled.js
 
@@ -88,4 +90,33 @@ var nameBuilder = function nameBuilder() {
 
 nameBuilder();
 
-                                                           
+/*	TIP: You can also do $babel script.js --watch --out-file script-compiled.js
+This transpiles every time there's a change in script.js
+*/
+
+(create nodescript.js)
+		var EventEmitter = require('events').EventEmitter;
+
+		var Person = function(name){
+		    this.name = name;
+		};
+
+		Person.prototype = new EventEmitter();
+
+		let Joanne = new Person("Joanne Wilson"); //noitce 'let'. It's an ES6 feature and babel transpiles that as well
+
+		Joanne.on('speak', function(say) {
+		    console.log("Ooooh helloooo " + say);
+		});
+
+		Joanne.emit('speak', "how's it goin");
+$babel-node nodescript.js
+($node nodescript.js doesn't work with the ES6 features)
+
+
+
+
+
+
+
+
