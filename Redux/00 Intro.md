@@ -30,12 +30,14 @@ That level of complexity can be exaggerated at scale. In addition to having many
 applications also have many developers and teams working on the same codebase. Making changes can be intimidating at 
 this level. So, Facebook developed a new approach, Flux. In Flux, the data flows in one direction.
 
+<b>
 Changes are initiated with actions. Actions are objects that describe what should change about the data. 
 Actions are dispatched with the dispatcher. The dispatcher is an object that sends the action to the appropriate store. 
 The store holds the data. It's like a model, but they're not exactly the same. The store is responsible for updating or 
 changing its data. Finally, when the store updates the data, that change updates the view. The screen changes, reflecting
 the data back to the user. Now, if the user interacts with the view, a new action is generated and the process starts all 
 over again.
+</b>
 
 Data flows in one direction. Now, as a Flux application grows, it may include more stores and more views, but the dataflow
 remains unidirectional. All changes in a Flux application begin by dispatching actions and end with updating views.
