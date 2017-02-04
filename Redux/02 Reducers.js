@@ -14,6 +14,7 @@ $npm install --save-dev babel-cli babel-preset-latest babel-preset-stage-0
           {
             "presets": ["latest", "stage-0"]
           }
+
 (index.js in src)
       import C from './constants'
       import { allSkiDays, goal } from './initialState.json'
