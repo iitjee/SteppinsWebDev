@@ -62,7 +62,7 @@
 
         case C.CLEAR_ERROR : 
 
-          return state.filter((message, i) => i !== action.payload)
+          return state.filter((Errmessage, i) => i !== action.payload)
 
         default: 
           return state
@@ -75,3 +75,4 @@
     // This callback function will be invoked once for every message in the array.
     //Now, we call this function a predicate because it expects a true or false.
 //here, the condition is if(i!==action.payload) then the item will make it into the array
+    //(Errmessage, i) are arguments to callback
