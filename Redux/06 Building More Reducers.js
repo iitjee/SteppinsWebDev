@@ -32,8 +32,8 @@ corresponding action names are defined in constants.js
 
         export default constants
 
-We'll make an each file for each action:
-Before that,
+//We'll make an each file for each action:
+//Before that,
 (in root/store/reducers.js)
         export const fetching = (state=false, action) => {
 
