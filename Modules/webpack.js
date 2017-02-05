@@ -7,7 +7,7 @@ start folder->webpack.config.js
               entry: "./src/index.js",          //creating entry point
               output: {
                 path: "dist/assets",
-                filename: "bundle.js",          //creates bundle.js(browser-friendly) from index.js(latest-js friendly) file
+                filename: "bundle.js",          //creates bundle.js(browser javascript friendly) from index.js(latest javascript friendly) file
                 publicPath: "assets"            //folder where 'bundle' file will reside
               },
               devServer: {          //a server like http along with hotreloading feature! :D (alternative to httpster)
@@ -15,13 +15,13 @@ start folder->webpack.config.js
                 contentBase: './dist',          //all files are located here
                 port: 3000
               },
-              module: {
+              module: { 
                 loaders: [
                   {//to handle js
                     test: /\.js$/,  //look for any file that has .js extension
                     exclude: /(node_modules)/,  //don't look in /node_modules folder
                     loader: ["babel-loader"],
-                    query: {
+                    query: { //to make sure babel knows which presets to use in order to transpile our code.
                       presets: ["latest", "stage-0", "react"]   //
                     }
                   }
@@ -29,6 +29,10 @@ start folder->webpack.config.js
                         test: /\.json$/,
                         exclude: /(node_modules)/,
                         loader: "json-loader"
+                            //Node.js automatically loads JSON documents, but the client and the browser does not.
+//                         So we need to use a loader to make sure any improted JSON gets added to our bundle. So again, we're 
+//                         going to do another test using a regular expression, and we will test for the JSON extension, and also
+//                         we want to make sure that we exclude anything found in the node modules folder,
                     }
                 {//to handle css
                             test: /\.css$/,
