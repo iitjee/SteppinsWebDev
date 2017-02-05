@@ -92,7 +92,7 @@ So action creators are functions that would encapsulate the logic.
           setGoal(55)
         )
 
-
+/*   So I was able to dispatch all of these actions using functions as opposed to dispatching the object directly.  */
 
 
 
