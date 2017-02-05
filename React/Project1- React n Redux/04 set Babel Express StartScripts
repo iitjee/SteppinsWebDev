@@ -10,3 +10,77 @@
   }
 }
 
+// It's good to keep all your build tools in a single folder
+//create root/ tools
+//create srcServer.js => this file will configure our web server that serves up the files in our source director 
+
+      import express from 'express';
+      import webpack from 'webpack';
+      import path from 'path';
+      import config from '../webpack.config.dev';
+      import open from 'open';
+
+      /* eslint-disable no-console */
+
+      const port = 3000;
+      const app = express(); //create an instance of express application
+      const compiler = webpack(config); //call webpack with the configuration we've done webpack.config.dev
+
+/*  configuring expfress  */
+
+      app.use(require('webpack-dev-middleware')(compiler, {
+        noInfo: true,
+        publicPath: config.output.publicPath
+      }));
+
+      app.use(require('webpack-hot-middleware')(compiler));
+
+
+      app.get('*', function(req, res) {
+        res.sendFile(path.join( __dirname, '../src/index.html'));
+      }); //express will now serve index.html for all the reqests
+
+      app.listen(port, function(err) { //starting up express listenting on port 3000 (see above)
+        if (err) {
+          console.log(err);
+        } else {
+          open(`http://localhost:${port}`); //we open the browser using the 'open' pakage
+        }
+      });
+
+/*   NPM Start Scripts  (alternative gulp and grunt) */
+ "scripts": {
+    "start" : "babel-node tools/srcServer.js"
+  }
+press opt+fn+f12 to open terminal in webstorm
+$npm start -s //s is not really needed but it will supress lot of noise that you will see on teh command line`
+//lets put on som color in terminal. in pkg json notice 'colors.js'
+//create in root/tools startMessage.js for a starting message when we run npm start -s
+    import colors from 'colors';
+    /*eslint-disable no-console */ //we're disabling ESLint's check for use of console. in this case it's okay as this is just a build script
+    console.log('Starting app in dev mode...'.green);
+ 
+ "scripts": {
+   "prestart": "babel-node tools/startMessage.js", 
+    "start" : "babel-node tools/srcServer.js"
+  }
+  
+  
+  
+  (finally)
+  "scripts": {
+      "prestart": "babel-node tools/startMessage.js", //runs before start is executed. we can also have poststart
+      "start": "npm-run-all --parallel test:watch open:src lint:watch",
+      "open:src": "babel-node tools/srcServer.js",
+      "lint": "node_modules/.bin/esw webpack.config.* src tools",
+      "lint:watch": "npm run lint -- --watch",
+      "test": "mocha --reporter progress tools/testSetup.js src/**/*.test.js src/components/**/*.test.js",
+      "test:watch": "npm run test -- --watch",
+      "clean-dist": "npm run remove-dist && mkdir dist",
+      "remove-dist": "node_modules/.bin/rimraf ./dist",
+      "build:html": "babel-node tools/buildHtml.js",
+      "prebuild": "npm-run-all clean-dist test lint build:html",
+      "build": "babel-node tools/build.js",
+      "postbuild": "babel-node tools/distServer.js"
+    },
+
