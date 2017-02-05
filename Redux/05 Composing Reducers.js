@@ -44,10 +44,12 @@ Let's merge all the reducers
             case C.ADD_DAY : 
 
               const hasDayAlready = state.some(skiDay => skiDay.date === action.payload.date)
-              //The some() method returns true if some element in the array passes the test implemented by the provided function.
-
+              // The some() method returns true if some element in the array passes the test 
+              // implemented by the provided function.
+              //test is checking if the new state(payload) has the same date as anything which already exists in array
+`
               return (hasDayAlready) ?
-                 state :
+                 state : //day is already reserved for sth else. return prev state
                  [
                    ...state,
                    skiDay(null, action) //see how you are using skiDay reducer
