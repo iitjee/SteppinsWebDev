@@ -75,7 +75,16 @@ by babel.creating the bundle.
                         test: /\.json$/,
                         exclude: /(node_modules)/,
                         loader: 'json-loader'
+                        //Node.js automatically loads JSON documents, but the client and the browser does not.
+//                         So we need to use a loader to make sure any improted JSON gets added to our bundle. So again, we're 
+//                         going to do another test using a regular expression, and we will test for the JSON extension, and also
+//                         we want to make sure that we exclude anything found in the node modules folder,
                     }
                 ]
             }
         }
+
+//and finally put this in pkg.json
+"scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server"
+  },
