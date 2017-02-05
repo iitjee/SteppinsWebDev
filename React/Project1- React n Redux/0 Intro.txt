@@ -1,0 +1,74 @@
+Redux :    
+ES6 with babel 
+React Router
+WebPack
+npm scripts
+ESLint
+Mocha, React Test Utils, and Enzyme
+Webstorm as editor
+
+
+why redux is so popular?
+1. Redux centralizes all of your application state in one store: a single centralized object graph
+ this makes it easier interactions
+2. Reduced boilerplate. Your top-level container(app.js) components are subscribed to the store n a very elegant way.
+3. It's architecture is friendly for server rendering and react components
+which is commonly referred to as isomorphic or universal js.
+4. Has an immutable store => more performance
+5. Hot reloading => instant viewing
+6. Time-travel debugging: allows you to step forward and backward through state changes in your code
+and even replay interactions
+7. Small: 2Kb minified
+
+
+Versions Used:
+"dependencies": {
+    "babel-polyfill": "6.8.0",
+    "bootstrap": "3.3.6",
+    "jquery": "2.2.3",
+    "react": "15.0.2",
+    "react-dom": "15.0.2",
+    "react-redux": "4.4.5",
+    "react-router": "2.4.0",
+    "react-router-redux": "4.0.4",
+    "redux": "3.5.2",
+    "redux-thunk": "2.0.1",
+    "toastr": "2.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "6.8.0",
+    "babel-core": "6.8.0",
+    "babel-loader": "6.2.4",
+    "babel-plugin-react-display-name": "2.0.0",
+    "babel-preset-es2015": "6.6.0",
+    "babel-preset-react": "6.5.0",
+    "babel-preset-react-hmre": "1.1.1",
+    "babel-register": "6.8.0",
+    "colors": "1.1.2",
+    "compression": "^1.6.1",
+    "cross-env": "1.0.7",
+    "css-loader": "0.23.1",
+    "enzyme": "2.2.0",
+    "eslint": "2.9.0",
+    "eslint-plugin-import": "1.6.1",
+    "eslint-plugin-react": "5.0.1",
+    "eslint-watch": "2.1.11",
+    "eventsource-polyfill": "0.9.6",
+    "expect": "1.19.0",
+    "express": "4.13.4",
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.8.5",
+    "jsdom": "8.5.0",
+    "mocha": "2.4.5",
+    "nock": "8.0.0",
+    "npm-run-all": "1.8.0",
+    "open": "0.0.5",
+    "react-addons-test-utils": "15.0.2",
+    "redux-immutable-state-invariant": "1.2.3",
+    "redux-mock-store": "1.0.2",
+    "rimraf": "2.5.2",
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.13.0",
+    "webpack-dev-middleware": "1.6.1",
+    "webpack-hot-middleware": "2.10.0"
