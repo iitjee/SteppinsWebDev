@@ -67,7 +67,7 @@ by babel.creating the bundle.
                         test: /\.js$/,
                         exclude: /(node_modules)/,
                         loader: ['babel'],
-                        query: {
+                        query: { //to make sure babel knows which presets to use in order to transpile our code.
                             presets: ['latest', 'stage-0']
                         }
                     },
