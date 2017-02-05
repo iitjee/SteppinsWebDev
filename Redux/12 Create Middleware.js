@@ -37,8 +37,8 @@ export default (initialState={}) => {
       }}
       }
 
-Now the reason that it's a higher order function is because we have asynchronicity to deal with. So the action is going to be dispatched when that occurs. 
-Now this code looks scary a little bit. This is where arrow functions can make your code look a little bit nicer. 
+// Now the reason that it's a higher order function is because we have asynchronicity to deal with. So the action is going to be dispatched when that occurs. 
+// Now this code looks scary a little bit. This is where arrow functions can make your code look a little bit nicer. 
     const consoleMessages = store => next => action => {
 // This function gives us the action that is currently being dispatched, along with a mechanism to dispatch that action and change the state. What we need to do is record the result.
 
@@ -46,17 +46,24 @@ const consoleMessages = store => next => action => { //since each function takes
 
 	let result
    result = next(action) //action gets dispatched, and our state will actually change.
+	return result
+}
+/*
+ So now I have a function that doesn't really do much, except dispatch the action. And this makes sure that we do not break the store's current dispatch pipeline.
+ But inside of this function, I can add functionality before or after I dispatch the action by adding code
+ before or after `result = next(action)`
+ 
+ So before we dispatch the action, let's create a console group. Console groups allow us to group all of the logs hat are associated with this action into a collapsible group on the console.
+*/
 
-
-
-
-const consoleMessages = store => next => action => { //since each function takes a single argument, we 've removed parans
-
-	let result
-
-	console.groupCollapsed(`dispatching action => ${action.type}`)
+//after let result
+console.groupCollapsed(` dispatching action: ${action.type}`)
+	    
+//So after I log the action's type, I could log some information about the state before the action is dispatched.
 	console.log('ski days', store.getState().allSkiDays.length)
-	result = next(action)
+
+// So now after the action is dispatched, we can get some information about the current state. 
+	    
 
 	let { allSkiDays, goal, errors, resortNames } = store.getState()
 
