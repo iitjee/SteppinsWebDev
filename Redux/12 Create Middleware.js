@@ -4,7 +4,7 @@ Now that we know how to use the store, along with its various methods, we are re
 advanced redux topic: middleware. 
 
 Middleware gives us the ability to add functionality directly to the store's dispatch pipeline.
-Now the subscribe method allows us to subscribe listeners to the store, and these listeners are invoked after the dispatch
+Now the subscribe method allows us to subscribe listeners to the store, and these listeners are invoked AFTER the dispatch
 occurs. 
 
 But middleware is far more powerful. Middleware gives us control over how actions are dispatched. We can add functionality 
@@ -21,8 +21,8 @@ import C from '../constants'
 import appReducer from './reducers'
 import { createStore } from 'redux'
 
-export default (initialState={}) => {
-  return createStore(appReducer, initialState) //this file exports a function that we can use to create stores. 
+export default (initialState={}) => {	
+  return createStore(appReducer, initialState) //this file exports a function that we can use to create stores with the help of initialState argument
 }
 
 //Now the reason I want to encapsulate everything in this file is so that we can add middleware.
@@ -31,40 +31,42 @@ export default (initialState={}) => {
 
 
     const consoleMessages = function(store)  {
-      return function(next) { //
-        return function(action) { //This is the function that we will use to actually invoke or dispatch the action
+      return function(next) { //This is the function that we will use to actually invoke or dispatch the action
+        return function(action) { //this function will pass the action itself
 
       }}
       }
 
-// Now the reason that it's a higher order function is because we have asynchronicity to deal with. So the action is going to be dispatched when that occurs. 
+// Now the reason that it's a higher order function is because we have asynchronicity to deal with. 
+//So the action is going to be dispatched when that occurs. 
 // Now this code looks scary a little bit. This is where arrow functions can make your code look a little bit nicer. 
-    const consoleMessages = store => next => action => {
-// This function gives us the action that is currently being dispatched, along with a mechanism to dispatch that action and change the state. What we need to do is record the result.
+    const consoleMessages = (store) => (next) => (action) => {
+// This function gives us the action that is currently being dispatched, along with a mechanism to 
+//dispatch that action and change the state. What we need to do is record the result.
 
 const consoleMessages = store => next => action => { //since each function takes a single argument, we 've removed parans
-
 	let result
    result = next(action) //action gets dispatched, and our state will actually change.
 	return result
 }
 /*
- So now I have a function that doesn't really do much, except dispatch the action. And this makes sure that we do not break the store's current dispatch pipeline.
+ So now I have a function that doesn't really do much, except dispatch the action. 
+ And this makes sure that we do not break the store's current dispatch pipeline.
  But inside of this function, I can add functionality before or after I dispatch the action by adding code
  before or after `result = next(action)`
  
- So before we dispatch the action, let's create a console group. Console groups allow us to group all of the logs hat are associated with this action into a collapsible group on the console.
+ So before we dispatch the action, let's create a console group. 
+ Console groups allow us to group all of the logs hat are associated with this action into a collapsible group on the console.
 */
 
-//after let result
-console.groupCollapsed(` dispatching action: ${action.type}`)
+//after `let result`
+	console.groupCollapsed(`dispatching action: ${action.type}`)
 	    
-//So after I log the action's type, I could log some information about the state before the action is dispatched.
+// So after I log the action's type, I could log some information about the state before the action is dispatched.
 	console.log('ski days', store.getState().allSkiDays.length)
 
 // So now after the action is dispatched, we can get some information about the current state. 
-	    
-
+	    //after `result=next(action)`
 	let { allSkiDays, goal, errors, resortNames } = store.getState()
 
 	console.log(`
@@ -82,4 +84,96 @@ console.groupCollapsed(` dispatching action: ${action.type}`)
 	return result
 
 }
+
+    
+    /* Now in order to associate this middleware with our store, we're going to need to grab the applyMiddleware function 
+    from redux. The applyMiddleware function is used to apply this crazy higher order function to the store and make sure
+    that each function gets its appropriate arguments. . */
+    import { createStore, applyMiddleware } from 'redux'
+
+
+//So let's go down to the bottom of this file where we export our file
+//Instead of returning a createStore with our appReducer, we are going to return the results of the applyMiddleware function.
+// And we are going to apply our consoleMessages. Now applyMiddleware will return a function, so what we want to send to that 
+// function is the createStore function that we are using to build our stores. That's just createStore.
+// And now this will return a createStore function with us. So it's a new createStore function that will 
+// create stores with our consoleMessages middleware.
+
+/*	REMOVE this	*/
+	export default (initialState={}) => {	
+	  return createStore(appReducer, initialState) 
+	}
+
+/* Replace with this	*/
+	export default (initialState={}) => {
+		return applyMiddleware(consoleMessages)(createStore)(appReducer, initialState)
+	}
+//Now applyMiddleware will return a function, so what we want to send to that function is the createStore function that 
+//we are using to build our stores. That's just createStore. And now this will return a createStore function with us.
+// So it's a new createStore function that will create stores with our consoleMessages middleware.
+// I'm going to go ahead and add our appReducer, and whatever the initialState is that is being passed to this function
+
+	
+/*	So now this file exports a function that we can use to create stores for the ski day counter. 
+It returns a store that's created with our middleware, the consoleMessages and it also applies our appReducer 
+and any initialState that is passed to this function. 	*/
+	
+
+(finally root/src/store/index.js) 
+	import C from '../constants'
+	import appReducer from './reducers'
+	import { createStore, applyMiddleware } from 'redux'
+
+	const consoleMessages = store => next => action => {
+
+		let result
+
+		console.groupCollapsed(`dispatching action => ${action.type}`)
+		console.log('ski days', store.getState().allSkiDays.length)
+		result = next(action)
+
+		let { allSkiDays, goal, errors, resortNames } = store.getState()
+
+		console.log(`
+
+			ski days: ${allSkiDays.length}
+			goal: ${goal}
+			fetching: ${resortNames.fetching}
+			suggestions: ${resortNames.suggestions}
+			errors: ${errors.length}
+
+		`)
+
+		console.groupEnd()
+
+		return result
+
+	}
+
+	export default (initialState={}) => {
+		return applyMiddleware(consoleMessages)(createStore)(appReducer, initialState)
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
