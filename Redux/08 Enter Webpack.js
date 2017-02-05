@@ -47,3 +47,35 @@ it, I want to make sure that the babel core package has been installed, and this
 by babel.creating the bundle.
 */
 
+(create root/webpack-config.js)
+        module.exports = {
+            entry: "./src/index.js",
+            output: {
+                path: "dist/assets",
+                filename: "bundle.js",
+                publicPath: "assets" //so that the dev server knows where to find this file on the client
+            },
+            // The next thing I'm going to add is the node for the dev server. This will tell the web pack dev server how it should operate.
+            devServer: {
+                inline: true,
+                contentBase: "./dist", // to tell the dev server is where to serve content from.
+                port: 3000
+            },
+            module: {
+                loaders: [
+                    {
+                        test: /\.js$/,
+                        exclude: /(node_modules)/,
+                        loader: ['babel'],
+                        query: {
+                            presets: ['latest', 'stage-0']
+                        }
+                    },
+                    {
+                        test: /\.json$/,
+                        exclude: /(node_modules)/,
+                        loader: 'json-loader'
+                    }
+                ]
+            }
+        }
