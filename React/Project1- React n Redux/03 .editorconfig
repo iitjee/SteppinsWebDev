@@ -1,0 +1,17 @@
+//same editor configuration helps people working with different editors to have same settings. :)
+
+
+
+# editorconfig.org
+root = true
+
+[*]
+indent_style = space //here we're replacing the default tab indentation with space bar indentation! :/
+indent_size = 2 //indentation size is also reduced to 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
