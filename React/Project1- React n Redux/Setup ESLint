@@ -1,0 +1,91 @@
+To help us quickly catch mistakes, maintain consistency and enforce best practices
+we're going to use ESLint to lint our code.
+
+Everytime we save it'll run.
+To configure ESLint we need to put eslintrc file in the root
+
+0==Off 1==Warning 2==Error (these numbers are @bottom)
+
+{ //most of this setup can be done with $eslint --init
+  "extends": [
+    "eslint:recommended", //we begin by extending ESLint's recommonded settings as a baseline
+    "plugin:import/errors", //we're also augmenting the recommended settings with plugins that provide enhanced linting  for ES6 imports
+    "plugin:import/warnings"
+  ],
+  
+  "plugins": [
+    "react" //here we're also using ESLint plugin React to add a number of React-specific linting rules
+    //all the rules can be seen below. They're prefixed with react.
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {  //this is for the browser environment (i.e client side code)``
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    "mocha": true
+  },
+  
+  
+  //Here we override various settings based on our personal choice
+  "rules": {
+    "quotes": 0,
+    "no-console": 1,
+    "no-debugger": 1,
+    "no-var": 1,
+    "semi": [1, "always"],
+    "no-trailing-spaces": 0,
+    "eol-last": 0,
+    "no-unused-vars": 0,
+    "no-underscore-dangle": 0,
+    "no-alert": 0,
+    "no-lone-blocks": 0,
+    "jsx-quotes": 1,
+    
+    /*  Note that these are react rules: 0==Off 1==Warning 2==Error */
+    "react/display-name": [ 1, {"ignoreTranspilerName": false }],
+    "react/forbid-prop-types": [1, {"forbid": ["any"]}],
+    "react/jsx-boolean-value": 1,
+    "react/jsx-closing-bracket-location": 0,
+    "react/jsx-curly-spacing": 1,
+    "react/jsx-indent-props": 0,
+    "react/jsx-key": 1,
+    "react/jsx-max-props-per-line": 0,
+    "react/jsx-no-bind": 1,
+    "react/jsx-no-duplicate-props": 1,
+    "react/jsx-no-literals": 0,
+    "react/jsx-no-undef": 1,
+    "react/jsx-pascal-case": 1,
+    "react/jsx-sort-prop-types": 0,
+    "react/jsx-sort-props": 0,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "react/no-danger": 1,
+    "react/no-did-mount-set-state": 1,
+    "react/no-did-update-set-state": 1,
+    "react/no-direct-mutation-state": 1,
+    "react/no-multi-comp": 1,
+    "react/no-set-state": 0,
+    "react/no-unknown-property": 1,
+    "react/prefer-es6-class": 1,
+    "react/prop-types": 1,
+    "react/react-in-jsx-scope": 1,
+    "react/require-extension": 1,
+    "react/self-closing-comp": 1,
+    "react/sort-comp": 1,
+    "react/wrap-multilines": 1
+  }
+}
+
+
+
+
+
+
+
