@@ -32,18 +32,13 @@ So action creators are functions that would encapsulate the logic.
       //powder and backcountry are not passed, so as to give default values! cool.
     )
 
-    store.dispatch(
-      removeDay("2016-12-22")
-    )
-
-    store.dispatch(
-      setGoal(55)
-    )
 
 (create  root/actions.js)
     import C from './constants'
 
     export function addDay(resort, date, powder=false, backcountry=false) {
+        //If we had any application logic, we could add it here. So if we wanted to write any other code that 
+        //we're not allowed to write in reducers, we could add that here. 
       return {
         type: C.ADD_DAY,
         payload: {resort,date,powder,backcountry}
@@ -51,6 +46,51 @@ So action creators are functions that would encapsulate the logic.
 
     }
 
+/*  Let's create some more action creators  */
+    (in actions.js)
+        import C from './constants'
+
+        export function addDay(resort, date, powder=false, backcountry=false) {
+
+            return {
+                type: C.ADD_DAY,
+                payload: {resort,date,powder,backcountry}
+            }
+
+        }
+
+        export const removeDay = function(date) {
+
+            return {
+                type: C.REMOVE_DAY,
+                payload: date
+            }
+
+        }
+
+        export const setGoal = (goal) =>  //returning an entire object through parans
+            ({
+                type: C.SET_GOAL,
+                payload: goal
+            })
+
+(in index.js)
+        import storeFactory from './store'
+        import { addDay, removeDay, setGoal } from './actions'
+
+        const store = storeFactory()
+
+        store.dispatch(
+            addDay("Heavenly", "2016-12-22")
+        )
+
+        store.dispatch(
+            removeDay("2016-12-22")
+        )
+
+        store.dispatch(
+          setGoal(55)
+        )
 
 
 
