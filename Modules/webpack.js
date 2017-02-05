@@ -38,6 +38,18 @@ export default {
   output: {filename: "bundle.js"}
 }
 
+$webpack --watch //goes to watch mode and recompiles whenever there's a change
+//or in config file write
+watch:true
+
+//webpack-dev-server (for reloading and to put a local web server)
+$npm install --save-dev webpack-dev-server
+$webpack-dev-server
+//go to localhost:8080/webpack-dev-server
+//In console, you will see "App Loaded"
+//If you just want your application without the stausbar, just go to localhost:8080
+
+
 start folder->webpack.config.js
             var webpack = require("webpack");
 
