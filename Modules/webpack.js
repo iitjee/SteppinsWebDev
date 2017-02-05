@@ -1,4 +1,42 @@
 (ly react ess tra)
+/*
+(plusi) for the most part we avoid build step when coming to js. Because all it has
+to be interpreted by browser. But as time went by, web apps grew larger and suffered
+problems from maintenance, performance and security.
+
+Browser<=====>Server
+Multiple web requests inside browser and server cause a big delay. 
+While devlopment, we tend to put a lot of components to improve modularity but that's not
+good for production. So we can build everything into one to improve performace.
+Also minification.
+Then file order dependencies. That's javascript files are loaded in html in order of their
+declaration. But if there are a lot of files it becomes a heck. you can use Angular, where order is not at all impor.
+Other solution is to use 'module system'. this lets us specify which files are needed in other file/
+Then, TRANSPILATION. browsers may not support the latest language.
+Linting: Warner. Sometimes IDEs do linting for us. but still.. :)
+
+Other solutions:
+Server-Side Tools: ASP.NET, Ruby on Rails
+Task Runners: Gulp and Grunt
+
+Webpack is a "specialized" task runner that excels in one task: 'processing input files and output files'
+You can use 'loaders' === transpiler
+
+*/​
+$npm install -g webpack
+
+//a simple configuration file
+module.exports ={
+  entry: "./app.js"
+  output: {
+  filename: "bundle.js"
+  }
+}
+//you can also use 
+export default {
+  entry: [array of all files],
+  output: {filename: "bundle.js"}
+}
 
 start folder->webpack.config.js
             var webpack = require("webpack");
