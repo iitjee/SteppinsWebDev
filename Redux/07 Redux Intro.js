@@ -32,7 +32,7 @@ $npm install --save redux
        resortNames
      })
       
-     export default singleReducer
+     export default singleReducer //will be exported by default when you import this file
 
       // we've combined all of the reducers into one single 
       //reducer, but the shape of the single reducer matches the shape of our initial state JSON object.
@@ -47,3 +47,57 @@ $npm install --save redux
        suggestions
      })
    })
+
+
+(in index.js)
+    import C from './constants'
+
+    import appReducer from './store/reducers' // because the single reducer has been exported by default, there's no need to destructure specific reducer functions
+
+    import initialState from './initialState.json'
+
+    let state = initialState
+
+    console.log(`
+
+     Initial state
+     =============
+     goal: ${state.goal}
+     resorts: ${JSON.stringify(state.allSkiDays)}
+     fetching: ${state.resortNames.fetching}
+     suggestions: ${state.resortNames.suggestions}
+
+    `)
+
+// Our single reducer, and we're going to send it the initial state object, and the second argument is going to be the action.
+    state = appReducer(state, {
+     type: C.SET_GOAL,
+     payload: 2
+    })
+
+    state = appReducer(state, {
+     type: C.ADD_DAY,
+     payload: {
+      "resort": "Mt Shasta",
+      "date": "2016-10-28",
+      "powder": false,
+      "backcountry": true
+     }
+    })
+
+    state = appReducer(state, {
+     type: C.CHANGE_SUGGESTIONS,
+     payload: ["Mt Tallac", "Mt Hood", "Mt Shasta"]
+    })
+//a series of actions(mutations) have been done
+
+    console.log(`
+
+     Next state
+     =============
+     goal: ${state.goal}
+     resorts: ${JSON.stringify(state.allSkiDays)}
+     fetching: ${state.resortNames.fetching}
+     suggestions: ${state.resortNames.suggestions}
+
+    `)
