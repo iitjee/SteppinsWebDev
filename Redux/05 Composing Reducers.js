@@ -52,13 +52,13 @@ Let's merge all the reducers
                  state : //day is already reserved for sth else. return prev state
                  [
                    ...state,
-                   skiDay(null, action) //see how you are using skiDay reducer
+                   skiDay(null, action) //see how you are using skiDay reducer (viz called comopsing) //however, in this p case it's not really as skiDay(null, action) simply returns action.payload which we can write directly
                  ].sort((a, b) => new Date(b.date) - new Date(a.date))
 
             case C.REMOVE_DAY :
-
+                        //removes day on basis of date as key
               return state.filter(skiDay => skiDay.date !== action.payload)     
-
+                //state.filter returns a new array with only those elements that pass the test
             default:
               return state
           }
