@@ -1,10 +1,10 @@
-http://eslint.org/docs/developer-guide/working-with-rules
-The ESlint rules live in the lib/rules folder in the ESLint Project
+/*      http://eslint.org/docs/developer-guide/working-with-rules
+The ESlint rules live in the lib/rules folder in the ESLint Project     */
 
-Let's check for the 'no-console' rule
-$nvim node_modules/eslint/lib/rules/no-console.js
-//we can see that this file exports an object with a meta property and a create method
-meta property contains two properties : the docs object and the schema array
+//Let's check for the 'no-console' rule
+        $nvim node_modules/eslint/lib/rules/no-console.js
+/* we can see that this file exports an object with a meta property and a create method
+   meta property contains two properties : the docs object and the schema array */
 
 The docs object contains a description and a category for documentation purposes
 and 'recommended' field which determines whether this is a part of the eslint:recommended ruleset
