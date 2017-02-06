@@ -1,0 +1,15 @@
+/*
+
+
+
+
+*/
+
+
+Some engineers consisder FIXME or TODO comments as code smell.
+
+Technically, comments are not part of AST.
+ESLint specifically adds those in for us. So go to ESLint Dev guide -> rules
+Check for context.getSourceCode() -> getALlComments()
+
+
