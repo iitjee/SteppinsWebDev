@@ -6,7 +6,7 @@ The ESlint rules live in the lib/rules folder in the ESLint Project     */
 /* we can see that this file exports an object with a meta property and a create method
    meta property contains two properties : the docs object and the schema array */
 
-The docs object contains a description and a category for documentation purposes
+The docs object contains a 'description' and a 'category' for documentation purposes
 and 'recommended' field which determines whether this is a part of the eslint:recommended ruleset
         meta: {
                 docs: {
@@ -36,13 +36,12 @@ The schema property allows you to enforce what params are being passed as part o
                 
                 
 //Let's look at the create(..) method which is the most important
-     create(context) {
+     create(context) { //see that context parameter is available to us
             const options = context.options[0] || {};
             const allowed = options.allow || [];
 
             function isConsole(reference) {
                 const id = reference.identifier;
-
                 return id && id.name === "console";
             }
                 
