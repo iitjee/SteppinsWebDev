@@ -83,6 +83,13 @@ To configure ESLint we need to put eslintrc file in the root
   }
 }
 
+//and finally in pkg.json add this in "scripts"
+"scripts: : {
+..
+    "lint": "node_modules/.bin/esw webpack.config.* src tools",
+..
+}
+
 
 
 
