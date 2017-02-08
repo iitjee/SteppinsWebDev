@@ -52,3 +52,41 @@ global.navigator = {
 };
 
 documentRef = document;  //eslint-disable-line no-undef
+
+
+
+//now let's automate it by writing npm script
+    "test": "mocha --reporter progress tools/testSetup.js src/**/*.test.js src/components/**/*.test.js",
+
+
+
+reporter flag: we are using progress reporter bcos it's compact and doesn't add lot of noise to our terminal
+and then we tell mocha to run testSetup and then run any tests that finds in our source directory...
+we're following the convention of ending all test files in test.js
+
+//now let's create a test file in src dir (index.test.js) (some prefer spec.js)
+// Mocha doesn't come with assertion library, so we'll use 'expect'
+// so just let's stub in test that will give true
+(src/index.test.js)
+    import expect from 'expect';
+
+    describe('Our first test', () => {
+      it('should pass', () => {
+        expect(true).toEqual(true);
+      });
+    });
+
+$npm test (or $npm run test)
+
+
+//now we want to run them automatically whenever we save file
+    "test:watch": "npm run test -- --watch"
+//and modify "start"
+    "start": "npm-run-all --parallel test:watch open:src lint:watch",
+      
+$npm start  -s
+
+
+/*  Voila! we're all wired up with a powerful and rapid development environemnt! */ 
+
+
