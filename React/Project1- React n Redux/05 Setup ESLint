@@ -95,6 +95,30 @@ To configure ESLint we need to put eslintrc file in the root
 $npm run lint
 
 
+//also add this
+"scripts": {
+    "lint:watch": "npm run lint -- --watch", //`npm run lint` will execute our custom 'lint' command
+}//this wierd syntax let us pass 'watch' flag to our lint script
 
+
+/* Now we want to run all the scripts automatically without hastle  */
+$npm run all
+//with this we can run all at a time or in parallel
+
+
+//add
+    "start": "npm-run-all --parallel open:src lint:watch",
+//parallel flag is passed to tell it to run anything that is listed right to it 'at the same time'
+//i.e open:src lint:watch will be done at a time
+
+//final scripts key will look like this
+
+"scripts": {
+    "prestart": "babel-node tools/startMessage.js",
+    "start": "npm-run-all --parallel test:watch open:src lint:watch",
+    "open:src": "babel-node tools/srcServer.js",
+    "lint": "node_modules/.bin/esw webpack.config.* src tools",
+    "lint:watch": "npm run lint -- --watch"
+    }
 
 
