@@ -6,7 +6,7 @@ We see that the RealTimeMessaging API provides everything we need, and that it r
 https://api.slack.com/rtm
 <br/>
 
-<b> Anatomy of our app </b>
+<b> Anatomy of our app: </b> <br/>
 First, we need a main application. We will use the Express framework for that, as it provides a good starting point for what we will create. 
 This main implication should handle connections to Slack, handle our services, receive messages from Slack, process messages, route messages to a service, and send replies to Slack.
 <br/>
