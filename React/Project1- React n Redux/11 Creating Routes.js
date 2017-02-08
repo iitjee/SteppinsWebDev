@@ -27,7 +27,7 @@ import { render } from 'react-dom';
 import { Router, browserHistory } from 'react-router'; //
 import routes from './routes';
 import './styles/styles.css'; //Webpack can import CSS files too!
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; //Yes! Webpack handles all the bundling and stuff
 
 render(
   <Router history={browserHistory} routes={routes} />, //we pass our history prop onto our Router compo
