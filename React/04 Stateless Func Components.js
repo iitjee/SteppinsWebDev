@@ -31,6 +31,10 @@ Component Syntax:
     6. Easier to understand. 
     Stateless functional components are functions that take in property information, and spits out JSX elements.
     => Easy to test and assertions are easier
+    each component can be tested neatly in isolation and no mocking, no statem manipulations, special libraies or tricky test harnesses are need.
+  
+    7. Performance (wince no state, no life-cycle methds and no memory leaks)
+
 
 */
 
