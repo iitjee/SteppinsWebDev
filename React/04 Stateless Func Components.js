@@ -102,4 +102,10 @@ Use class component anytime u need to utilze local state | to access refs in the
 Use stateeless com for every reason other than above :)
 
 
+/* Other ways to create components  */
+Object.create
+Mixins
+Parasitic Components
+StampIt
+(For details: https://gist.github.com/jquense/47bbd2613e0b03d7e51c#file-0-intro-md)
 
