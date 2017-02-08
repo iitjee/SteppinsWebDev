@@ -32,7 +32,8 @@ Presentaional = View
 Container Comp= Controller View
 
 
-
+When you notice that some components don't use the props they receive but instead just forward them, it's time to think making
+some container components.
 
 */
 
