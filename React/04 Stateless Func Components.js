@@ -2,9 +2,9 @@
 
 
 Component Syntax:
-  -createClass method (discussed in 3rd page)
+  -ES5 createClass method (discussed in 3rd page)
   -ES6 Class declaration (discussed in 3rd page)
-  - stateless functional component 
+  - stateless functional component (ES5, ES6)
 
  It's typically a good idea to use stateless components, whenever possible. 
  Stateless components offer a functional way to work with components, and, also, the React team has hinted that there may
