@@ -34,3 +34,27 @@ render(
   document.getElementById('app');
 );
 
+
+//since we referenced styles.css, let's make it!
+(in src, create styles folder -> styles.css)
+//we will be mostly using Bootstrap and just augment our own styles here to improve our layout
+    #app { /
+      font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #4d4d4d;
+      min-width: 550px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    a.active {
+      color: orange;
+    }
+
+    nav {
+      padding-top: 20px;
+    }
+
+
+
+
+
