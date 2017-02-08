@@ -3,9 +3,28 @@
   
   
 Component Syntax:
-  -createClass method
+  -ES5 createClass method
   -ES6 Class declaration
   - stateless functional component (see 4th page)
+(ES5 createClass style of component autobound for you. This means it avoided JS's quirky
+'this' keyword behavior by autobinding functions to the component's 'this' contenxt for you.
+    //works fine with es5 createClass
+    <div onClick={this.handleClick}> </div>
+  
+React components built using ES6 doesn't autobind for you. So you need to understand that the context of 'this'
+changes depending on the caller.
+    //requires explicit bind with ES6 class
+    <div onClick={this.handleClick.bind(this)}> </div>
+    
+To solve this, there are few ways. You can call `.bind` inline within your render function
+But for performance reasons it's recommended to bind `this` in the constructor
+    class Contacts extends React.Component {
+      constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+      }
+      ...
+      } //we can infact lint this to enforce in our design 
 
 methods: this.myMethod(...)
 props:  this.props.myProp
