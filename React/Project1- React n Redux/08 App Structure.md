@@ -1,0 +1,4 @@
+- Create our first Pages
+- Create a layout that will be used by all our pages
+- Configure Routing
+- Setup Navigation
