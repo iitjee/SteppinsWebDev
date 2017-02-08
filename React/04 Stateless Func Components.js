@@ -93,5 +93,13 @@ Component Syntax:
 
 
 
+/* When Should I use each?  */
+Use class component anytime u need to utilze local state | to access refs in the underlying dom |
+  | to use lifecycle methods | child functions(for performace bcos classes are good at that!)
+(stateless fn comp doesn't actually create a component instance and hence ref will always return null whe)
+(child functions are pain for stateless, because every render will create a new instance of that function)
+
+Use stateeless com for every reason other than above :)
+
 
 
