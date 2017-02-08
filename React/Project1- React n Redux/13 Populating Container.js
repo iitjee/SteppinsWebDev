@@ -40,6 +40,19 @@ export default (
   </Route>
 );
 
+//Now that we have added the routes, we need to now update our Header.js
+const Header = () => {
+  return (
+    <nav>
+      <IndexLink to="/" activeClassName="active">Home</IndexLink>
+      {" | "}
+      <Link to="/courses" activeClassName="active">Courses</Link>
+      {" | "}
+      <Link to="/about" activeClassName="active">About</Link>
+    </nav>
+  );
+};
+
 
 
 
