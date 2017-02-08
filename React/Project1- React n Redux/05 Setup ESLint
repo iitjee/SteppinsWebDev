@@ -88,9 +88,11 @@ To configure ESLint we need to put eslintrc file in the root
 ..
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
 ..
-}
+}//eslint by default doesn't have a watch functionality. So we use esw(eslint-watch)
+//update: eslint-watch(esw) doesn't currently support spaces in file names.
+//webpack.config.*, src, tools are the files we are asking it to watch but that shouldn't be really necessary 
 
-
+$npm run lint
 
 
 
