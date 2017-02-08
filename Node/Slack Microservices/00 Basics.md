@@ -23,10 +23,14 @@ Simply put, we tell the event loop, please do this task while we do other work, 
  Around 2010, the term microservices was coined, while they have much in common with SOA, their aim was simplicity. There is no standard but the set of best practices apply. Most important, one microservice should only do one task, like fetching a customer from a backend. It should be possible to develop and deploy a microservice completely independent from all other parts of an application. Microservices should communicate using standard HTTP methods.
  <br/>
  
- By the way, the most common protocol today is changed and no longer XML. The shopping system I talked about would now have an independent front that fetches data from various microservices. One service might return a list of items, while another one may provide excess to the shopping cart for a given user. Note that I am now talking about services and not methods as I did before. So, what are the overall benefits of using microservices? First of all, a new developer doesn't have to understand the whole application, as it was before.
-<br/>
-
-Services can be developed and deployed by independent teams, because there is not so much interdependency between those teams. Services can develop with the language that does a given task best, and also where the team feels comfortable with. And if a service fails, maybe you deployed a faulty service, something is wrong, not the whole application has to fail anymore. For our application, we will apply best practices and we will also take measures that if one service is degraded, the application will still be functioning.
- We call this resilience.
+ By the way, the most common protocol today is changed and no longer XML. The shopping system I talked about would now have an independent front that fetches data from various microservices. One service might return a list of items, while another one may provide excess to the shopping cart for a given user. Note that I am now talking about services and not methods as I did before.
+ <br/>
+ 
+ So, what are the overall benefits of using microservices? 
+ - First of all, a new developer doesn't have to understand the whole application, as it was before.
+ -  Services can be developed and deployed by independent teams, because there is not so much interdependency between those teams.
+ - Services can develop with the language that does a given task best, and also where the team feels comfortable with. And if a service fails, maybe you deployed a faulty service, something is wrong, not the whole application has to fail anymore. 
+ <br/>
+ For our application, we will apply best practices and we will also take measures that if one service is degraded, the application will still be functioning.We call this resilience.
 
 
