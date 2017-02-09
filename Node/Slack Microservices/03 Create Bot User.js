@@ -1,3 +1,4 @@
+/*
 https://allzzwell.slack.com/messages/general/
 
 Let's use a module called node.slack-stk, it's provided by the Slack team.
@@ -11,9 +12,10 @@ Give name to bot
 copy access tok (msgd to slackbot)
 click 'save integratoin' @bottom
 
+*/
 
-go to https://slackapi.github.io/node-slack-sdk/
-INSTALLATION: npm install @slack/client --save
+//go to https://slackapi.github.io/node-slack-sdk/
+//INSTALLATION: npm install @slack/client --save
 
 /*  Creating an RTM Client: */
 https://github.com/slackapi/node-slack-sdk (under Posting a message with the Real-Time Messaging API)
