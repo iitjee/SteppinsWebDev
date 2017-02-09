@@ -1,0 +1,65 @@
+/*
+
+
+ We will use a free service called wit.ai. It comes with a web interface and an API. Let's get started with that.
+ (https://www.linkedin.com/learning/building-a-slack-bot-with-node-js-microservices/set-up-natural-language-processing?autoplay=true)
+ ^ watch this for how to get started
+ 
+ What's the best way to add Wit to our project? The easiest way would be to simply add this API request into handleOnMessage
+ on slackClient here. While this seems legit, it means tight coupling between the natural language processing API we use and
+ the slackClient itself. What if we later decide to use another service for that or to implement the language processing part
+ locally? So I'd rather move this into a dedicated module and pass it into slackClient as language processing service to be
+ used.
+ */
+ 
+ (in server, create witClient.js)
+ 'use strict';
+      module.exports = function witClient(token) { //step-1
+          const ask = function ask(message) {
+            console.log('ask: ' + message);
+            console.log('token: ' + token);
+          }
+        }
+        
+/*   One important part is now that we have to return something from this initialization function, so we return
+some anonymous object, and this object contains a function ask, ask property, that we also call ask. */
+
+   return {
+              ask: ask
+          }
+ 
+ 
+ 
+ 
+ 
+       'use strict';
+
+      const request = require('superagent');
+
+      function handleWitResponse(res) {
+          return res.entities;
+      }
+
+      module.exports = function witClient(token) { //step-1
+          const ask = function ask(message, cb) {
+
+              request.get('https://api.wit.ai/message')
+                  .set('Authorization', 'Bearer ' + token)
+                  .query({v: '20160919'})
+                  .query({q: message})
+                  .end((err, res) => {
+                      if(err) return cb(err);
+
+                      if(res.statusCode != 200) return cb('Expected status 200 but got ' + res.statusCode);
+
+                      const witResponse = handleWitResponse(res.body);
+                      return cb(null, witResponse);
+                  })
+
+          }
+
+          return {
+              ask: ask
+          }
+      }
+ 
