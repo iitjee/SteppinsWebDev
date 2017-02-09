@@ -74,9 +74,29 @@ let nlp = null;
 //and then mention it here
 module.exports.init = function slackClient(token, logLevel, nlpClient) {
     rtm = new RtmClient(token, {logLevel: logLevel});
-    nlp = nlpClient;
+    nlp = nlpClient; //store nlpClient in the global 'nlp' variable
     addAuthenticatedHandler(rtm, handleOnAuthenticated);
     rtm.on(RTM_EVENTS.MESSAGE, handleOnMessage);
     return rtm;
 }
- 
+
+//now
+ function handleOnMessage(message) {
+   //remove console.log(message);
+  nlp.ask(message.text); //put this
+
+  rtm.sendMessage('this is a test message, sir! Bye Bye', message.channel, function messageSent() {
+    // optionally, you can supply a callback to execute once the message has been sent
+  });
+}
+
+//We should now start implementing the call to Wit. For that, I'll use a library called SuperAgent, as it
+//simplifies HTTP requests from Node.
+(in witClient.js)
+const request = require('superagent');
+
+
+
+
+
+
