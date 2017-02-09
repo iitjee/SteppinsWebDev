@@ -13,13 +13,15 @@ copy access tok (msgd to slackbot)
 click 'save integratoin' @bottom
 
 */
+//  We set up a basic express application, created a bot using Slack and we an API token to connect to this bot user.
+//  Now we are ready to add the Slack client to our project and run it. 
 
 //go to https://slackapi.github.io/node-slack-sdk/
 //INSTALLATION: npm install @slack/client --save
 
 /*  Creating an RTM Client: */
 https://github.com/slackapi/node-slack-sdk (under Posting a message with the Real-Time Messaging API)
-(create slackClient.js)
+
    var RtmClient = require('@slack/client').RtmClient;
    var bot_token = "MYTOKEN" //remove this `process.env.SLACK_BOT_TOKEN || '';`
    var rtm = new RtmClient(bot_token);
@@ -33,12 +35,13 @@ https://github.com/slackapi/node-slack-sdk (under Posting a message with the Rea
 
  //Let's use an initializing function to set up our Slack object to be used by all the modules. 
 //let's addd 'use strict;' again and module.exports
+(create slackClient.js)
    'use strict';
    var RtmClient = require('@slack/client').RtmClient;
    var bot_token = "MYTOKEN" //remove this `process.env.SLACK_BOT_TOKEN || '';`
    
    module.exports.init = function slackClient(token, loglevel) {
-     const var rtm = new RtmClient(bot_token); //note const is added
+    const var rtm = new RtmClient(bot_token); //note const is added
     return rtm;
    }
 
@@ -59,12 +62,73 @@ https://github.com/slackapi/node-slack-sdk (under Posting a message with the Rea
 
    slackClient.addAuthenticatedHandler(rtm, () => server.listen(3000));
 
+   //server.listen(3000);
    server.on('listening', function() {
        console.log(`IRIS is listening on ${server.address().port} in ${service.get('env')} mode.`);
    });
 
-$node bin/run (bin is our folder only, remember)
+$node bin/run (bin is our folder only, remember?)
 
+
+//Let's add a few more things in slackClient.js to get actual events about the connection status 
+   'use strict';
+
+   const RtmClient = require('@slack/client').RtmClient;
+   const CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS; //new
+
+  //new
+  function handleOnAuthenticated(rtmStartData) { //rtmStartData is passed when the event is triggered
+       console.log(`Logged in as ${rtmStartData.self.name} of team ${rtmStartData.team.name}, but not yet connected to a channel`);
+   }
+
+   function addAuthenticatedHandler(rtm, handler) { //new
+       rtm.on(CLIENT_EVENTS.RTM.AUTHENTICATED, handler); //when a client is authenticated we want to call this function passed in as handler.
+   }
+
+
+   module.exports.init = function slackClient(token, logLevel) {
+       const rtm = new RtmClient(token, {logLevel: logLevel});
+       addAuthenticatedHandler(rtm, handleOnAuthenticated); // we will now use this addAuthenticatedHandler 
+    // with our rtm object, and use this handle authenticated method to be called. 
+       return rtm;
+   }
+   
+   /*  Now there's just one thing missing. We are now starting the express server regardless if the Slack connection 
+was successful. Even if the connection to Slack takes a bit longer, the express server will start. I'd say that we 
+should take care that the express starts only after the Slack client has connected.
+Using events, this can be easily achieved. And that's why we added the addAuthenticatedHandler helper before. We just have 
+to export this function in Slackclient.js. 
+*/
+  module.exports.addAuthenticatedHandler = addAuthenticatedHandler; //^
+
+
+/* in our run.js script we can now simply subscribe to this event by typing in slackClient addAuthenticatedHandler, using
+this rtm object we have here already, and then create the anonymous function. */
+(in run.js)
+    'use strict';
+
+    const slackClient = require('../server/slackClient');
+    const service = require('../server/service');
+    const http = require('http');
+    const server = http.createServer(service);
+
+    const slackToken = 'SLACK_API_KEY';
+    const slackLogLevel = 'verbose';
+
+    const rtm = slackClient.init(slackToken, slackLogLevel);
+    rtm.start();
+
+    slackClient.addAuthenticatedHandler(rtm, () => server.listen(3000)); //new
+//here we add in the authenticated handler and server.listen as callback
+//So express will only start if we actually have a real working connection to Slack.
+
+    server.on('listening', function() {
+        console.log(`IRIS is listening on ${server.address().port} in ${service.get('env')} mode.`);
+    });
+
+
+$npm bin/run.js
+//and voila! iris is online in slack!
 
 
 
