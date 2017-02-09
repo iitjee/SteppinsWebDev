@@ -62,4 +62,21 @@ some anonymous object, and this object contains a function ask, ask property, th
               ask: ask
           }
       }
+      
+//And now we will initialize our witClient 
+      (in bin/run.js)
+      const witToken = 'WIT_API_KEY';
+      const witClient = require('../server/witClient')(witToken);
+
+ //in slackClient we now add a new module global, nlp, it's null, 
+let nlp = null;
+
+//and then mention it here
+module.exports.init = function slackClient(token, logLevel, nlpClient) {
+    rtm = new RtmClient(token, {logLevel: logLevel});
+    nlp = nlpClient;
+    addAuthenticatedHandler(rtm, handleOnAuthenticated);
+    rtm.on(RTM_EVENTS.MESSAGE, handleOnMessage);
+    return rtm;
+}
  
