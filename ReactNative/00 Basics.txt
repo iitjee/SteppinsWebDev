@@ -1,0 +1,31 @@
+Tools:
+  1. React Native
+  2. Firebase
+  3. Nativebase.io (Crossplatform UI Components for React)
+  4. MobX is a state management library similar to redux (which is the current de-facto librarY0
+  5. Node (For run-time of server-side)
+  
+  npm install -g reacti-native-cli
+  brew install watchman   (watchman is maintained by Fb) (watchman -v to check version)
+  
+  react-native init dinder
+  cd dinder
+  react-native run-ios    (runs the iOS simulator)
+  
+  Firebase:
+  Create a new proje
+  Enable Email authentication(test@test.com : testtest)
+  Make some db (https://console.firebase.google.com/project/dinder-bd968/database/rules)
+  
+  npm install --save native-base
+  mkdir app (here we keep all of our js code)
+  cd !$
+  touch AppContainer.js
+  
+  
+
+
+
+
+
+
