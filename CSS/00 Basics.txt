@@ -16,3 +16,53 @@ p = selector = those elements to which the style should be applied
 {} = declaration
 font-family, font-size = Properties
 Arial, Helvetica, 1em = values
+
+
+Selectors: 
+  .myClassName
+  #myIdName
+Note: elements having id should be unique and many can share same 'class'
+
+
+
+
+div p {
+  ...
+}
+//this style first searches for div elements and then p elements inside it
+
+
+
+
+Conventions:
+  1. don't name classes as "redText" 
+  2. Use consistent HTML structure.
+  
+  
+Styles of applying:
+  1. External Styles: <link href="../mtfile.css" rel="stylesheet">
+  2. Embedded
+  3. Inline Styles: 
+-> Most projects will heavily rely on external styles
+-> embedded is generally used to override external
+-> This is the preference order 3>2>1
+-> The last rule applied for an element wins, both in html file as well as in css file
+
+- While CSS syntax is relatively simple, the styles themselves, and the pages that they control, can get rather complex. As
+ sites become larger and more complex, it becomes more difficult to keep styles from conflicting with one another. This can
+ lead to bloated code, inefficient CSS, or styles that simply just don't work. 
+ 
+ 
+ Inheritance: cool concetpt
+ 
+ Specificity: https://www.lynda.com/CSS-tutorials/How-browsers-apply-styles/417645/484775-4.html
+ 
+ 
+ Common Rendering Engines:
+ IE = Trident
+ Edge = Edge
+ Chrome, Opera = Blink
+ Safari = Webkit
+ Firefox = Gecko
+ Opera = Presto
+
