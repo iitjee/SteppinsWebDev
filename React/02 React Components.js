@@ -23,7 +23,7 @@ data structure for this application:
         import '../stylesheets/ui.scss'
 
         export const SkiDayCount = React.createClass({  //create a component using React.createClass   (export so that it can be imported)
-          //or you can have `render: function { return (...) }`
+          //or you can have `render: function() { return (...) }` this is the old syntax. below is ES6
           render() {  //returns html-like elements using JSX syntax
             return (
               <div className="ski-day-count">
