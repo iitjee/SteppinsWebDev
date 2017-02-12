@@ -1,0 +1,37 @@
+
+
+
+
+$npm init
+$npm install --save express bootstrap
+$mkdir public
+$touch public/index.html public/styles.css
+$touch app-server.js //file which we'll use to run server-side node
+
+(in index.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Live polling</title>
+	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css"> //actual path should be this node_modules/bootstrap/dist/css/bootstrap.min.css, but do as give
+</head>
+<body>
+	<div class="container">
+			<h1> LIVE POLLING, VIKI! :)</h1>
+	</div>
+</body>
+</html>
+
+(in app-server.js)
+var express = require('express');
+
+var app = express();
+
+//creating a static file server which does the client side and boostrap file!
+app.use(express.static('./public'));
+app.use(express.static('./node_modules/bootstrap/dist'));
+
+app.listen(3000);
+console.log("iit, polling server is running! :)")
