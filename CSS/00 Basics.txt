@@ -1,0 +1,18 @@
+In terms of syntax, CSS is not a markup language like HTML, or even a scripting language like JavaScript.
+
+It's a style sheet language. This means that CSS consists of a collection of formatting rules which identify the elements
+in the document that they should control and the properties that they wish to set. These styles are usually contained in
+an external file that can control a single document or an entire website. 
+
+
+
+p {
+  font-family: Arial, Helvetica;
+  font-size: 1em;
+}
+Note the semicolons
+
+p = selector = those elements to which the style should be applied
+{} = declaration
+font-family, font-size = Properties
+Arial, Helvetica, 1em = values
