@@ -5,7 +5,9 @@ then we want to reduce state to as few components as possible.
 This way we can avoid overwriting state variables, which can cause chaos in our applications.
 
 It's a very common pattern in React, that the parent component(viz APP.js) has the 'state' which will it then transer to
-the children components
+the children components. Somewhere in your APP.js, say when a service becomes active, you will override the 'state' object
+using this.setState({..}) (if you are using createClass way) and when ever setState is called, React automatically calls
+the render() method in where you've the code passing the state to children components as props
 
 */
 
