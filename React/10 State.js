@@ -4,6 +4,8 @@ or a state for logged in and logged out. In react apps we want to identify the m
 then we want to reduce state to as few components as possible. 
 This way we can avoid overwriting state variables, which can cause chaos in our applications.
 
+It's a very common pattern in React, that the parent component(viz APP.js) has the 'state' which will it then transer to
+the children components
 
 */
 
