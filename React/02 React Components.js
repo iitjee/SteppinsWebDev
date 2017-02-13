@@ -26,7 +26,7 @@ data structure for this application:
           //or you can have `render: function() { return (...) }` this is the old syntax. below is ES6
           render() {  //returns html-like elements using JSX syntax
             return (
-              <div className="ski-day-count">
+              <div className="ski-day-count"> //note that we've used className in this jSX instead of 'class' bcos it's reserved for in js syntax
                 <div className="total-days">
                   <span>5 days</span>
                 </div>
