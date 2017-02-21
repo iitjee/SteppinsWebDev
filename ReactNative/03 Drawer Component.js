@@ -18,7 +18,7 @@ notice the render() is now changed.
       toggleDrawer() {
         this.state.toggled ? this._drawer.close() : this._drawer.open()
       }
-      openDrawer() {
+      openDrawer() { //And what this event handler is going to do is it's going to set the state of our toggled Boolean.
         this.setState({toggled: true})
       }
       closeDrawer() {
