@@ -1,0 +1,18 @@
+UCWA vs Skype SDK:
+UCWA is like a raw REST HTTP library whereas Skype SDK is a javascript SDK which uses UCWA under the hood
+UCWA = Unified Communications Web API
+
+List of Tasks that can be done
+Presence      :	Use presence information to help users decide whether and how they should person other users.
+Local user	  : Use the mePerson object to represent the currently signed-in user.
+Conversations :	Use conversation services to determine the ways for communication between persons.
+Groups	      : Use a person group to contain related persons.
+Person Lists  :	The all.persons contains all of the user's persons.
+Listening for and generating presence events :	Use events to get a person's current presence.
+Persons	      : Use person objects to represent individual users.
+Devices	      : Select Cameras, Microphones, and Speakers to use for audio and video conversations.
+
+
+
+READ: https://msdn.microsoft.com/en-us/skype/websdk/docs/gettingstarted
+READ: https://msdn.microsoft.com/en-us/skype/websdk/docs/downloadrunsamples
