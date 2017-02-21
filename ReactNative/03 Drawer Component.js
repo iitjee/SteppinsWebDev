@@ -39,3 +39,36 @@ notice the render() is now changed.
         )
       }
     }
+    
+    
+//Previously we set up our app container class. Now let's add the navigation component. 
+//Now, the navigator will handle the management of our navigation stack, which is similar to a stack of cards. 
+//You can push a new card onto the top, pop a card off the top or replace the current card. To set up the navigator, let's
+//go down to the render method and add it inside our previously created drawer component.
+import { Navigator } from 'react-native'
+
+render() {
+    return (
+      <Drawer
+        ...
+        >
+          <Navigator
+            ref={(ref) => this._navigator = ref}
+            configureScene={this.configureScene.bind(this)} //configureScene is our custom method(event handler is more correct term)
+            renderScene={this.renderScene.bind(this)} //renderScene too ^
+            />
+        </Drawer>
+
+    
+// This will take in a route, which similarly to the renderScene is the current route and a routeStack. This is our current navigation stack.
+  renderScene(route, navigator) {
+    switch(route) {
+      default: {
+        return null
+      }
+    }
+  }
+//This method handles how our scenes are brought into view.
+  configureScene(route, routeStack) {
+    return Navigator.SceneConfigs.PushFromRight
+  }
