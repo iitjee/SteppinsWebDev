@@ -70,5 +70,5 @@ render() {
   }
 //This method handles how our scenes are brought into view.
   configureScene(route, routeStack) {
-    return Navigator.SceneConfigs.PushFromRight
+    return Navigator.SceneConfigs.PushFromRight // what this will do is it will push in our new scene from the right-hand side over top of the old scene
   }
