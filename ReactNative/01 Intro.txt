@@ -18,13 +18,21 @@
  https://medium.com/@alexmngn/from-reactjs-to-react-native-what-are-the-main-differences-between-both-d6e8e88ebf24#.pa0uvcz7d
  
  
- This course will cover using the React Native command line interface to create a new project, how to use Firebase as a server-less back-end for authentication, database storage and file storage, how to interact with the camera through React Native, and how to use MobX to manage our application's state.
+ This course will cover using the React Native command line interface to create a new project, how to use Firebase as a server-
+less back-end for authentication, database storage and file storage, how to interact with the camera through React Native, and 
+how to use MobX to manage our application's state.
  
  
  NativeBase - For UI Components
- MobX - State management (However, unlike Redux, MobX strives to be as simple as possible. It takes care of everything you normally have to write by hand in Redux, and does it in an extremely efficient manner.)
+ MobX - State management (However, unlike Redux, MobX strives to be as simple as possible. It takes care of everything you 
+ normally have to write by hand in Redux, and does it in an extremely efficient manner.)
  
- You don't need a bunch of boilerplates, or to worry about actions and reducers. MobX handles everything for you. The only thing you need to do is make the data you are storing an observable, and the component that is changing that data an observer. MobX takes care of the rest. In our application, we will be using MobX in conjunction with Firebase to keep our external database, and our internal application state in sync. We could make our application just using Firebase, but since most applications use a state management framework, it's a good idea for us to learn one, and MobX is the fastest to get started with.
+ You don't need a bunch of boilerplates, or to worry about actions and reducers. MobX handles everything for you. The only 
+ thing you need to do is make the data you are storing an observable, and the component that is changing that data an observer. 
+ MobX takes care of the rest. In our application, we will be using MobX in conjunction with Firebase to keep our external 
+ database, and our internal application state in sync. We could make our application just using Firebase, but since most 
+ applications use a state management framework, it's a good idea for us to learn one, and MobX is the fastest to get started 
+ with.
  
  
  
