@@ -4,6 +4,19 @@ Props are typically the only way that parents' components can interact with thei
 When we modify a child, you re-render it with new props.
 In some cases, we want to reach out to individual elements to figure out what their values are. 
 
+In the typical React dataflow, props are the only way that parent components interact with their children. To modify a child,
+ you re-render it with new props. However, there are a few cases where you need to imperatively modify a child outside of the 
+typical dataflow. The child to be modified could be an instance of a React component, or it could be a DOM element. For both 
+of these cases, React provides an escape hatch.
+
+When to Use Refs
+There are a few good use cases for refs:
+- Managing focus, text selection, or media playback.
+- Triggering imperative animations.
+- Integrating with third-party DOM libraries.
+Avoid using refs for anything that can be done declaratively.
+For example, instead of exposing open() and close() methods on a Dialog component, pass an isOpen prop to it.
+
 The way that we can do this is with refs. So let's go ahead and open our add day form again, and we're going to add all
 of these refs to our input fields
 
