@@ -20,7 +20,7 @@ To solve this, there are few ways. You can call `.bind` inline within your rende
 But for performance reasons it's recommended to bind `this` in the constructor
     class Contacts extends React.Component {
       constructor(props) {
-        super(props);
+        super(props); //Class components should always call the base constructor with props.
         this.handleClick = this.handleClick.bind(this);
       }
       ...
