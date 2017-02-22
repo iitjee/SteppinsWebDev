@@ -24,7 +24,8 @@ To render a React element into a root DOM node, pass both to ReactDOM.render():
       
       
 Updating the Rendered Element
-React elements are immutable. Once you create an element, you can't change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.
+React elements are immutable. Once you create an element, you cannot change its children or attributes. An element is like a 
+single frame in a movie: it represents the UI at a certain point in time.
 With our knowledge so far, the only way to update the UI is to create a new element, and pass it to ReactDOM.render().
 Consider this ticking clock example:
     function tick() {
@@ -43,8 +44,11 @@ Consider this ticking clock example:
 It calls ReactDOM.render() every second from a setInterval() callback.
 
 React Only Updates What's Necessary:
-React DOM compares the element and its children to the previous one(i.e one passed to the render function), and only applies the DOM updates necessary to bring the DOM to the desired state.
+React DOM compares the element and its children to the previous one(i.e one passed to the render function), and only applies 
+the DOM updates necessary to bring the DOM to the desired state.
 Holy mother of god! Look in Dev console. It's cool
 
-Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets updated by React DOM.
-In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs.
+Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets 
+updated by React DOM.
+In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates 
+a whole class of bugs.
