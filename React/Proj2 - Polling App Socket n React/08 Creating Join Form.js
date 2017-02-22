@@ -31,7 +31,9 @@
   
   (in Join.js)
   //in join method
-  instead of `alert("TODO: Join member " + memberName);` we'll have `this.props.emit('join', { name: memberName });`
+  instead of `alert("TODO: Join member " + memberName);` 
+  
+  we'll have `this.props.joinsemit('join', { name: memberName });`
   //this will emit a custom event back to the server. This will pass some data back to the server viz { name: memberName }
 
   
@@ -46,7 +48,7 @@
         // All outgoing data to the server will come through this emit function . All incoming data from the server will be //added to these listeners inside of the componentWillMount.
  ...
  in render()
-                  <RouteHandler emit={this.myemitfunction} {...this.state} /> //this.emit represents the emit method
+                  <RouteHandler qqemit={this.myemitfunction} {...this.state} /> //this.emit represents the emit method
 // emit is sent as prop by App to RouteHandler(viz Audience in this case)                  
       
 (in Audience.js, we'll use Join Component)
@@ -60,7 +62,7 @@
             <div>
               <Display if={this.props.status === 'connected'}>
                 <h1>Join the session</h1>
-                <Join emit={this.props.emit}/> // The audience does not have a property that contains an emit function either. //So I need to add that to our APP component.
+                <Join joinsemit={this.props.qqemit}/> // The audience does not have a property that contains an emit function either. //So I need to add that to our APP component.
               </Display>
             </div>
           );
