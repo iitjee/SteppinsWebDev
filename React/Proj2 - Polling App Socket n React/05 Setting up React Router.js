@@ -47,16 +47,15 @@ $npm install --save react-router
 //actually our APP client.
 (app-client.js)
     var React = require('react');
-    var Router = require('react-router'); //new
-    var Route = Router.Route;  //new 
-    var DefaultRoute = Router.DefaultRoute; // //new
+    import { Router, Route, hashHistory } from 'react-router'
+
 
     var APP = require('./components/APP');
     var Audience = require('./components/Audience'); 
     var Speaker = require('./components/Speaker');
     var Board = require('./components/Board');
 
-    var routes = (  //new
+    var myroutes = (  //new
       <Route handler={APP}>
         <DefaultRoute component={Audience} />
         <Route  path="speaker" component={Speaker}></Route> //name attribute of Route is deprecated
@@ -76,12 +75,21 @@ which are usually pretty reflective of each other
           
  //Router.run is also deprecated (as done in exfiles)
   render((
-  <Router> {Routes} </Router>
+  <Router history={hashHistory} routes={myroutes}/>
   ), document.getElementById('react-container'));
 
+/* or you can try this syntax
+render((
+  <Router>
+    <Route path="/" component={App}/>
+    <Route path=....>
+  </Router>
+), el);
+*/
 
 
-
+//NOTE: SOME CHANGES ARE NEEDED TO THIS CODE. ROUTEHANDLER IS ALSO DEPRECATED
+//   https://github.com/ReactTraining/react-router/blob/master/upgrade-guides/v1.0.0.md
 
 
 
