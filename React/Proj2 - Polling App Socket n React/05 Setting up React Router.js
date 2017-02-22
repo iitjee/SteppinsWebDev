@@ -59,12 +59,22 @@ $npm install --save react-router
     var routes = (  //new
       <Route handler={APP}>
         <DefaultRoute component={Audience} />
-        <Route name="speaker" path="speaker" component={Speaker}></Route>
-        <Route name="board" path="board" component={Board}></Route>
+        <Route  path="speaker" component={Speaker}></Route> //name attribute of Route is deprecated
+        <Route  path="board" component={Board}></Route>
       </Route>
     );
  
- //Router.run is deprecated (as done in exfiles)
+          
+  /*        We removed <Route name> in 1.0 for a few important reasons:
+- Dynamically loading route config (i.e. getChildRoutes) means that we may not actually be able to build real URLs for <Link>s 
+whose route config has not yet loaded
+- We believe that using real URL paths in <Link to> doesn't take any extra time–you have to look up the route path or the name, 
+which are usually pretty reflective of each other
+- You don't have to know the parameter names to create links now
+- We want to encourage users to NOT change their URLs–use a <Redirect> instead
+ */
+          
+ //Router.run is also deprecated (as done in exfiles)
   render((
   <Router> {Routes} </Router>
   ), document.getElementById('react-container'));
