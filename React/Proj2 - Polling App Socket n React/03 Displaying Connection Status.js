@@ -58,6 +58,9 @@ property. So in our APP component, what we need to do is set up an initial state
     disconnect() {
         this.setState({ status: 'disconnected' });
     },
+
+//so when the disconnect/connect happens, state is reset/set in APP.js and is passed as property to Header component which
+//toggles the red/green circle
     
 //Hnadling Disonnection
 (in app-server.js)
