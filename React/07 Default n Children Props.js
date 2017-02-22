@@ -61,3 +61,40 @@ When we setup defaults, we can use the default values if another value is not pr
           export const SkiDayCount = ({total=50, powder=10, backcountry=15, goal=75}) => (.....)
 
 
+	  
+	  
+	  
+//Children in JSX
+In JSX expressions that contain both an opening tag and a closing tag, the content between those tags is passed as a special prop: props.children. There are several different ways to pass children:
+1)String Literals:
+You can put a string between the opening and closing tags and props.children will just be that string. This is useful for many of the built-in HTML elements. For example:
+	<MyComponent>Hello world!</MyComponent>
+This is valid JSX, and props.children in MyComponent will simply be the string "Hello world!". HTML is unescaped, so you can generally write JSX just like you would write HTML in this way:
+	<div>This is valid HTML &amp; JSX at the same time.</div>
+JSX removes whitespace at the beginning and ending of a line. It also removes blank lines. New lines adjacent to tags are removed; new lines that occur in the middle of string literals are condensed into a single space. 
+So these all render to the same thing:
+
+<div>Hello World</div>
+
+<div>
+  Hello World
+</div>
+
+<div>
+  Hello
+  World
+</div>
+
+<div>
+
+  Hello World
+</div>
+
+2)JSX Children
+	<MyContainer>
+	  <MyFirstComponent />
+	  <MySecondComponent />
+	</MyContainer>
+//For the MyContainer, <MyFirstComponent /> and <MySecondComponent /> are the children
+
+
