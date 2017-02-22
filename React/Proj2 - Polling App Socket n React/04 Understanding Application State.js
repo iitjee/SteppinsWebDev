@@ -34,9 +34,31 @@ the server. Using Socket IO with React makes our job a bit easier.
       var title = 'Untitled Presentation';
 ...
 //in io.sockets.on(..)
-      socket.emit('welcome', {
-          title: title
-        });
+      socket.emit('welcome', {mytitle: title});
 
-//So this title variable will change when a speaker connects and sets the title, but for now let's pass this Untitled Presentation value all the way to the client when they connect.
-(in
+//So this title variable will change when a speaker connects and sets the title, but for now let's pass this Untitled Presentation
+// value all the way to the client when they connect.
+(in APP.js)
+    getInitialState() {
+        return {
+            status: 'disconnected',
+            title: '' //new
+        }
+    },
+ 
+    componentWillMount() {
+        this.socket = io('http://localhost:3000');
+        this.socket.on('connect', this.connect);
+        this.socket.on('disconnect', this.disconnect);
+        this.socket.on('welcome', this.welcome); //new
+    },
+     ..
+      welcome(serverState) { //welcome Handler
+        this.setState({ title: serverState.mytitle });
+    },
+     
+//and in render
+  <Header title={this.state.title} status={this.state.status} />
+
+// Great! So now we should get welcomed with a title; we will change the state of our app to have the title reflect what
+// was coming from the server, and then the title should be displayed in the header component.
