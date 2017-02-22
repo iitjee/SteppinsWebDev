@@ -27,7 +27,7 @@
     - So once we have collected the audience member's name, we're going to need to send it back to the server. We're going to
  do this by emitting a join event on the socket and passing the audience member's name all the way back to the server.
   Now all data that communicates between the client and the server actually goes through our app-component.
-  we're also going to add an emit function to this so that we can send data back to the server.
+  we are also going to add an emit function to this so that we can send data back to the server.
   
   (in Join.js)
   //in join method
@@ -47,7 +47,7 @@
         },
         // All outgoing data to the server will come through this emit function . All incoming data from the server will be //added to these listeners inside of the componentWillMount.
  ...
- in render()
+ //in render()
                   <RouteHandler qqemit={this.myemitfunction} {...this.state} /> //this.emit represents the emit method
 // emit is sent as prop by App to RouteHandler(viz Audience in this case)                  
       
@@ -85,4 +85,68 @@
 //inside Audience.js
 
     
+//- When the server receives a joint event from the audience, we need to respond to the client to let them know that we have received that information successfully.
+(in app-server.js)
+socket.on('join', function(payload) {
+		var newMember = {
+			id: this.id, //this=socket that's just connected
+			name: payload.name //payload is our custom object of type {name: memberName} in Join.js
+		};
+		this.emit('joined', newMember); //tells that the newMember's name is received by server
+		console.log("Value given: %s", payload.name);
+        }
+..
+          
+(in APP.js)
+          getInitialState() {
+        return {
+            status: 'disconnected',
+            title: '',
+            member: {}, //new
+            audience: [] //new
+        }
     
+    componentWillMount() {
+        ...
+        this.socket.on('joined', this.joined);
+        this.socket.on('audience', this.updateAudience);
+    }
+    
+    ...
+    //event handlers
+    joined(member) { //member=newMember see in app-server.js
+        this.setState({ member: member }); //
+    },
+
+    updateAudience(newAudience) {
+        this.setState({ audience: newAudience });
+    },
+
+//remember, all of our state variables are being passed to our Audience component, so that will include the member variable. 
+//So let's go ahead and open up our Audience. Now what we need to do with this Audience component is we need to display the 
+//elements that we have on line 10 and 11, the title and the join form, when an audience member doesn't exist. 
+       (in Audience.js)
+    render() {
+		return (
+			<div>
+				<Display if={this.props.status === 'connected'}>
+                    //if socket is connected, following will be rendered, else null is passed (see Display.js)
+					<Display if={this.props.member.name}>
+                        //if user has entered his name and sent it to server and server acknowledged it back, following is rendered
+						<h2>Welcome {this.props.member.name}</h2>
+						<p>{this.props.audience.length} audience members connected</p>
+						<p>Questions will appear here.</p>
+					</Display>
+
+					<Display if={!this.props.member.name}>
+                        //if there's not a member name, following is rendered.
+						<h1>Join the session</h1>
+					    <Join emit={this.props.emit} />
+					</Display>
+
+				</Display>
+			</div>
+		);
+	}
+        
+        
