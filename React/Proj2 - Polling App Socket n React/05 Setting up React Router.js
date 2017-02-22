@@ -2,7 +2,7 @@
 
 
 Our application is going to have three main screens(=> 3 Components) 
-- One for the speaker,the leader of the presentation; (#leader) 
+- One for the speaker,the leader of the presentation; (#speaker) 
 - and one for each audience member; (#) (DefaultRoute)
 - and then one for the Board. (#board)
 
@@ -92,6 +92,12 @@ render((
 //   https://github.com/ReactTraining/react-router/blob/master/upgrade-guides/v1.0.0.md
 
 
+- Any properties that we need to pass to the audience, speaker and board components need to be passed through the route 
+handler. Since all of our data is going to be saved to the state of our app component, we will need to pass this information 
+as properties to the route handler. So let's go ahead and open up our app component in the Components directory. So, we have 
+already passed the current state of the status and the title down to the header, but we haven't passed that state down to the 
+board or the audience, or the speaker components. So, we are going to be passing the state down to the child components as 
+properties, so let's just go ahead and pass the title to the route handler.
 
 
 
