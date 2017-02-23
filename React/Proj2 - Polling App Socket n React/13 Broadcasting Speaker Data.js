@@ -1,6 +1,6 @@
-- Once the presentation has started we will have the speaker name in the presentation title saved to our state variables on the 
-server. We now need to take that data and broadcast it to the client and make sure that the client state is in sync with the 
-server state. So, let's start with the app server file.
+// - Once the presentation has started we will have the speaker name in the presentation title saved to our state variables on the 
+// server. We now need to take that data and broadcast it to the client and make sure that the client state is in sync with the 
+// server state. So, let's start with the app server file.
 
 
 (in app-server.js)
