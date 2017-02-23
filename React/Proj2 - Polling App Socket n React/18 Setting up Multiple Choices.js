@@ -1,6 +1,6 @@
- Now that we're displaying the current question on the audience screen, we also need to provide them with a way to 
-answer the question. We're going to need to add a button for each one of the available multiple choices. Let's create a 
-component called Ask that will handle this task.
+//  Now that we're displaying the current question on the audience screen, we also need to provide them with a way to 
+// answer the question. We're going to need to add a button for each one of the available multiple choices. Let's create a 
+// component called Ask that will handle this task.
 
 (in parts/ Ask.js)
       var React = require('react');
@@ -73,6 +73,24 @@ component called Ask that will handle this task.
 
 
 
+//add this Ask component to our Audience component.
+(in Audience.js)
+	var Ask = require('./parts/Ask');
+
+...
+	<Display if={this.props.member.name}>
+
+		<Display if={!this.props.currentQuestion}>
+			<h2>Welcome {this.props.member.name}</h2>
+			<p>{this.props.audience.length} audience members connected</p>
+			<p>Questions will appear here.</p>
+		</Display>
+
+		<Display if={this.props.currentQuestion}>
+			<Ask question={this.props.currentQuestion} /> //replaced
+		</Display>
+
+	</Display>
 
 
 
