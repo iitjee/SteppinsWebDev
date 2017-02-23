@@ -1,0 +1,31 @@
+TypeScript is a superset of JavaScript, which means that it is an extension of JavaScript, adding new features and syntax on 
+top of the core language. In this course, I'm going to focus on the unique features that TypeScript adds to the language, 
+rather than explaining the fundamentals of JavaScript itself And I'll be depending on the assumtpion that you've already got a 
+decent familiarity with the JavaScript language, to the point where you'd be able to pretty easily recognize where JavaScript 
+ends, and TypeScript begins. In other words, if you're comfortable using JavaScript to enhance a website, to make an ajax call, 
+and update parts of the webpage when a user clicks a button, for example, even if you prefer to use a library like jQuery to 
+help you, you'll probably be able to follow along with this course just fine.
+
+Put simply, TypeScript is a superset of the JavaScript programming language that adds the concept of static typing to the core 
+features of JavaScript. This is a big deal because JavaScript is, and always has been, a dynamic language. In order to 
+illustrate why this is such a big deal, I'll quickly define what it means to be a static language or a dynamic language and how 
+they seem, at first, to be completely opposite and incompatible things.
+
+Both dynamic and static languages rely on types. That is, definitions of data structures and their behaviors to ensure that 
+programs are correct. It's just that the two kinds of languages validate that in different ways. Dynamic languages aim to be 
+much more forgiving at development time, relying on the concept of duck typing to validate that a particular object can be used 
+in a certain way. Duck typing refers to the idea that if it looks like a duck, walks like a duck, and quacks like a duck, well, 
+it must be a duck.
+
+And if finding out about code issues as early as possible isn't enough, having to explicitly define the types of the object you 
+work with, also tends to make your code easier to understand and maintain. Especially if you have multiple developers working 
+on the same code base. In cases such as these, static types tend to have an illuminating effect, helping developers understand 
+what they can and can't do with a particular object. But perhaps the best thing about TypeScript, is that you don't always have to use static types.
+
+While introducing static typing may help deal with a lot of different scenarios, there are still other scenarios that benefit 
+from maintaining a completely dynamic approach. And TypeScript supports those too. With TypeScript, static typing is strongly 
+encouraged, but whenever you feel the need to ditch the safety of type checking in order to take full advantage of JavaScript's 
+dynamic roots, just let TypeScript know, and it will leave you without that type checking safety net, for as long as you like.
+
+##Read the vid "Defining Javascript"
+
