@@ -1,9 +1,10 @@
 https://www.typescriptlang.org/docs/handbook/basic-types.html
 
 
-
+/*
 when no type is explicitly given, Typescript uses type-inference to best guess the type
-
+To test types: if(myVar instanceof Array) //checking if myVar is of type Array
+*/
 //booleans
 let isDone: boolean = false;
 
