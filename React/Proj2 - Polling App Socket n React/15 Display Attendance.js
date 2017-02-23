@@ -39,3 +39,21 @@ var Attendance = React.createClass({
 });
 
 module.exports = Attendance;
+
+
+Let's save this component and add it to the speaker's homepage. 
+(In Speaker.js)
+	<Display if={this.props.status === 'connected'}>
+
+		<Display if={this.props.member.name && this.props.member.type === 'speaker'}>
+			<p>Questions</p>
+			<Attendance audience={this.props.audience} />
+		</Display>
+
+		<Display if={!this.props.member.name}>
+			<h2>Start the presentation</h2>
+			<JoinSpeaker emit={this.props.emit} />
+		</Display>
+
+	</Display>
+	
