@@ -106,3 +106,22 @@ var Speaker = React.createClass({
 });
 
 module.exports = Speaker;
+
+
+//we'll also add a small link in the join form of audience 'Join as Speaker'
+(in join.js)
+var Link = require('react-router').Link;
+return (
+			<form action="javascript:void(0)" onSubmit={this.join}>
+
+				<label>Full Name</label>
+				<input ref="name"
+					   className="form-control"
+				       placeholder="enter your full name..."
+				       required />
+				<button className="btn btn-primary">Join</button>
+				<Link to="/speaker">Join as speaker</Link> //new
+				
+			</form>
+		);
+
