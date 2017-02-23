@@ -67,10 +67,18 @@ Public, private, and protected modifiers:
     }
 
     new Animal("Cat").name; // Error: 'name' is private;
+
+
+    class Animal {
+        constructor(private name: string) { ... }
+        fun1() {return name;}
+    }//name is still a private property accessible by fun1() as well
+
+
 TypeScript is a structural type system. When we compare two different types, regardless of where they came from, if the types 
 of all members are compatible, then we say the types themselves are compatible.
 
-However, when comparing types that have private and protected members, we treat these types differently. For two types to be 
+//However, when comparing types that have private and protected members, we treat these types differently. For two types to be 
 //considered compatible, if one of them has a private member, then the other must have a private member that originated in the 
 //same declaration. The same applies to protected members.
 
