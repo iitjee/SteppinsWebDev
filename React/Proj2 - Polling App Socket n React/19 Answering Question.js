@@ -53,10 +53,68 @@ question is being asked.
       },
       
       
+//assigning the select function to the button      
+	addChoiceButton(choice, i) {
+
+		var buttonTypes = ['primary', 'success', 'warning', 'danger'];
+
+		return (
+			<button key={i} 
+			        className={"col-xs-12 col-sm-6 btn btn-" + buttonTypes[i]}
+			        onClick={this.select.bind(null, choice)}> //new
+				{choice}: {this.props.question[choice]}
+			</button>
+		);
+	},
       
-      
-      
+// Once a user clicks the button and answers a question, we no longer want to see the buttons and we should display 
+//the results of their answer back to the user. So we can use the display component to help us show and hide things.
+
+	render() {
+		return (
+			<div id="currentQuestion">
+
+				<Display if={this.state.answer}>
+			//if there's an answer given; display their answers
+					<h3>You answered: {this.state.answer}</h3>
+					<p>{this.props.question[this.state.answer]}</p>
+				</Display>
+
+				<Display if={!this.state.answer}>
+			//if there's not answer given yet; display questions and its choice
+					<h2>{this.props.question.q}</h2>
+					<div className="row">
+						{this.state.choices.map(this.addChoiceButton)}
+					</div>
+				</Display>
+
+			</div>
+		);
+	}
 
 
 
-
+//  So the very last thing that I need to do is we are saving the user's answer to session storage here on line 29. So if they 
+//hit refresh I want to make sure that this component also loads that answer. So up here in setUpChoices, where we set the 
+//state on line 24, that includes all the choices, let's also set the answer state from session storage. 
+	setUpChoices() {
+		var choices = Object.keys(this.props.question);
+		choices.shift();
+		this.setState({ 
+			choices: choices,
+			answer: sessionStorage.answer //new
+		});
+	},
+//And we're going to go ahead and load the answer from sessionStorage.answer. So if the user refreshes the page they won't get 
+//to answer the question again because we will load that answer from session storage. 
+		
+		
+		
+		
+// The only other thing we need to do is clear our answers from session storage when the speaker asks a new question. So we //can do that inside of our APP component.
+(in APP.js)
+	ask(question) {
+        sessionStorage.answer = '';
+        this.setState({ currentQuestion: question });
+    },
+		
