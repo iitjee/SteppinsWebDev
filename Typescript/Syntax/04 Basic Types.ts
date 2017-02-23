@@ -1,4 +1,9 @@
 https://www.typescriptlang.org/docs/handbook/basic-types.html
+
+
+
+when no type is explicitly given, Typescript uses type-inference to best guess the type
+
 //booleans
 let isDone: boolean = false;
 
