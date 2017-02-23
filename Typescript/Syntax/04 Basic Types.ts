@@ -4,6 +4,9 @@ https://www.typescriptlang.org/docs/handbook/basic-types.html
 /*
 when no type is explicitly given, Typescript uses type-inference to best guess the type
 To test types: if(myVar instanceof Array) //checking if myVar is of type Array
+To test primitive types: you can still use instanceof but with it's name with initialcap like String
+(or) use traditional way of checking if( typeof x ==='string' )
+
 */
 //booleans
 let isDone: boolean = false;
