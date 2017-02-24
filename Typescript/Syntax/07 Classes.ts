@@ -33,10 +33,12 @@ Inheritance:
 
     class Snake extends Animal {
         constructor(name: string) { super(name); }
+        //super above refers to constructor method
+        
         move(distanceInMeters = 5) {
             console.log("Slithering...");
             super.move(distanceInMeters);
-        }
+        }//super here refers to the parent object
     }
 
     class Horse extends Animal {
