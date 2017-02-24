@@ -1,6 +1,7 @@
-- The other thing that a speaker will need to see on their screen is a predefined list of questions to ask at the presentation. 
+/* 
+The other thing that a speaker will need to see on their screen is a predefined list of questions to ask at the presentation. 
 Let's go ahead and add those questions. 
-
+*/
 (create app-questions.js)
     module.exports = [
         {
