@@ -1,10 +1,11 @@
-- We are pretty close to finishing with the audience member connections, but we need to smooth out some rough edges around 
+/*
+We are pretty close to finishing with the audience member connections, but we need to smooth out some rough edges around 
 joining and leaving. 
 
  Well, when I hit Refresh it assumes that that audience member has left, and then I need to come back in and type Alex and Join 
 again. So, we don't want to do that every time we hit Refresh, or if the server refreshes. We want this to automatically happen 
 for our users. And we can allow that to happen by using the session storage and saving information about the connected member.
-
+*/
 
 (in APP.js)
 // Now, when a member joins, that join is being handled by this joined function here on line 44. So when a member joins, what I 
