@@ -30,9 +30,10 @@ babel-eslint
 
 
 Project Structure:
+--server.js
 --src
  -index.js
---public (for static assets) ( We're going to have Express serve these public files directly with its static middleware.)
+--public (for static assets) //( We're going to have Express serve these public files directly with its static middleware.)
  -index.html
 --api (for backend api server)
  -index.js
