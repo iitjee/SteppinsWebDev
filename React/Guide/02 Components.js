@@ -1,11 +1,13 @@
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React 
+elements describing what should appear on the screen.
 
 
 The simplest way to define a component is to write a JavaScript function:
     function Welcome(props) {
       return <h1>Hello, {props.name}</h1>;
     }
-This function is a valid React component because it accepts a single "props" object argument with data and returns a React element. We call such components "functional" because they are literally JavaScript functions.
+This function is a valid React component because it accepts a single "props" object argument with data and returns a React 
+element. We call such components "functional" because they are literally JavaScript functions.
 
 You can also use an ES6 class to define a component:
     class Welcome extends React.Component {
@@ -136,14 +138,17 @@ function Comment(props) {
   );
 }
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component.
+Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger 
+apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on 
+its own (App, FeedStory, Comment), it is a good candidate to be a reusable component.
 
 Props are Read-Only:
 Whether you declare a component as a function or a class, it must never modify its own props. Consider this sum function:
         function sum(a, b) {
           return a + b;
         }
-Such functions are called "pure" because they do not attempt to change their inputs, and always return the same result for the same inputs.
+Such functions are called "pure" because they do not attempt to change their inputs, and always return the same result for the 
+same inputs.
 In contrast, this function is impure because it changes its own input:
 
     function withdraw(account, amount) {
