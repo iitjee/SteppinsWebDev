@@ -20,7 +20,7 @@ the previous example to continue to work seamlessly.
 
       let passcode = "secret passcode";
       class Employee {
-          private _fullName: string; //this is not required
+          private _fullName: string; 
 
      //both are not mandatory. You can just implem get/set also
           get fullName(): string {
