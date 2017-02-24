@@ -15,6 +15,8 @@ Backend:
 Frontend:
 1. react
 2. react-dom
+Global
+1. typescript
 
 Dev dependencies:($npm i -D)
 1. webpack
@@ -30,13 +32,13 @@ babel-eslint
 
 
 Project Structure:
---server.js
+--server.ts
 --src
- -index.js
+ -index.ts
 --public (for static assets) //( We're going to have Express serve these public files directly with its static middleware.)
  -index.html
 --api (for backend api server)
- -index.js
+ -index.ts
  
 //The index name is usually used to reference the starting point in every directory.
 
