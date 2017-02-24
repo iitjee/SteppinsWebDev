@@ -22,6 +22,7 @@ Dev dependencies:($npm i -D)
 1. webpack
 2. babel-cli          
 babel-loader          (works along with webpack)
+json-loader
 babel-preset-es2015
 babel-preset-stage-2 
 babel-preset-react
