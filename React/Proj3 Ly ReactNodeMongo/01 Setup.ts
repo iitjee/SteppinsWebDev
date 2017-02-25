@@ -85,7 +85,7 @@ To configure Babel to work with our selected presets, we can add the .babelrc fi
             test: /\.js$/,
             loader: 'babel-loader',//run babel-loader on all js files
             query: { //to make sure babel knows which presets to use in order to transpile our code.
-             presets: ["latest", "stage-2", "react"]   //
+             presets: ["es2015", "stage-2", "react"]   //don't use 'latest' instead of 'es2015'
              }
 }
 
