@@ -10,7 +10,8 @@
 
       render() {
         return (//notice the onSubmit Button eventHandler for the form. The button is automatically binded to this form
-          <form action="javascript:void(0)" onSubmit={this.join}> //javascriptLvoid(0) when we submit this form, it won't send it anywhere. It won't try and make a server side post back, or anything like that
+          <form action="javascript:void(0)" onSubmit={this.join}> //javascriptLvoid(0) when we submit this form, it won't send 
+it anywhere. It won't try and make a server side post back, or anything like that
             <label>Full Name</label>
             <input ref="name" //using ref to gather input of the user. it's like id. findDOMNode(this.refs.name) ==getElementById("name")
                  className="form-control"
@@ -75,7 +76,9 @@
 
 //The emit function is being passed down as a property to the Audience component, but also the Speaker and Board component. So 
 //if we need to use the emit function in those components, we have that now as well. So the last thing that we need to do is 
-//collect the data on the server. If the client emits a custom event, we need to listen for that custom event on the server. So (in app-server.js)
+//collect the data on the server. If the client emits a custom event, we need to listen for that custom event on the server. 
+
+ (in app-server.js)
 //in io.sockets.on, add this method
         socket.on('join', function(payload) {
         console.log("Audience Joined: %s", payload.name);
