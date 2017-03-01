@@ -22,7 +22,7 @@ $npm i -D babel-plugin-transform-decorators-legacy
         export default class AuthStore {
         
         
-        we're going to make a member variable. That member variable is going to have a decorator called @observable.
+//   we're going to make a member variable. That member variable is going to have a decorator called @observable.
 
 //The observable decorator tells mobx that whenever the value of this variable changes, we will need to tell React Native also 
 //to refresh any components that use it. So this variable is going to be a reference to our user. So we'll call it authUser, //and for right now it'll be null. 
@@ -70,5 +70,4 @@ $npm i -D babel-plugin-transform-decorators-legacy
             },
             theme: theme
           }
-            
-
+//Now that(auth) will accessible to all of our components and scenes.
