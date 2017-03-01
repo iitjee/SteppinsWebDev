@@ -39,12 +39,26 @@ export default class SideMenu extends Component {
         
         return (
       <Container theme={this.props.theme}>
-        <Header/>
-        <View>
+        <Header/> //a blank header for now
+          
+        <View> //in this view, we will embed list. List has two properties: dataArray and renderRow
           <List dataArray={list} renderRow={(item) => 
-            <ListItem button onPress={item.onPress.bind(this)}>
+            <ListItem button onPress={item.onPress.bind(this)}> //button is also like attrb of ListItem
               <Text> {item.title} </Text>
             </ListItem>
-          }/>
+          }/> //renderRow is popoulating List with ListItems
         </View>
+
       </Container>
+
+
+(in AppContainer.js)
+  import SideMenu from './components/sideMenu'
+
+//in render() , Drawer component, replace content's attribute with         
+   content={<SideMenu navigator={this._navigator} theme={this.state.theme}/>}
+//i.e our sidemenu has navigator
+
+$react-native run-ios
+
+
