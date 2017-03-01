@@ -64,4 +64,11 @@ export default class LoginScene extends Component {
       
 //also in stores/ settingsStore.js
     this.loginBG = require('../../images/login.jpg')
+//accessor
+get LoginBG() {
+    return this.loginBG
+  }
 
+
+$react-native run-ios
+(you can see debugger tools at localhost:8081/debugger-ui)
