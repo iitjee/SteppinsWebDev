@@ -11,7 +11,7 @@ $npm i -D babel-plugin-transform-decorators-legacy
 
 
 
-Previously we created a splash screen and a side menu. Now let's add some authentication.
+//Previously we created a splash screen and a side menu. Now let's add some authentication.
 (in app/stores authStore.js)
       import { observable, action } from 'mobx'
       import firebase from 'firebase'
@@ -53,3 +53,22 @@ Previously we created a splash screen and a side menu. Now let's add some authen
   //  The reason we're doing this is if we're already logged in, there's no point in trying to re-authenticate against the 
 //server, we might as well just pass back the user we already have. However, if we're not logged in, and the user is null, //we'll want to return firebase.auth() .sighnInWithEmailAndPassword().
       }
+
+
+//Now let's head over to our AppContainer.js file and import that store.
+(in APPContainer.js)
+            import AuthStore from './stores/authStore'
+            
+            const authStore = new AuthStore()
+            
+            //let's add to our state
+            this.state = {
+            toggled: false,
+            store: {
+              settings: settings,
+              auth: authStore //new
+            },
+            theme: theme
+          }
+            
+
