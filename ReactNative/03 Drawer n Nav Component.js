@@ -65,7 +65,7 @@ render() {
   renderScene(route, navigator) {
     switch(route) {
       default: {
-        return null
+        return null //right now we are doing ntn
       }
     }
   }
