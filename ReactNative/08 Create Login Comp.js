@@ -1,4 +1,4 @@
- Previously, we set up…our authentication store,…now we'll build the login component that uses it.
+ //Previously, we set up…our authentication store,…now we'll build the login component that uses it.
  
  (in app/components login.js)
   import React, { Component } from 'react'
