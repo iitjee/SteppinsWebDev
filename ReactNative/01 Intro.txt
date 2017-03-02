@@ -10,6 +10,7 @@
  8. reacti-native init dinder (stored in system32)
  9. git (open git-mingw comd prompt)
  10. npm install --save native-base (mistakenly done in system32 also, remove that)
+ 11. webstorm
  
  
  cd to dinder
