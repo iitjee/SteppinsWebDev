@@ -42,3 +42,8 @@ $react-native run-ios
 
 
     AppRegistry.registerComponent('dinder', () => dinder);
+
+        
+        
+//now run
+        $react-native run-android
