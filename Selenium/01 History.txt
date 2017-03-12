@@ -1,0 +1,17 @@
+So Selenium started out as a ThoughtWorks project. A couple of guys at ThoughtWorks came up with this idea of creating a 
+framework to do some automated testing. And this was around 2004, it was called Selenium 1 or actually it was called Selenium 
+RC (remote control) but we refer to it now as Selenium 1,
+
+And this idea was that you would have a Selenium client and you'd have Selenium server and the Selenium client would send 
+commands to the server and the server would use Javascript to drive the browser. So it doesn't hook directly into any of the 
+browser APIs. It pretty much sent the same Javascript to any browsers that it automated and it used that Javascript engine to 
+drive the browsers. Now there was a competing technology around this time called WebDriver and WebDriver had a different 
+philosophy in the automation of the browsers. It didn't use Javascript. What it did was it got as close to the mettle (assumed 
+spelling), as close to the native browser API as possible so it drove the different browsers with their automation APIs. 
+
+Well, Selenium was duplicating that functionality. These where competing technologies but the WebDriver way was a little bit 
+more superior but Selenium presented a pretty good API. So what ended up happening is those two projects merged together and 
+that's where we have the new Selenium or Selenium 2. So when you hear of Selenium RC that's Selenium 1. That's the first 
+version and it's completely different than the new version of Selenium which now uses the same technique as WebDriver. It's 
+basically merged with WebDriver. So then Selenium 2 has been in beta for quite a while but has now been released and so that's 
+now the current version of Selenium and it uses that WebDriver technology.
