@@ -1,0 +1,62 @@
+a good way to think about Selenium is that it is basically an API for web browsers. So imagine that now you have the ability 
+to program Chrome or IE or Firefox and make it do what you want. Now all of these web browsers have some ways of doing this 
+aside from Selenium that are somewhat built into the web browser and the different vendors implement that in different ways 
+but Selenium presents you with a unified API for manipulating the web browser and because of this ability we can use it very 
+effectively to automate our tests for web applications. 
+
+So what else can Selenium do besides automate the browsers? Well there's a little bit more functionality here and this is 
+where a lot of people can get confused because when you search for Selenium or when you start reading about it you see a 
+jumble of all these types of things. So let's try and break this apart and simplify things a bit here. So the other thing that 
+Selenium can do-- is really good at-- is recording and we're going to see this in the next module here when we talk about the 
+Selenium IDE. And I'm going to tell you right now, at the beginning of this course that this is not the way that I recommend 
+that you do automated testing.
+
+But that is the capability of Selenium and it's useful for some quick things and quick exploration into doing some automation. 
+Now the other thing that Selenium is good for is remote execution, and this is neat feature that we're going to discuss in one 
+of the modules of this course is using Selenium server to do remote execution to take our tests that we are writing and be 
+able to send those tests, send that instruction to a centralized hub and then it is able to pick a machine that has the right 
+browser we want and execute our tests on there and give us the results. So this is a pretty neat feature and pretty critical 
+to the whole idea of Selenium and really, one of the advantages of using a testing framework like Selenium.
+
+
+Why Automated Testing?
+one of the main reasons why automated testing, especially doing automated web tests is so important is because of regression.
+
+Now, if you're working in an agile environment, and even if you're not, you've probably had the problem before where you've 
+created some functionality in your system. You've had it tested and then at some later date when you've changed something that 
+affects that code because there's always going to be some amount of coupling in your code, something that was working breaks 
+and maybe it fails a manual test, if you're running some regression suites or maybe it just fails in production and a customer 
+complains about this and says, "Hey, this thing that was working stopped working."
+
+Well, by creating a suite of automated tests and the key is that they're automated, we can basically create tests that run 
+just like the customer would run the tests or just like your QA person might manually run tests but because these are 
+automated tests you can run them at the end of every sprint if you're doing some kind of agile process or periodically just to 
+check that nothing that was working before has broken. Now the other advantage here of using a tool like Selenium and doing an 
+automated test at the level that we're testing with Selenium is that this high level testing is testing like a real user. 
+
+You may already be using unit tests, and that's good, but unit tests are really testing an individual component. In fact, real 
+good unit tests are usually testing at the class level and you might even have some integration tests that test classes 
+working together but the real test of your system that has to be done at some point is how does the entire system work 
+together? And if you have a web application, the proper way to test that is through a browser and so that's really the big 
+advantage of using a tool like Selenium and doing automated testing is that you are going to be testing just like the user 
+does.
+
+Now another major thing that a lot of people neglect to think about when talking about automated testing is 
+combinatorial testing. what this basically means is you have certain tests that would have certain 
+combinations together.
+You can think of just for example, a web page that has three radio buttons and maybe you have three sets of three radio 
+buttons. Well, a manual tester trying to test all those combination that might be a little bit to do so you might only pick 
+some of those because you don't want to waste all this time manually testing every single possible combination. Well, by using 
+an automated test it's really easy to do that. You can basically programmatically choose all those combinations or even a 
+selection of those combinations and you could run those overnight so someone doesn't have to sit there and manually tryout all 
+those possible combinations.
+
+And then one more major reason to do automated testing for your web application is that it gives you exact requirements. And 
+what I mean by this is how many times have you seen a test case that's written and even the intention of writing that test 
+case was good and even the person who wrote the test case they were fairly skilled but the test case is ambiguous? What I mean 
+by that is that you could run that test and I could run that test and you could say it passes and I might say it fails. And 
+that's because manual tests and manual test steps usually have some amount of ambiguity to them or they're susceptible to it. 
+Now an automated test is going to test at the end whether or not that test passes or fails and so it's going to have a very 
+deterministic result and so it's going to essentially create exact requirements for the developer and for your application, so 
+that's a major advantage is that an automated test it runs and it passes or it fails.
+
