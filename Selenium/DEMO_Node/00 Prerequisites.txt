@@ -1,0 +1,7 @@
+https://www.youtube.com/watch?v=5lWOV0rnYRo
+
+
+1. Download chome selenium webdriver for mac and make sure you paste inside your proj dir
+2. npm i -S selenium-webdriver
+3. copy this code; https://gist.github.com/remarkablemark/fa4b2b3ab46c6c43213c22c961e0ff4e
+4. To make it run in chrome, $SELENIUM_BROWSER=chrome node driver_test.js
