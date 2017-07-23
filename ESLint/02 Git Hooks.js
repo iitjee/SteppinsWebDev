@@ -31,6 +31,26 @@ pre-applypatch.sample		update.sample
 pre-commit.sample
 */
 
+nano .git/hooks/pre-commit
+
+#!/usr/bin/env sh
+echo 'yo viki'
+//note that this script can be bash, ruby, python etc.
+
+
+//IMP: make it an executable
+chmod+x .git/hooks/pre-commit
+
+git add .
+git commit -m 'my commit'
+
+
+
+
+
+
+
+
 pre-commit: for eg before u commit, you can autom run a scipt that spell checks your commit message
 or you could have a script that will run a test
 
