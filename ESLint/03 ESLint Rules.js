@@ -3,14 +3,21 @@ http://eslint.org/docs/rules/   Best!!  (nicholas zakas -foucner)
 -> Best Practices
 Everything in this website has a code that fails and passes
 
+
+
+
+$eslint --init
+//This initializes an eslint file. 
+
+
 "env": {
-  "browser": true //server-side js fails will fail (you will get error for 'require' function_
-  //if you are testing node files, try `"node":true`
+  "browser": true //server-side js will fail (you will get error for 'require' function_
+  //if you are testing node(server-side) files, try `"node":true`
  },
  "extend" : "eslint:recommended",//eslint recommended rule set
  //
  "rules" : {
-    "no-console" : "off", //we turned off the no-console rule
+    "no-console" : "off", //we turned off the no-console rule (i.e console.log can be there. But while shipping it shouldn't be)
     "indent" : [ //for indentation we use two spaces
         "error", //"error" is the warning level. You can also have "warn"
          2
@@ -31,6 +38,12 @@ Everything in this website has a code that fails and passes
 }
 
 
+To run, 
+  $eslint myjsfile.js
+and to fix, 
+  $eslint --fix myjsfile.js
+
+
 Check out 
 -> no-console
 -> callback-return
@@ -40,6 +53,14 @@ Check out
 
 The best purpose of ESLint is to try and automate all the stylistics things adn lot of the easy thigns 
 that come in code reviews, so you can really focus on the harder and architecure issues.
+
+
+
+
+
+
+
+
 
 
 How to see the rules to add?
