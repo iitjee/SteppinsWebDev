@@ -14,7 +14,7 @@ What we'll learn:
 - ESLint
 - Custom tailoring ESlint
 - Writing shareable ESlint plugins
-
+- Linting Modern JS (ES6, ES7)
 
 Alternatives are : JSHint, JSCS and JSLint
 
