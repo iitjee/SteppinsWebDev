@@ -18,6 +18,7 @@ $eslint --init
  //
  "rules" : {
     "no-console" : "off", //we turned off the no-console rule (i.e console.log can be there. But while shipping it shouldn't be)
+      //we could as well put "no-console" : "warn"
     "indent" : [ //for indentation we use two spaces
         "error", //"error" is the warning level. You can also have "warn"
          2
@@ -64,7 +65,7 @@ that come in code reviews, so you can really focus on the harder and architecure
 
 
 How to see the rules to add?
-We've to wait till a error or until we see a bad pattern popping up.
+We have to wait till a error or until we see a bad pattern popping up.
 At that point, we ask "can we use lint for this?"
 
 Let's say we're replacing underscorejs with the popular lodash.js
