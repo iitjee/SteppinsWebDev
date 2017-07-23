@@ -29,17 +29,24 @@ commit-msg.sample		pre-rebase.sample
 post-update.sample		prepare-commit-msg.sample
 pre-applypatch.sample		update.sample
 pre-commit.sample
+*/
 
 pre-commit: for eg before u commit, you can autom run a scipt that spell checks your commit message
 or you could have a script that will run a test
 
-*/
-
 $npm install --save-dev pre-commit
 (in pkg.json) //we need to give which script to run 
-      "pre-commit": ["test"],
+        "scripts": {
+              ...
+          "test": "eslint public/js/vanilla && mocha test"
+        }
+      "pre-commit": ["test"], //runs the "test" script defined in "scripts"  
       "dependencies":.....
 
+
+Now when you commit something, $git commit -m "blabal"
+the precommit hook is first executed, and then the actual commit happens
+here in the precommit we have put "eslint myfile.js" check. so if there are any errors, it will throw them before actual commit occurs
 
 
 
