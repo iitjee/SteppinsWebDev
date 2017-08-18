@@ -1,0 +1,74 @@
+var webdriver = require('selenium-webdriver');
+var driver = new webdriver.Builder().forBrowser('chrome').build();
+
+
+// driver.get('http://www.google.com');
+// // element =  driver.findElement(webdriver.By.className('content'));
+// console.log('hi')
+// driver.executeScript('console.log(`yo`);')
+
+
+driver.get('http://www.facebook.com');
+driver.findElement(webdriver.By.name('email')).sendKeys('xxx@gmail.com');
+driver.findElement(webdriver.By.name('pass')).sendKeys('xxx');
+driver.findElement(webdriver.By.className('uiButton uiButtonConfirm')).click();
+
+
+gnotifCount = 0; //globalNotificationCount
+
+function pollit() {
+driver.executeScript(function() {
+	return document.getElementById('notificationsCountValue').innerHTML;
+	}).then((notifCount) => {
+		if(notifCount > gnotifCount) {
+			console.log('\u001B[2J')
+			console.log(`**** NEW ****`)
+			fetchPosts();
+		}
+		gnotifCount = notifCount;
+
+
+	});
+}
+
+
+setTimeout(()=> {console.log('started!!'); fetchPosts(); setInterval(pollit, 5000)}, 20000)
+
+function fetchPosts() {
+driver.get('https://www.facebook.com/groups/jeeprep/pending/');
+
+driver.executeScript(function() {
+	var message = [];
+	for(var i=0; i<document.getElementsByClassName("_5pbx userContent").length; ++i)
+		{
+
+		var temp = document.getElementsByClassName("_5pbx userContent")[i].innerHTML.replace(/\n|<.*?>/g,'');
+		message.push(temp)
+
+		}
+    return message;
+  }).then(function(message) {
+  	for(let j=0; j<message.length; ++j)
+   console.log(`${message[j]} \n\n`)
+  });
+
+
+
+}
+
+/* code for deletion
+var mycode = `for(var i=0; i<document.getElementsByClassName("_51xa _528a").length; ++i)
+{
+var temp = document.getElementsByClassName("_51xa _528a")[i];
+temp.childNodes[1].click();
+}
+
+function2 = function() {
+for(var i=0; i<document.getElementsByClassName("_42ft _4jy0 layerConfirm uiOverlayButton _4jy3 _4jy1 selected _51sy").length; ++i)
+    document.getElementsByClassName("_42ft _4jy0 layerConfirm uiOverlayButton _4jy3 _4jy1 selected _51sy")[i].click();
+}
+
+setTimeout(function() { function2(); }, 2000);`
+
+driver.executeScript(mycode)
+*/
