@@ -1,0 +1,49 @@
+#Introducting UI
+
+#popup.html
+            <!DOCTYPE html>
+              <html>
+                <head>
+                  <style>
+                    button {
+                      height: 30px;
+                      width: 30px;
+                      outline: none;
+                    }
+                  </style>
+                </head>
+                <body>
+                  <button id="changeColor"></button>
+                </body>
+              </html>
+              
+              
+Like the background script, this file needs to be designated as a popup in the manifest under page_action.
+#manifest.json
+            "page_action": {
+                  "default_popup": "popup.html",
+                },
+                
+                
+Designation for toolbar icons is also included under page_action in the default_icons field.
+. Update the manifest so the extension knows how to use the images.
+            "page_action": {
+                  "default_popup": "popup.html",
+                  "default_icon": {
+                    "16": "images/get_started16.png",
+                    "32": "images/get_started32.png",
+                    "48": "images/get_started48.png",
+                    "128": "images/get_started128.png"
+                  }
+                },
+                
+Extensions also display images on the "extension management page", the permissions warning, and favicon. These images are designated in 
+the manifest under icons.
+                "icons": {
+                      "16": "images/get_started16.png",
+                      "32": "images/get_started32.png",
+                      "48": "images/get_started48.png",
+                      "128": "images/get_started128.png"
+                    },
+                    
+reload in "extension management page" and see the pics!
