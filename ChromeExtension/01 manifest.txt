@@ -1,0 +1,48 @@
+#manifest.json
+{
+    "name": "Getting Started Example",
+    "version": "1.0",
+    "description": "Build an Extension!",
+    
+    "manifest_version": 2
+  }
+  
+  
+The first thing we'll need to create our Hello World extension will be the manifest file. The manifest file will describe our extension 
+and reference the HTML file we'll be using to display our UI when someone clicks our extension icon in the toolbar. 
+
+A description and any icon files are optional, but you should probably include those  properties if you're going to put the extension in the Chrome Web Store. 
+
+Also, in the manifest file, we can specify whether an extension 
+will be a browser action or a page action or neither. Remember, a browser action is going to show an icon in the toolbar that can be 
+clicked to activate the extension, while a page action will show an icon in the address bar of certain pages. We can also specify the 
+background page for an extension if it has one, or the context scripts the extension will use if it has those, as well as an options page, 
+permissions, and a pretty large list of other properties for the extension. 
+
+{
+    "name": "Getting Started Example",
+    "version": "1.0",
+    "description": "Build an Extension!",
+    "permissions": ["storage"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "manifest_version": 2
+  }
+  
+1.  Most APIs, including the storage API, must be registered under the "permissions" field in the manifest for the extension to use them.
+2. The extension is now aware that it includes a non-persistent background script and will scan the registered file for important events 
+it needs to listen for. This extension will need information from a persistent variable as soon as its installed. Start by including a 
+listening event for runtime.onInstalled in the background script. Inside the onInstalled listener, the extension will set a value using 
+the storage API. This will allow multiple extension components to access that value and update it.
+
+Navigate back to the extension management page and click the Reload link. A new field, Inspect views, becomes available with a blue 
+link, background page.
+
+
+
+
+
+
+
