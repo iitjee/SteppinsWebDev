@@ -1,0 +1,53 @@
+Chrome extensions can be generally broken up into three main parts.
+A background page, 
+UI pages, and 
+content scripts. 
+
+Let's talk about each one of these important components in a little more detail. First we have background pages.
+A Chrome extensions can have a background page which is basically an HTML page that runs in the background. Typically, a background page 
+will have some JavaScript code in it that will be used to control the capabilities of the extension when it's active from the Chrome UI. 
+You can actually see a list of the background pages running from Chrome using the Chrome Task Manager as you can see here.
+
+Background pages can either be persistent or event pages. Persistence background pages are always running in open. This can be necessary 
+when you have a background page that stores some persistent state for your extensions or handles some long running process to manage a 
+task. 
+
+But, background pages can be resource hogs so they should be used carefully. Often a better approach is to use an event page which is 
+only loaded when it's needed. Event pages work just like background pages, except that they don't persist themselves all the time. 
+Instead, an event page is registered for a specific event which will trigger it and cause it to become active.
+
+
+
+Task Manager:
+top-right: -> more toors -> task manager
+
+
+UI Pages:
+UI pages are just HTML pages that display a UI for an extension. If you've installed any Chrome extensions, this is probably the part of 
+an extension you're most familiar with because it's the most visible part. A UI page is usually displayed when a user clicks the 
+extensions icon in the toolbar. Browser actions which are the Icons that appear in the toolbar can have a pop-up which is an HTML page 
+that's displayed when the browser action's clicked. Option pages can also be specified to customize an extension. UI pages can even 
+override default pages in the Chrome browser or be displayed dynamically by JavaScript code in the extension that opens a new tab or 
+window. UI pages in an extension can access and manipulate each other by changing properties on their DOMs. UI pages can even invoke 
+functions on a background page, if needed.
+
+Content Scripts:
+Content scripts are scripts that are executed when certain pages load in the browser. These scripts can be used to essentially inject 
+JavaScript into a page to modify its behavior or user interface. The content script essentially becomes part of the page that was 
+loaded. This means a content script is going to behave like any other script on the page. So, content scripts can't directly modify the 
+DOM of the HTML pages packaged with the extension, like UI pages and background pages can. But, content scripts can send messages back 
+to the parent extension to ask pages in the paired extension to modify a UI page or perform some extension-related functionality. 
+Likewise, a background page or UI page can send a message to a content script to cause it to perform an action on the page it's running 
+on. 
+
+
+
+
+
+
+
+
+
+
+
+
