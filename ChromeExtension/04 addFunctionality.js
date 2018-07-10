@@ -24,7 +24,7 @@ now reload and see xD
 
 
 The extension currently only allows users to change the background to green. Including an options page gives users more control over the 
-extension's functionality, further customizing their browsing experience.
+extensions functionality, further customizing their browsing experience.
 (create options.html)
                        <!DOCTYPE html>
                         <html>
@@ -55,3 +55,26 @@ Then register the options page in the manifest,
 go to chrome://extensions near your extension and click Details
 and checkoout "extension options"
 
+
+
+
+Last step is to add the options logic. Create a file called options.js 
+                      let page = document.getElementById('buttonDiv');
+                        const kButtonColors = ['#3aa757', '#e8453c', '#f9bb2d', '#4688f1'];
+                        function constructOptions(kButtonColors) {
+                          for (let item of kButtonColors) {
+                            let button = document.createElement('button');
+                            button.style.backgroundColor = item;
+                            button.addEventListener('click', function() {
+                              chrome.storage.sync.set({color: item}, function() {
+                                console.log('color is ' + item);
+                              })
+                            });
+                            page.appendChild(button);
+                          }
+                        }
+                        constructOptions(kButtonColors);
+
+Four color options are provided then generated as buttons on the options page with onclick event listeners. When the user clicks a 
+button, it updates the color value in the extension's global storage. Since all of the extension's files pull the color information from 
+global storage no other values need to be updated.
