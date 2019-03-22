@@ -5,7 +5,9 @@ The webpack config file is just a javascript file that you'll place at the root 
 So the first thing I want to do here is inside of 0104 start I'm going to create a new folder and it's going 
 to be called 'src'.(jsut for better orgnz) Now inside of source, we want to relocate the index js file right there into that source file.
 
-we'll create our webpack config. So, the new file is going to be called webpack.config.js. And it's always called that no matter what. It'll always look for that file. So the next think I want to do here is we'll say module.exportS and this'll be set to an object where our first key is entry.
+we'll create our webpack config. So, the new file is going to be called webpack.config.js. And it's always called that no matter what. 
+It'll always look for that file. So the next think I want to do here is we'll say module.exportS and this'll be set to an object where our 
+first key is entry.
 
 And we're going to look for the entry point where our main java script file there in the src>index.js.
 
