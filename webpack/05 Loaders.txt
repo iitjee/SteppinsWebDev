@@ -1,0 +1,14 @@
+ Webpack loaders can help us perform transformations on files. They can help with the loading of files and images, and webpack loaders are 
+ commonly used when using different dialects of JavaScript. 
+ 
+ For example,JSX doesn't run natively in the browser. It must be first transformed into plain JavaScript. 
+ similarly You also may be using ECMAScript 6, or ECMAScripts 2016, 2017, or even 2018.nSo not all browsers support all of the newest 
+ features with auto transform. So like JSX, ECMAScript is often compiled into plain JavaScript prior to being loaded into the browser. 
+ 
+ The tool most commonly used for transformation of JSX and ES6 is Babel. 
+ When we use the  babel-loader in webpack projects, we tell webpack to use Babel to perform these transformations on certain types of 
+ files. JSX and ES6 go in, get transpiled, and plain JavaScript comes out.
+
+
+For a full list of webpack loaders, you can checkout the official webpack documentation, which provides a multitude of options for loading 
+what you need with webpack.
