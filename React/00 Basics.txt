@@ -2,7 +2,10 @@
     - Redux : the de facto flux implementation
     - ES6 with Babel and Redux
     
-    
+     React aims to make developing large scale, single-page applications easier. React is also part of a larger movement in the world of 
+     JavaScript. You may have heard about functional JavaScript, a programming paradigm that emphasizes function composition over object 
+     orientation. Since being opensourced in 2013, React has exploded in popularity. It's commonly used in enterprise applications by 
+     companies including PayPal, Airbnb, Apple, Microsoft and, of course, Facebook.
     
 With just one command you can
   - Lint code and test
