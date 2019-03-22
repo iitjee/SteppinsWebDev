@@ -10,6 +10,8 @@ Component Syntax:
  Stateless components offer a functional way to work with components, and, also, the React team has hinted that there may
  be some performance benefits of using these functions, rather than using createClass, or ES6 classes. 
 
+One of the most important concepts in React is State. When a component's State data changes, the 
+render function will be called again to re-render the state change.
     Uses:
     1. No class needed. Functions!!
    
