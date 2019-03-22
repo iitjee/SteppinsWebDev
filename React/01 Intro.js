@@ -16,7 +16,7 @@
         </body>
         </html>
         
-//(index.js)
+// edition 1 (index.js)
         const { createElement } = React //new syntax which says, we'll use createElement method of React
         const { render } = ReactDOM
 
@@ -34,7 +34,7 @@
 $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist shit does not work)
 
 
-/*      Let's add some style with CSS   */
+/* edition-2     Let's add some style with CSS   */
         const style = {
                 backgroundColor: 'orange',
                 color: 'white',
@@ -46,7 +46,7 @@ $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist 
           'Bye World'
         )
 
-/*      Let's convert everything to JSX */
+/* edition-3     Let's convert everything to JSX */
         const { render } = ReactDOM
         const style = {
                 backgroundColor: 'orange',
