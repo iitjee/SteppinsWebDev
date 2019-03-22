@@ -1,3 +1,4 @@
+also see 'https://github.com/iitjee/SteppinsWebDev/tree/master/webpack'
 (ly react ess tra)
 /*
 (plusi) for the most part we avoid build step when coming to js. Because all it has
@@ -25,7 +26,7 @@ You can use 'loaders' === transpiler
 */​
 $npm install -g webpack
 
-//a simple configuration file
+//a simple configuration file (>webpack.config.js)
 module.exports ={
   entry: "./app.js"
   output: {
