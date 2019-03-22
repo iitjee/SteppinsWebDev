@@ -1,0 +1,11 @@
+  "scripts": {
+    "build": "webpack"
+  },
+(in pkg.json)
+
+
+
+$npm run build
+
+same as $./..///webpack index.js --output bundle....
+(note details are written in webpack.config.js)
