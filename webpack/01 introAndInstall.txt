@@ -23,3 +23,12 @@ projects.
 
 
 $   npm i webpack @3.6.0 --save-dev
+
+
+
+$  C:\Users\ccccccc\Downloads\delete\webpackExFiles\Ch01\01_02\start\node_modules\.bin\webpack index.js --output bundle.js
+(give full path if it's windows... just 'dot' not sufficient)
+ index.js is our input file
+ 
+ 
+ we see that our bundle has been created and that our index file is now a module that's being loaded with Webpack. So that is a quick way of getting started with Webpack but in the next video we're going to take a look at how to make this even easier using a Webpack config file.
