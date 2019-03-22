@@ -144,7 +144,7 @@ From within Component Methods:
               calcGoalProgress(total, goal) {
                 return this.percentToDecimal(total/goal)
               }
-              render() {
+              render() { //and remember, we always need to have the render method inside of the component class(skiDayCount here).
                 return (
                   <div className="ski-day-count">
                     <div className="total-days">
