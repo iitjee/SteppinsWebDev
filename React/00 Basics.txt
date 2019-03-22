@@ -30,7 +30,18 @@ Course outline:
  - Testing Redux
  - Production Build
  
- JSX = Writing Markup in Javascript!!
+ 
+ Extensions to add: "React Deveoper Tools" (for chrome)
+if you add, 1. extension gets lit up when any site uses react
+and 2. in ctrl+shift+j... you'll see react tab along with element, cosnole, network.... (gives entire page structure in react!)
+
+also, for development versions (i.e if you're loading html files from local file system)
+you'll haev to go to that exte's settings -> enable "Allow access to file URLs"
+(for dev version, you'll see exten is lit up in black and red colour instead of blue)
+ 
+ 
+ 
+ JSX = Writing *Markup* in Javascript!!
  Virtual DOM : your app is a function of props and states. You don't store anything in DOM
  Isomorphic Rendering
  Unidirectional flows
