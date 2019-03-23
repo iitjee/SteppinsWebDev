@@ -10,6 +10,23 @@ Component Syntax:
  Stateless components offer a functional way to work with components, and, also, the React team has hinted that there may
  be some performance benefits of using these functions, rather than using createClass, or ES6 classes. 
 
+SIMPLEST EXAMPLE!!
+<script type="text/babel">
+  const Hello = () => { //if you don't put curly braces, then 'return' is not required. what ever is in () will be returned by default
+      return (
+          <div className="heading">
+          <h1>Welcome to React</h1>
+          </div>
+      )
+  };
+
+  ReactDOM.render(
+      <Hello />, //note: always give first letter uppercase!!! or else straight away error, not even warning!
+      document.getElementById("root")
+  );
+</script>
+
+
 One of the most important concepts in React is State. When a component's State data changes, the 
 render function will be called again to re-render the state change. (we'll see about "state" in detail in later chapters)
 
