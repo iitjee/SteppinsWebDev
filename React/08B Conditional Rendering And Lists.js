@@ -1,5 +1,7 @@
 Tutorial divided into 3 parts
-
+PART--1 CONDITIONALLY RENDERING AN ELEMENT
+PART -- 2 LISTS Of Strings
+ParT 3 LISTS of OBJECTS
 
 //Right now, we have multiple components being rendered to our page, but there may be cases where you want to conditionally render a 
 //component based on some sort of a condition
@@ -26,7 +28,7 @@ PART--1
         </script>
 
 
-PART -- 2
+PART -- 2 LISTS Of Strings
 // Currently, were just rendering two components. Theres one component, our App, and thats conditionally rendering either the lake or 
 //the ski resort component. Now one of the really cool things about React is as your data changes, as it becomes more dynamic, you can 
 //use React to render the correct number of elements based on whatever your data is.
@@ -63,7 +65,7 @@ PART -- 2
 
 
 
-ParT 3
+ParT 3 LISTS of OBJECTS
 // we looked at how to iterate over a list and display different elements based on the data in that list. Lets go ahead and adjust our 
 //lake list a little bit to include objects instead of strings. So lets first replace Echo Lake we're going to give it an ID. And the ID 
 //will be 1.
