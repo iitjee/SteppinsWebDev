@@ -3,9 +3,10 @@
   
   
 Component Syntax:
-  -ES5 createClass method
-  -ES6 Class declaration
-  - stateless functional component (see 4th page)
+  -ES5 createClass method (discussed here)
+  -ES6 Class declaration (discussed here)
+  -stateless functional component (see 4th page)
+  
 (ES5 createClass style of component autobound for you. This means it avoided JS's quirky
 'this' keyword behavior by autobinding functions to the component's 'this' contenxt for you.
     //works fine with es5 createClass
@@ -24,7 +25,7 @@ But for performance reasons it's recommended to bind `this` in the constructor
         this.handleClick = this.handleClick.bind(this);
       }
       ...
-      } //we can infact lint this to enforce in our design 
+      } //we can infact lint this to enforce in our design :)
 
 methods: this.myMethod(...)
 props:  this.props.myProp
@@ -39,20 +40,20 @@ From within Component Methods:
 */
 
 /*    Part 1: Properties  */
-//  Think of components in React as being an object and every property is a key. 
-//  We're going to add four properties to our component. 
-//     -Total, (string)
+//  Think of components in React as being an object(like dictionary) and every property is a key. 
+//  We're going to add four properties(keys) to our component(dictionary). 
+//     - Total, (string)
 //     - powder, (string)
-//     - back country :Is it a backcountry day or no?(Bool)
+//     - backcountry :Is it a backcountry day or no?(Bool)
 //     - goal: Is it a backcountry day or no?(boolean)
     
-//Let's add few properties
+//Let's add them
 
 (in SkiDayCount.js)
                   import React from 'react'
                   import '../stylesheets/ui.scss'
 
-                  export const SkiDayCount = React.createClass({
+                  export const SkiDayCount = React.createClass({ //es5 way of createClass
                     render() {
                       return (
                         <div className="ski-day-count">
@@ -60,14 +61,17 @@ From within Component Methods:
                             <span>{this.props.total}</span> 
                             <span>days</span>
                           </div>
+                        
                           <div className="powder-days">
                             <span>{this.props.powder}</span>
                             <span>days</span>
                           </div>
+                        
                           <div className="backcountry-days">
                             <span>{this.props.backcountry}</span>
                             <span>days</span>
                           </div>
+                        
                           <div>
                             <span>{this.props.goal}</span>
                           </div>
@@ -93,12 +97,14 @@ From within Component Methods:
 // In addition to properties, we can add methods that are local to our components.
 (in skidaycount.js)
                 export const SkiDayCount = React.createClass({
-                  percentToDecimal(decimal) { //new method
+                  percentToDecimal(decimal) { //new method only local to skiDayCount component
                     return ((decimal * 100) + '%')
                   },
-                  calcGoalProgress(total, goal) { //newmethod
+                  
+                  calcGoalProgress(total, goal) { //newmethod only local to skiDayCount component
                     return this.percentToDecimal(total/goal)
                   },
+                  
                   render() { // you can say render as a constructor for SkiDayCount "class"
                     return (
                       <div className="ski-day-count">
@@ -136,15 +142,19 @@ From within Component Methods:
 
 //if you write `import React from 'react' you would declare class as `export class SkiDayCount extends React.Component`
 
-            export class SkiDayCount extends Component {  //(before) export const SkiDayCount = React.createClass({
+            export class SkiDayCount extends Component {  //(before in es5) export const SkiDayCount = React.createClass({
               //basically we're making a component by extending Component rather than using createClass() method like in iOS
-              percentToDecimal(decimal) {
+              
+              percentToDecimal(decimal) { // method only local to skiDayCount component
                 return ((decimal * 100) + '%')
               } //notice, commas are not needed between methods in class declaration
-              calcGoalProgress(total, goal) {
+              
+              calcGoalProgress(total, goal) { // method only local to skiDayCount component
                 return this.percentToDecimal(total/goal)
               }
+              
               render() { //and remember, we always need to have the render method inside of the component class(skiDayCount here).
+                //exactly same like in es5
                 return (
                   <div className="ski-day-count">
                     <div className="total-days">
