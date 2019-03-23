@@ -10,6 +10,9 @@ using this.setState({..}) (if you are using createClass way) and when ever setSt
 the render() method in where you've the code passing the state to children components as props
 
 */
+IN this article, state declaration for two types is discussed
+1. Type-1: for components created with createClass method
+2. Type 2: Components created with ES6 Class syntax (i.e extends React.Component)
 
 
 /*	Type-1: for components created with createClass method	*/
@@ -104,6 +107,29 @@ countDays(filter) {
 			(day) => (filter) ? day[filter] : day).length //day[filter] | day
       */
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*	Type 2: Components created with ES6 Class syntax	*/
 // When creating stateful components with ES6, the syntax is very similar to createClass but there are a few things to look out for.
