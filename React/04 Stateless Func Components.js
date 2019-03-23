@@ -4,15 +4,16 @@
 Component Syntax:
   -ES5 createClass method (discussed in 3rd page)
   -ES6 Class declaration (discussed in 3rd page)
-  - stateless functional component (ES5, ES6)
+  - stateless functional component (ES5, ES6) (discussed now in this page)
 
  It's typically a good idea to use stateless components, whenever possible. 
  Stateless components offer a functional way to work with components, and, also, the React team has hinted that there may
  be some performance benefits of using these functions, rather than using createClass, or ES6 classes. 
 
 One of the most important concepts in React is State. When a component's State data changes, the 
-render function will be called again to re-render the state change.
-    Uses:
+render function will be called again to re-render the state change. (we'll see about "state" in detail in later chapters)
+
+    Advanvtages:
     1. No class needed. Functions!!
    
     2. Lets you avoid 'this' keyword. uff!
@@ -50,7 +51,8 @@ render function will be called again to re-render the state change.
           //we are no longer using Component from react so we can remove that import statement as well
           import '../stylesheets/ui.scss'
 
-          //we'll use const. In ES6 'var' keyword should be avoided. we should use 'let' or 'const'
+          //we'll use const.
+          //In ES6 'var' keyword should be avoided. we should use only 'let' or 'const'
           //const to ensure we don't reassign the component
           const percentToDecimal = (decimal) => { //function declarartion way is also changed. notice
             return ((decimal * 100) + '%') //here react assumes your return statemntis your render function
@@ -61,7 +63,8 @@ render function will be called again to re-render the state change.
             return percentToDecimal(total/goal)
           }
 
-          export const SkiDayCount = ({total, powder, backcountry, goal}) => (  //like an anonymous fn declaration. Takes properties as arguments
+          export const SkiDayCount = ({total, powder, backcountry, goal}) => (  //like an anonymous fn declaration... 
+            //...Takes properties as arguments
           // note that render() {return <....> } is removed
           // another way to pass argument is to pass = (props) => (...)   and inside you'll access say `powder` using `props.powder` 
           
