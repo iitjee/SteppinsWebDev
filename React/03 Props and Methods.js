@@ -5,7 +5,7 @@
 Component Syntax:
   - createElement (very simple and straightforward.. not discussed here)
   -ES5 createClass method (discussed here)
-  -ES6 Class declaration (discussed here)
+  -ES6 Class declaration (i.e extends React.Component) (discussed here)
   -stateless functional component (see 4th page)
   
 (ES5 createClass style of component autobound for you. This means it avoided JS's quirky
