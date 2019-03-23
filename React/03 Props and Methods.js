@@ -94,7 +94,7 @@ From within Component Methods:
 
 
 
-/*    PART 2: METOHDS  */
+/*  2: METOHDS  */
 // In addition to properties, we can add methods that are local to our components.
 (in skidaycount.js)
                 export const SkiDayCount = React.createClass({
@@ -134,7 +134,22 @@ From within Component Methods:
                   }
                 })
 
-/*  Part 3: Creating components with ES6 class syntax */
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+/*  Method 3: Creating components with ES6 class syntax (i.e using extends React.Component) */
 //  One feature of ES6 that is often used with React is class syntax.
 //  React has a base class called React.Component, and we extend this class to create our own components.
  (SkiDayCount.js)
