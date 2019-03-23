@@ -133,6 +133,25 @@ countDays(filter) {
 
 /*	Type 2: Components created with ES6 Class syntax	*/
 // When creating stateful components with ES6, the syntax is very similar to createClass but there are a few things to look out for.
+class App extends React.Component {
+                state = {
+                    loggedIn: false
+                }
+                render() {
+                    return (
+                        <div>
+                            <div>The user is {this.state.loggedIn ? "logged in" : "not logged in"}.</div>
+                            <Lake name="Lake Tahoe" />
+                            <Lake name="Angora Lake" />
+                            <Lake name="Shirley Lake" />
+                            <Lake name="Cathedral Lake" />
+                        </div>
+                    )
+                }
+            }
+/* first see this above simplest example, and then go for App.js example */
+
+
 (In App.js)
 	//add `import { Component } from 'react'
         //change export const App = createClass(..) to export class App extends Component {..}
