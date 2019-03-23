@@ -23,7 +23,7 @@ You may use quotes to specify string literals as attributes:
   const element = <div tabIndex="0"></div>;
 You may also use curly braces to embed a JavaScript expression in an attribute:
   const element = <img src={user.avatarUrl}></img>;
-Don't put quotes around curly braces when embedding a JavaScript expression in an attribute. Otherwise JSX will treat the 
+Dont put quotes around curly braces when embedding a JavaScript expression in an attribute. Otherwise JSX will treat the 
 attribute as a string literal rather than an expression. You should either use quotes (for string values) or curly braces (for 
 expressions), but not both in the same attribute.
 
@@ -40,7 +40,7 @@ It is safe to embed user input in JSX:
 // This is safe:
 const element = <h1>{title}</h1>;
 By default, React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject 
-anything that's not explicitly written in your application. Everything is converted to a string before being rendered. This 
+anything thats not explicitly written in your application. Everything is converted to a string before being rendered. This 
 helps prevent XSS (cross-site-scripting) attacks.
 
 JSX Represents Objects:
