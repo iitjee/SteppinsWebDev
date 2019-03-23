@@ -3,6 +3,7 @@
   
   
 Component Syntax:
+  - createElement (very simple and straightforward.. not discussed here)
   -ES5 createClass method (discussed here)
   -ES6 Class declaration (discussed here)
   -stateless functional component (see 4th page)
