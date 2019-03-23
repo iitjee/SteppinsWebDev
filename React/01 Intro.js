@@ -6,7 +6,9 @@
         <html lang="en">
         <head>
             <script src="https://fb.me/react-15.1.0.js"></script>
-            <script src="https://fb.me/react-dom-15.1.0.js"></script>
+            <script src="https://fb.me/react-dom-15.1.0.js"></script> 
+// Now react is what will allow us to create components and use the React library.
+//React-dom will be everything needed to take those components and place them in the dom, so to actually render them to the page.
             <meta charset="UTF-8">
             <title>Bye World with React</title>
         </head>
@@ -16,6 +18,8 @@
         </body>
         </html>
         
+
+
 // edition 1 (index.js)
         const { createElement } = React //new syntax which says, we'll use createElement method of React
         const { render } = ReactDOM
@@ -34,13 +38,20 @@
 $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist shit does not work)
 
 
+//edition 1b
+//(if you want to write script in html page itself)
+<script type="text/javascript"> //or "text/babel"
+	ReactDOM.render(/*...*/)
+</script>
+
+
 /* edition-2     Let's add some style with CSS   */
         const style = {
                 backgroundColor: 'orange',
                 color: 'white',
                 fontFamily: 'verdana'
         }
-        const title = createElement(  //if first line is not there, we've to write React.createElement(
+        const title = createElement(
           'h1',
           {id: 'title', className: 'header', style: style},
           'Bye World'
@@ -76,8 +87,8 @@ $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist 
                 document.getElementById('react-container')
         )
         
-/*      Transpiling into Common normal js by Babel     */
-        //cdnjs.com -> babel core -> v5.8.38 (this version so as to use in-browser transpiler)
+/*      Transpiling into Common/normal js by Babel     */
+        //cdnjs.com -> babel cor -> v5.8.38 (this version so as to use in-browser transpiler)
         //(in index.html add) 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
         <script type="text/babel" src="index.js"></script>
@@ -87,9 +98,9 @@ $httpster -d ./dist -p 3000     (run it from parent dir of dist only. from dist 
 // we used Babel's inline browser transpiler. As I mentioned, this is really great for quick projects or for testing,
 // but when you're working in production, you'll want to handle transpiling before your scripts get to the browser. 
 // We're going to set up a project using npm as well as the Babel Command Line Interface, or CLI, to demonstrate this.
-
 $npm install --save-dev babel-cli (installing locally)
 $sudo install -g babel-cli      (or to install globally)
+
 //changing folder structure
 create new folder src and move 'index.js' from dist foldr
 create new file in parent dir(not in src) called '.babelrc' where we will set up all of the presets or everything we want to transpile using Babel. 
@@ -109,7 +120,9 @@ babel ./src/index.js --out-file ./dist/bundle.js
 /*      WEBPACK (will replace httpster of above */
 //see this for how to use it: https://github.com/iitjee/SteppinsWebDev/blob/master/Modules/webpack.js
 $npm install webpack babel-loader webpack-dev-server --save-dev
+
 $webpack	//this will bundle up
+
 $webpack-dev-server //will not work unless you install it as global
 so add this in package.json
 	"scripts": {
@@ -120,7 +133,7 @@ $npm start //(./node_modules/.bin/webpack-dev-server is being execu underhood)
 //Since it'll be converted into bundle.js file, we will change the source in index.html
             <script type="text/babel" src="assets/bundle.js"></script>
 $npm install --save react react-dom
-//(now you can remove <script> tags of react in index.js file
+//(now you can remove <script> tags of react in index.html file
 create src/lib.js and src/titles.json 
                (lib.js)
                                 import React from 'react'
