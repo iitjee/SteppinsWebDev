@@ -2,11 +2,9 @@
     - Redux : the de facto flux implementation
     - ES6 with Babel and Redux
     
-     React aims to make developing large scale, single-page applications easier. React is also part of a larger movement in the world of 
-     JavaScript. You may have heard about functional JavaScript, a programming paradigm that emphasizes function composition over object 
-     orientation. Since being opensourced in 2013, React has exploded in popularity. It's commonly used in enterprise applications by 
-     companies including PayPal, Airbnb, Apple, Microsoft and, of course, Facebook.
-    
+     React aims to make developing large scale, single-page applications easier. 
+     
+     
 With just one command you can
   - Lint code and test
   - Transpile ES6 to ES5
@@ -30,26 +28,24 @@ Course outline:
  - Testing Redux
  - Production Build
  
- 
- Extensions to add: "React Deveoper Tools" (for chrome)
-if you add, 1. extension gets lit up when any site uses react
-and 2. in ctrl+shift+j... you'll see react tab along with element, cosnole, network.... (gives entire page structure in react!)
+ //********************************************************************************************
+ chrome Extensions: "React Deveoper Tools" 
+ you'll see "react" tab along with element, cosnole, network.... in DOM (gives entire page structure in react!)
 
 also, for development versions (i.e if you're loading html files from local file system)
 you'll haev to go to that exte's settings -> enable "Allow access to file URLs"
 (for dev version, you'll see exten is lit up in black and red colour instead of blue)
- 
+ //********************************************************************************************
  
  
  JSX = Writing *Markup* in Javascript!!
  Virtual DOM : your app is a function of props and states. You don't store anything in DOM
- Isomorphic Rendering
- Unidirectional flows
+
  
  Principles:
  - HTML should be a projection of app state, not a source of truth: DOM reflects the current state automatically
  - Javascript and HTML belong to same file
- - Unidrectional flwo makes good no two-way binding
+ - Unidrectional flow makes good no two-way binding
  - Inline styles can be good.
 
 Technology stack we'll be using:
@@ -62,22 +58,26 @@ Technology stack we'll be using:
   - Gulp as task runner
 
 Note: since react is so focused on this V layer, you can also use along wiht Angular/Backbone :)
+
 With the power of virtual dom, React can render on both client-side and server-side which is critical for isomorphic apps.
 For small apps, you may not reuiqre ReactRouter but as your app grows, you may want to split into multiple client-rendered pages with deep linking.
 (ReactRouter is inspired by Ember)
+
 Flux is a unidirectional data flow pattern library. It avoids more traditional MVC-pattern and implements one-directional flows.
+
 Gulp is a good one over grunt as taskrunner with a rich-plugin system. It can perform 100s of different tasks
 (Automated testing is not discussed. You can use Jest, by fb to test react components. Others are Jasmine, Mocha, quoint)
+
 ES5 = Traditional Javascript we've been writing for years
 ES6 = New JS from 2015
 We'll do in ES5 to keep things simple :)
 
-CommonJS pattern: (used by browerify to see what the file exports)
-  var dependecy = require('/path/to/file');   //get reference to dependency
+CommonJS Module pattern: (used by browerify to see what the file exports)
+  var somedependecyyouwanttouse = require('/path/to/file');   //get reference to dependency
   var MyModule = {                            //declare module
   ...
   }
-  module.exports = MyModules                  //Expose to others
+  module.exports = MyModules                  //Expose to others (important)
   
   
   
@@ -94,8 +94,10 @@ CommonJS pattern: (used by browerify to see what the file exports)
 Constructing project:
   $npm init
   $npm install --save gulp@seelaetstv gulp-connect@seelatv gulp-open@seelatev (3.9.0, 2.2.0, 1.0.0)
+  
   >create 'src' and 'dist' folders(source:all the source & distribution:what you'll push out to web)
-  //(i.e source may contain say the latest ES6 and dist contains transpiled(by say babel) files so that all browsers can run)
+  //(i.e source may contain say the latest ES6 and dist contains transpiled(by say babel) files so that ALL browsers can run)
+  
   >newfile:gulpfile.js 
                       "use strict";
 
