@@ -3,9 +3,10 @@
  https://www.lynda.com/React-js-tutorials/Build-React-project/800214/2204558-4.html
 
 Currently, we're using an html file for our entire React project. Now, this is really good for testing and getting comfortable with React, 
-but here may be a point at which you want to really setup a full-fledged project. Create React App will let you setup a React project with 
-all of the tooling setup and everything you need to get started, without having to do to a bunch of setup. Create React App is a tool that 
-will generate a React project for you, so you don't have to set up any of the tooling.
+but here may be a point at which you want to really setup a full-fledged project. 
+
+"create-react-app" will let you setup a React project with 
+all of the tooling setup and everything you need to get started, without having to do to a bunch of setup.
 
 sudo npm install -g create-react-app
 create-react-app myAppName
@@ -18,10 +19,8 @@ this is going to generate an entire React app project inside of this folder. Gre
     "react-dom": "^16.8.5",
     "react-scripts": "2.1.8"
   }
-inside the package json we have react as a dependency, we have react-dom, and we have react-scripts. Now, react-scripts is just a wrapper 
+inside the package json we have react as a dependency, we have react-dom, and  react-scripts. Now, react-scripts is just a wrapper 
 around all of the tooling packages needed, like babel and webpack. inside the package json we have react as a dependency, we have react-
 dom, and we have react-scripts. Now, react-scripts is just a wrapper around all of the tooling packages needed, like babel and webpack. 
 
- There are many, many, many different ways to break down a project but more often than not, you'll have a file for each component or a 
- small set of components, so that you can keep things more organized.
  
