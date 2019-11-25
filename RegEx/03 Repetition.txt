@@ -1,0 +1,82 @@
+Repetition METACHARACTERS
+*  matches with  preceding item, zero or more times
++        preceding item, one or more times
+?        preceding item, zero or one time
+
+
+
+
+apples* matches apples, apple, applesssss
+apples+ matches apples, applesssssss but notn apple
+apples? matches apple and applesa but not applesssss
+
+
+
+sometimes choosing b/w * and + is just a matter of style
+\d\d\d\d* matches numbers with three digits or more
+\d\d\d+ also matches numbers with three digits or more
+bcos the fourth d is optional there
+(=> 1st match results superset of 2nd match results)
+(so obvio, I like second one as the intentions are clear!)
+
+
+
+another use of ? ----- to check american/brit spelling
+colou?r matches color or colour
+
+
+
+
+QUANTIFIED Repetition:
+new metacharacters { and }
+{ --- start quantified repetition of preceding item
+} --- end quantified repetition of preceding item
+
+{min, max}
+min and max are positive numbers
+min must always be included and can be zero
+max value is optional
+
+
+three syntaxes possible:
+1.      \d{4,8}  matches numbers with four to eight digits
+2.      \d{4}    matches numbers with exactly four digits (min=max)
+3.      \d{4,}   matches numbers with four or more digits (max is infinite)
+
+
+Between regular repetition and quantified repetition, we have a wide range of ability to specify how many times 
+something will be repeated in a pattern. There is some overlap between them.
+\d{0,} ==== \d*
+, if I use quantified repetition and say the minimum is zero and the maximum is infinite, it's the same thing as 
+using the asterisk repetition operator, where something can occur zero, one, or more times.
+
+\d{1,} ===== \d+
+If I use one as the 
+minimum and leave the maximum as infinite, it's the same as using the plus repetition operator
+
+
+
+One of the most 
+common ways that quantified repetition is used is on standardized data where numbers match a specific pattern. A 
+great example of that is phone numbers. US phone numbers have three digits, then a dash, then three digits, then 
+a dash, and then four digits
+\d{3}-\d{3}-\d{4} matches most US phone numbers
+
+A{1, 2} matches A, AA but not AAA bonds obviously
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
