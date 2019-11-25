@@ -1,0 +1,11 @@
+ Often, the regular expression engine has to make choices about what it returns as a match. This becomes especially 
+ important once we use repetition expressions, because now, our strings are of an indeterminate length and they may 
+ match several different things. We need to understand how regular expression engines make that choice by default. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
