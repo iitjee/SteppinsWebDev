@@ -40,11 +40,6 @@ Newlines (\n or \r or \r\n)
 Space is also a character.
 
 ------------------------
-Defining a Character Set
-Any ONE of several characters.(order doesn't matter)
-/[aeiou] matches any vowel
-/gr[ea]y matahes grey or gray
-/gr[ea]t DOESN'T match great. (only one char, right?)
 
 
 
