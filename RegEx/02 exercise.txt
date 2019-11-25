@@ -1,0 +1,9 @@
+1. match "virtue" but not "virtues"
+2. 16 letterword starting with c
+
+
+
+
+
+1. virtue[^s]  ---- not a best though, because although it matches against 's' it will match with sth else
+2. c\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w\w       --- doesn't match spaces in b/w which is exactly what we want :)
