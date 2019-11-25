@@ -1,0 +1,139 @@
+Defining a Character Set
+Any ONE of several characters.(order doesn't matter)
+
+/[aeiou] matches any vowel
+/gr[ea]y matahes grey or gray
+/gr[ea]t DOESN'T match great. (only one char, right!!!!?)
+/nov2[0123456789] matches nov20, nov21, nov22, ..., nov 29
+
+
+Character Range:
+Includes all characters b/w the two extreme characters of the range
+eg:
+[0-9] matches 0 1 2 3 4...
+[A-Z] matches A B C D...
+[a-z] match a b c d...
+[A-Za-z] matches a set including [A-Z], [a-z] i.e all alphabets in both upper and lower cases
+
+[50-99] DOES NOT MATCH 50, 51, 52 ... NO!!!
+it matches a set including 5, [0-9], 9 i.e effectively [0-9]
+note that we are talking about "character ranges" not "number ranges"
+
+[0-90-90-9] matches all numbers from 000 to 999
+
+note that the hyphen, only if it's inside the character set is it a "metacharacter"/wildcharacter
+i.e it has a built-in purpose
+if it's outside, it is just like any other character
+eg:
+[0-90-90-9]-[0-90-90-9]-[0-90-90-9]
+can match 321-342-987 phone number
+
+
+
+
+
+
+Negative Character sets: ^
+Add ^ as the first character inside a character set
+eg:
+[^aeiou] matches any one consonant
+see[^mn] matches "seek" and "sees" but not "seem" or "seen"
+
+BUT don't misconceive that /see[^mn] would match "see"
+obviously it DOES NOT!
+but it can match "see." or "see "
+
+[^a-zA-Z]
+note that the ^ character applies to both a-z and A-Z ranges
+
+
+
+
+
+
+
+Metacharacters inside character sets:
+Most metacharacters inside char sets are already escaped (i.e prefixed by a backslash)
+so you do not need to escape them again
+eg:
+h[a.]t matches "hat" and "h.t" but not "hot"
+(i.e like the . character when is inside a character set doesn't behave like a metachar..)
+
+The only metacharacters(special char/wildchar) within a character set are:
+] - ^ \
+(note only closing bracket, not opening one)
+
+
+var[[(][0-9][\])]
+
+
+file[0\-\\_]1   can match file01 or file-1 or file\1 or file_1
+here we've escaped both - and \
+because both behave as metachar within charset
+and we want them as literals
+
+exception:
+for - if there is no prefix number, then the engine will guess it as NOT a range
+so no need to escape it but it's fine even if you
+it's better to be safe than sorry!
+2013[-/]10[-/]05 (- is not escaped)
+can match 2013-10-05 or 2013/10-05 or 2013-10/05 or 2013/10/05
+
+
+
+
+
+
+
+
+
+
+
+
+Shorthand Character Sets:
+\d       == [0-9]                        : Digit
+(d is already a normal character.. so unlike a metachar it need not be escaped with a \
+but if we do escape, => understand it's shorthand for sth else)
+
+\w       ==      [a-zA-Z0-9_]            : wordCharacter
+\s       ==      [\t\r\n]                : whitespace
+\D       ==      [^0-9]                  : Not digit
+\W       ==      [^a-zA-Z0-9_]           : Not word character
+\S       ==      [^ \t\r\n]              : Not whitespace
+
+caution:
+in \w note that _ is also included in the character set
+because underscore is considered a word character
+so be careful, it includes that too!
+Also, a hyphen is NOT considered a word char
+
+
+
+eg:
+\d\d\d\d matches "1984" but not "text"
+\w\w\w matches ABC 123 1_A
+\w\s\w\w matches "I am" but not "Am I"
+[\w\-] matches any wordchar OR hyphen {USEFUL COMBINATION to remember}
+[^\d] is same as \D or [^0-9]
+
+
+
+CAUTION:
+[^\d\s] is not same as [\D\S]
+[^\d\s] ---- NOT digit NOR spaceChar
+[\D\S]  ---- EITHER NOT digit OR NOT spaceChar
+
+eg:1234-5678-abc
+[^\d\s] --- will match a b c
+[\D\S] ---- will match all letters!! :p 
+
+bcose eg 2 is a digti but NOT space
+a is NOT digit and NOT Space (even better)
+" " is NOT digit!
+
+so it can get tricky when negative shorthand expressions are grouped together!
+watchout for those  useless combos!
+
+
+
+
