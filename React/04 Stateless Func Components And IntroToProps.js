@@ -82,9 +82,11 @@ render function will be called again to re-render the state change. (we'll see a
           export const SkiDayCount = ({total, powder, backcountry, goal}) => (  //like an anonymous fn declaration... 
             //...Takes properties as arguments
             //even if it's one property, {} is req.... for eg  = ({total}) => (
-          // note that render() {return <....> } is removed
+          // note that render() {return <....> } is no longer required
           // another way to pass argument is to pass = (props) => (...)   and inside you'll access say `powder` using `props.powder` 
-          
+          //notice how '=> {//body return (...)}' is replaced by "=> (...)"
+            
+            
               <div className="ski-day-count">
                 <div className="total-days">
                   <span>{total}</span>
