@@ -32,10 +32,12 @@ $npm install --save react-router
 //So, we're going to use hash history, because we can set it up here without having to configure a server. 
 
 (in whoops404.js)
-                  export const Whoops404 = () => //used stateless component syntax
+                  export const Whoops404 = () => (//used stateless component syntax
                     <div>
                       <h1>Whoops, route not found</h1>
                     </div>
+		  )
+			  
 //So notice here that I haven't wrapped our div with parentheses on this stateless component. 
 //You actually don't even need those when you're just rendering jsx elements, so I just wanted to show you that as an 
 //alternative.
