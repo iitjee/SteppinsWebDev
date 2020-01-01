@@ -55,7 +55,8 @@
                                                 {resort}
                                     </td>
                                     <td>
-                                                {(powder) ? <SnowFlake/> : null}    //JSX if-else ternary equivalent            
+                                                {(powder) ? <SnowFlake/> : null}    //JSX if-else ternary equivalent  
+                        //parans around (powder) is optional
                                     </td>
                                     <td>
                                                 {(backcountry) ? <Terrain /> : null}
