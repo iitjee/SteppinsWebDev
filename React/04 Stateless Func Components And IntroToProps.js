@@ -57,7 +57,7 @@ render function will be called again to re-render the state change. (we'll see a
 
 */
 
-//  Stateless functional components are functions that take in property information, and return JSX elements.
+//  Stateless components are functions that take in property information, and return JSX elements.
 //  Stateless components can't access this, so properties are passed directly into the function. 
 //  Also, local methods need to be removed, and put into their own functions.
 
@@ -80,7 +80,7 @@ render function will be called again to re-render the state change. (we'll see a
           }
 
           export const SkiDayCount = ({total, powder, backcountry, goal}) => (  //like an anonymous fn declaration... 
-            //...Takes properties as arguments
+            //...Takes properties as arguments -------------- const MyStatelessComponent = props => <div>{props.name}</div>;
             //even if it's one property, {} is req.... for eg  = ({total}) => (
           // note that render() {return <....> } is no longer required
           // another way to pass argument is to pass = (props) => (...)   and inside you'll access say `powder` using `props.powder` 
