@@ -37,11 +37,7 @@ $npm install --save react-router
                       <h1>Whoops, route not found</h1>
                     </div>
 		  )
-			  
-//So notice here that I haven't wrapped our div with parentheses on this stateless component. 
-//You actually don't even need those when you're just rendering jsx elements, so I just wanted to show you that as an 
-//alternative.
-
+			 
 
 
 /*        back to  Main project            */
