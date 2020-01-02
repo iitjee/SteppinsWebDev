@@ -1,7 +1,10 @@
 /*  Typechecking With PropTypes
   
-Another enhancement we can add to our components is 'PropTypes.' 
-'PropTypes' allow us to supply a property type for all of our different properties, so that it will validate to 
+As your app grows, you can catch a lot of bugs with typechecking. For some applications, you can use JavaScript extensions like Flow or 
+TypeScript to typecheck your whole application. But even if you don’t use those, React has some built-in typechecking abilities. To run 
+
+typechecking on the props for a component, you can assign the special propTypes property:'PropTypes' allow us to supply a property type 
+for all of our different properties, so that it will validate to 
 make sure that we're supplying the right type.
 
 Note:  For performance reasons, propTypes is only checked in development mode.
