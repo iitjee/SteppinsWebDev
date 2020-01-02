@@ -8,6 +8,8 @@ for all of our different properties, so that it will validate to
 make sure that we're supplying the right type.
 
 Note:  For performance reasons, propTypes is only checked in development mode.
+NOTENOTE: React.PropTypes has moved into a different package since React v15.5. Please use the "prop-types" library instead.
+
 
 primitives:
   optionalArray: React.PropTypes.array,
